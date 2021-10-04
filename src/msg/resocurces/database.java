@@ -214,7 +214,7 @@ public class database {
 
         public static String returnez () {
                 if (loaded) {
-                        int random = new Random().nextInt(database.ez.size() + 1) - 1;
+                        int random = new Random().nextInt(database.ez.size());
                         return ez.get(random);
                 } else {
                         System.out.println(c.yw + "Database is not loaded");

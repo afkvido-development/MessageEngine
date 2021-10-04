@@ -4,6 +4,7 @@ import msg.resocurces.database; // Database with all necessary stuff like Accoun
 import msg.account.Account; // Account class
 import msg.message.TextMessage; // TextMessage Class
 import msg.resocurces.c; // Color Codes
+import msg.logging.commandLog;
 import msg.logging.messageLog; // MessageLog to log sent messages
 import msg.resocurces.rank; // Rank system
 import java.util.Scanner; // Scanner for Input, who would have guessed?
@@ -18,6 +19,7 @@ public class Main {
 
         database.load(); //Load Database. This initializes all the Accounts
         messageLog n_log = new messageLog("the msg log"); //Create Message log
+        commandLog c_log = new commandLog("cmd log");
         loggedin = database.empty;
         Boolean impersonate = false;
         Account wait = database.empty;
@@ -68,7 +70,6 @@ public class Main {
                                 break;
                         }
                     } else if (loggedin.getRank() == rank.MODERATOR) {
-                        line(c.yw + "Unknown command");
                         systemmsg = new TextMessage(database.system, "You must be Admin or higher to use this command.", loggedin);
                         message(systemmsg, n_log);
                     }
@@ -77,18 +78,58 @@ public class Main {
                     }
                 }
                 switch (sc2.toLowerCase()) {
+                    case "/databasereload":
+                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                            database.reload();
+                            c_log.logcmd(sc2, loggedin);
+                        } else {
+                            line(c.rd + "piss off. admins only");
+                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
+                        }
+                        break;
+                    case "/databaseunload":
+                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                            database.unload();
+                            c_log.logcmd(sc2, loggedin);
+                        } else {
+                            line(c.rd + "piss off. admins only");
+                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
+                        }
+                        break;
+                    case "/databaseload":
+                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                            database.load();
+                            c_log.logcmd(sc2, loggedin);
+                        } else {
+                            line(c.rd + "piss off. admins only");
+                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
+                        }
+                        break;
                     case "/login":
                         logout();
                         login();
+                        c_log.logcmd(sc2, loggedin);
                         break;
                     case "/help":
                         line(c.pr + "Just type out your message. Not complicated.");
+                        c_log.logcmd(sc2, loggedin);
                         break;
                     case "/logaccess messagelog":
                         if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER || loggedin.getRank() == rank.MODERATOR) {
                             line(n_log.viewLog());
+                            c_log.logcmd(sc2, loggedin);
                         } else {
                             line(c.yw + "Missing Permissions");
+                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
+                        }
+                        break;
+                    case "/logaccess commandlog":
+                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER || loggedin.getRank() == rank.MODERATOR) {
+                            line(c_log.viewLog());
+                            c_log.logcmd(sc2, loggedin);
+                        } else {
+                            line(c.yw + "Missing Permissions");
+                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
                     case "/generatenewuuid":
@@ -97,22 +138,28 @@ public class Main {
                             System.out.println(UUID.randomUUID().toString());
                             System.out.println(UUID.randomUUID().toString());
                             System.out.println(UUID.randomUUID().toString() + c.rs);
+                            c_log.logcmd(sc2, loggedin);
                         } else {
                             line("You must be VIP or above to use this command.");
+                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
                     default:
                         line(c.yw + "Unknown Command");
                 }
+
+
             } else if (sc2.contains("chatfilter")) {
                 line(c.yw + "Blocked inappropriate message");
+                c_log.logcmd("Said \"chatfilter\", was not sent.", loggedin);
             } else {
 
                 if (loggedin.getRank() != rank.MUTED) {
 
                     switch (sc2) {
                         case "ez":
-                            nextmsg = new TextMessage(loggedin, database.returnez(), database.chat);
+                            String ez = database.returnez();
+                            nextmsg = new TextMessage(loggedin, ez, database.chat);
                             message(nextmsg, n_log);
                             break;
                         default:
@@ -122,6 +169,7 @@ public class Main {
                     }
                 } else {
                     line(c.yw + "You are muted.");
+                    c_log.logcmd("Attempted to say \"" + sc2 + "\", but was muted.", loggedin);
                 }
 
             }
