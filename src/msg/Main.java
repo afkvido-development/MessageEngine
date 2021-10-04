@@ -38,45 +38,46 @@ public class Main {
 
             if (sc2.startsWith("/")) {
 
-                if (sc2.startsWith("/impersonate")) {
+                if (impersonate && sc2.equals("/impersonate reset")) {
+                    loggedin = wait;
+                    impersonate = false;
+                    wait = database.empty;
+                    systemmsg = new TextMessage(database.system, "Reset impersonation.", loggedin);
+                    message(systemmsg, n_log);
+                } else if (sc2.equals("/impersonate reset")) {
+                    line(c.yw + "No impersonation to reset.");
+                } else {
+                    if (sc2.startsWith("/impersonate")) {
 
-                    if (impersonate && sc2.equals("/impersonate reset")) {
-                        loggedin = wait;
-                        impersonate = false;
-                        wait = database.empty;
-                        systemmsg = new TextMessage(database.system, "Reset impersonation.", loggedin);
-                        message(systemmsg, n_log);
-                    } else {
-                        line(c.yw + "No impersonation to reset.");
-                    }
-
-
-                    if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
-                        switch (sc2.toLowerCase()) {
-                            case "/impersonate":
-                                wait = loggedin;
-                                loggedin = database.impersonated;
-                                impersonate = true;
-                                systemmsg = new TextMessage(database.system, "Impersonated Jimothy (Default)", wait);
-                                message(systemmsg, n_log);
-                                break;
-                            default:
-                                database.impersonated.changeusername(database.impersonated.getUsername(), database.impersonated.getPassword(), sc2.replaceAll("/impersonate ", ""));
-                                wait = loggedin;
-                                loggedin = database.impersonated;
-                                impersonate = true;
-                                systemmsg = new TextMessage(database.system, "Impersonated " + database.impersonated.getUsername(), wait);
-                                message(systemmsg, n_log);
-                                break;
+                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                            switch (sc2.toLowerCase()) {
+                                case "/impersonate":
+                                    wait = loggedin;
+                                    loggedin = database.impersonated;
+                                    impersonate = true;
+                                    systemmsg = new TextMessage(database.system, "Impersonated Jimothy (Default)", wait);
+                                    message(systemmsg, n_log);
+                                    break;
+                                default:
+                                    database.impersonated.changeusername(database.impersonated.getUsername(), database.impersonated.getPassword(), sc2.replaceAll("/impersonate ", ""));
+                                    wait = loggedin;
+                                    loggedin = database.impersonated;
+                                    impersonate = true;
+                                    systemmsg = new TextMessage(database.system, "Impersonated " + database.impersonated.getUsername(), wait);
+                                    message(systemmsg, n_log);
+                                    break;
+                            }
+                        } else if (loggedin.getRank() == rank.MODERATOR) {
+                            systemmsg = new TextMessage(database.system, "You must be Admin or higher to use this command.", loggedin);
+                            message(systemmsg, n_log);
                         }
-                    } else if (loggedin.getRank() == rank.MODERATOR) {
-                        systemmsg = new TextMessage(database.system, "You must be Admin or higher to use this command.", loggedin);
-                        message(systemmsg, n_log);
-                    }
-                    else {
-                        line(c.yw + "Unknown command");
+                        else {
+                            line(c.yw + "Unknown command");
+                        }
                     }
                 }
+
+
                 switch (sc2.toLowerCase()) {
                     case "/databasereload":
                         if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
