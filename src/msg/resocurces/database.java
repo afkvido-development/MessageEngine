@@ -167,6 +167,8 @@ public class database {
                                 ez.add("I'm not a simp, piss off.");
                                 ez.add(c.rd + "youtu.be/dQw4w9WgXcQ");
                                 ez.add("ez?");
+                                ez.add("Please give me money -Ivan aka Technoblade");
+                                ez.add("Please give me money -Ivan aka Technoblade");
 
 
                         } while (false);
@@ -210,7 +212,6 @@ public class database {
                         System.out.println("Database is not loaded. Use load() to load it.");
                 }
         }
-
 
         public static String returnez () {
                 if (loaded) {

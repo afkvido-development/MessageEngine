@@ -17,6 +17,8 @@ public class Main {
     public static void main(String[] args) {
 
 
+
+
         database.load(); //Load Database. This initializes all the Accounts
         messageLog n_log = new messageLog("the msg log"); //Create Message log
         commandLog c_log = new commandLog("cmd log");
