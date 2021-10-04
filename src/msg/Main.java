@@ -1,14 +1,11 @@
 package msg;
 
-import msg.resocurces.database; // Database with all necessary stuff like Account info, ArrayLists, etc.
+import msg.resocurces.database; // Database with all necessary stuff like Account info, ArrayLists, ez, etc.
 import msg.account.Account; // Account class
 import msg.message.TextMessage; // TextMessage Class
 import msg.resocurces.c; // Color Codes
 import msg.logging.messageLog; // MessageLog to log sent messages
 import msg.resocurces.rank; // Rank system
-
-import java.util.Locale;
-import java.util.Random; // Randomizer for "ez" censorship prank
 import java.util.Scanner; // Scanner for Input, who would have guessed?
 import java.util.UUID; // UUID System, also UUID generator.
 

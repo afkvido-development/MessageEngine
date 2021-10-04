@@ -145,6 +145,7 @@ public class database {
                                 ez.add("ILY<3");
                                 ez.add("ILY<3");
                                 ez.add("ILY<3");
+                                ez.add("rat");
                                 ez.add("uwu");
                                 ez.add("uwu");
                                 ez.add("i have a short d");
