@@ -15,6 +15,8 @@ public class database {
         public static Account impersonated;
         public static ArrayList<String> ez;
         public static Boolean loaded = false;
+        public static ArrayList<String> messageblacklist;
+        public static ArrayList<Account> banned;
 
         public static void load () {
 
@@ -173,6 +175,18 @@ public class database {
 
                         } while (false);
 
+                        // Add Message Blacklist
+                        do {
+                                messageblacklist = new ArrayList<>();
+                                messageblacklist.add("nigga");
+                                messageblacklist.add("penis");
+                                messageblacklist.add("vagina");
+                                messageblacklist.add("anus");
+                                messageblacklist.add("sex");
+                                messageblacklist.add("porn");
+
+                        } while (false);
+
                         loaded = true;
 
                 } else {
@@ -195,6 +209,8 @@ public class database {
                         accounts = null;
 
                         ez = null;
+
+                        messageblacklist = null;
 
                         loaded = false;
 

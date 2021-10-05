@@ -22,6 +22,7 @@ public class Main {
         database.load(); //Load Database. This initializes all the Accounts
         messageLog n_log = new messageLog("the msg log"); //Create Message log
         commandLog c_log = new commandLog("cmd log");
+        Boolean blacklist = false;
         loggedin = database.empty;
         Boolean impersonate = false;
         Account wait = database.empty;
@@ -33,10 +34,18 @@ public class Main {
 
 
         while (true) {
+            blacklist = false;
 
 
             Scanner sc1 = new Scanner(System.in);
             String sc2 = sc1.nextLine();
+
+            for (int i = 0; i < database.messageblacklist.size(); i++) {
+                if (sc2.contains(database.messageblacklist.get(i))) {
+                    blacklist = true;
+                    break;
+                }
+            }
 
             if (sc2.startsWith("/")) {
 
@@ -152,9 +161,9 @@ public class Main {
                 }
 
 
-            } else if (sc2.contains("chatfilter")) {
+            } else if (blacklist) {
                 line(c.yw + "Blocked inappropriate message");
-                c_log.logcmd("Said \"chatfilter\", was not sent.", loggedin);
+                n_log.logmessage(new TextMessage(loggedin, c.pr + "Said \"" + sc2 + "\", was not sent.", database.chat));
             } else {
 
                 if (loggedin.getRank() != rank.MUTED) {
