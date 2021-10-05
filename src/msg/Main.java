@@ -34,11 +34,27 @@ public class Main {
 
 
         while (true) {
-            blacklist = false;
+
+            //blacklist = false;
 
 
             Scanner sc1 = new Scanner(System.in);
             String sc2 = sc1.nextLine();
+
+            if (sc2.startsWith("/mute")) {
+                if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                    for (int i = 0; i < database.accounts.size(); i++) {
+                        if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/mute ", ""))) {
+                            database.accounts.get(i).changerank(rank.MUTED);
+                            line(c.rd + "Muted " + database.accounts.get(i).getDisplayName());
+                            c_log.logcmd(sc2, loggedin);
+                            sc2 = "I am muted";
+                        }
+                    }
+                } else {
+                    line(c.rd + "no, this is for moderators dumas");
+                }
+            }
 
             for (int i = 0; i < database.messageblacklist.size(); i++) {
                 if (sc2.contains(database.messageblacklist.get(i))) {
@@ -47,7 +63,9 @@ public class Main {
                 }
             }
 
+
             if (sc2.startsWith("/")) {
+
 
                 if (impersonate && sc2.equals("/impersonate reset")) {
                     loggedin = wait;
@@ -76,17 +94,16 @@ public class Main {
                                     impersonate = true;
                                     systemmsg = new TextMessage(database.system, "Impersonated " + database.impersonated.getUsername(), wait);
                                     message(systemmsg, n_log);
-                                    break;
                             }
                         } else if (loggedin.getRank() == rank.MODERATOR) {
                             systemmsg = new TextMessage(database.system, "You must be Admin or higher to use this command.", loggedin);
                             message(systemmsg, n_log);
-                        }
-                        else {
+                        } else {
                             line(c.yw + "Unknown command");
                         }
                     }
                 }
+
 
 
                 switch (sc2.toLowerCase()) {
@@ -157,7 +174,7 @@ public class Main {
                         }
                         break;
                     default:
-                        line(c.yw + "Unknown Command");
+                        line(c.yw + "Unknown Command [RR]");
                 }
 
 

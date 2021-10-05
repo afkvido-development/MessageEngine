@@ -118,6 +118,17 @@ public class Account {
     }
 
     // Change Property
+    public String changerank (rank newrank) {
+        msg.resocurces.rank oldrank = this.rank;
+        if (newrank != msg.resocurces.rank.OWNER && newrank != msg.resocurces.rank.ADMINISTRATOR && newrank != msg.resocurces.rank.MODERATOR && newrank != msg.resocurces.rank.ASSISTANT && newrank != msg.resocurces.rank.CHAT) {
+            this.rank = newrank;
+            return c.gr + "Successfully changed the rank of " + c.cy + username + c.gr + " from " + c.cy + oldrank + c.gr + " to " + c.cy + newrank;
+        } else {
+            return c.yw + "Could not change the rank of " + c.cy + username + c.yw + " to " + c.cy + newrank;
+        }
+    }
+
+
     public String changepassword (String username, String oldpassword, String newpassword) {
 
         if (username.equals(this.username) && oldpassword.equals(this.password)) {
