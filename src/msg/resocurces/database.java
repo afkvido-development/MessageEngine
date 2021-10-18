@@ -16,7 +16,7 @@ public class database {
         public static ArrayList<String> ez;
         public static Boolean loaded = false;
         public static ArrayList<String> messageblacklist;
-        public static ArrayList<Account> banned;
+        public static banlist bannedpeople;
 
         public static void load () {
 
@@ -239,6 +239,14 @@ public class database {
                 }
 
 
+        }
+
+        public static String addToBan (Account account, Integer duration_mins) {
+                return "To be made";
+        }
+
+        public static String removeFromBan () {
+                return "To be made";
         }
 
 

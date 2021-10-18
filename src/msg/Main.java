@@ -48,7 +48,11 @@ public class Main {
                             database.accounts.get(i).changerank(rank.MUTED);
                             line(c.rd + "Muted " + database.accounts.get(i).getDisplayName());
                             c_log.logcmd(sc2, loggedin);
-                            sc2 = "I am muted";
+                            if (loggedin == database.accounts.get(i)) {
+                                sc2 = "I am muted";
+                            } else {
+                                sc2 = "cancel_messageL";
+                            }
                         }
                     }
                 } else {
@@ -191,6 +195,9 @@ public class Main {
                             nextmsg = new TextMessage(loggedin, ez, database.chat);
                             message(nextmsg, n_log);
                             break;
+                        case "cancel_messageL":
+                            n_log.logmessage(new TextMessage(loggedin, c.yw + "Cancelled message: " + sc2, database.chat));
+                            break;
                         default:
                             nextmsg = new TextMessage(loggedin, sc2, database.chat);
                             message(nextmsg, n_log);
@@ -198,7 +205,7 @@ public class Main {
                     }
                 } else {
                     line(c.yw + "You are muted.");
-                    c_log.logcmd("Attempted to say \"" + sc2 + "\", but was muted.", loggedin);
+                    n_log.logmessage(new TextMessage(loggedin, c.yw + "Attempted to say \"" + sc2 + "\", but was muted.", database.chat));
                 }
 
             }
