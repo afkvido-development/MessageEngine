@@ -22,6 +22,12 @@ public class database {
 
                 if (!loaded) {
 
+                        // Add ban list
+                        do {
+                                bannedpeople = new banlist();
+
+                        } while (false);
+
                         // Add Account Data
                         do {
                                 gemsvido = new Account("gemsvido", "please_subscribe", "OWNER", "6b33c874-61bd-4472-a1da-b42d3b121c14");

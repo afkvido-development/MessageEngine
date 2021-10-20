@@ -10,21 +10,23 @@ import msg.resocurces.rank; // Rank system
 import java.util.Scanner; // Scanner for Input, who would have guessed?
 import java.util.UUID; // UUID System, also UUID generator.
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class Main {
 
     static Account loggedin;
+    static messageLog n_log = new messageLog("the msg log"); //Create Message log
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 
 
 
         database.load(); //Load Database. This initializes all the Accounts
-        messageLog n_log = new messageLog("the msg log"); //Create Message log
+
         commandLog c_log = new commandLog("cmd log");
-        Boolean blacklist = false;
+        boolean blacklist = false;
         loggedin = database.empty;
-        Boolean impersonate = false;
+        boolean impersonate = false;
         Account wait = database.empty;
         TextMessage nextmsg;
         TextMessage systemmsg;
@@ -58,6 +60,28 @@ public class Main {
                 } else {
                     line(c.rd + "no, this is for moderators dumas");
                 }
+            } else if (sc2.startsWith("/ban")) {
+                if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                    for (int i = 0; i < database.accounts.size(); i++) {
+                        if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/ban ", ""))) {
+                            line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
+                            c_log.logcmd(sc2, loggedin);
+
+                            database.bannedpeople.add(database.accounts.get(i), 1, "Banned");
+
+                            if (loggedin == database.accounts.get(i)) {
+                                TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
+                                message(banreturn, n_log);
+                                login();
+                                sc2 = "cancel_messageL";
+                            } else {
+                                sc2 = "cancel_messageL";
+                            }
+                        }
+                    }
+                } else {
+                    line(c.rd + "you cant do that what were you exepecting. come back when ur mod or above.");
+                }
             }
 
             for (int i = 0; i < database.messageblacklist.size(); i++) {
@@ -71,19 +95,20 @@ public class Main {
             if (sc2.startsWith("/")) {
 
 
-                if (impersonate && sc2.equals("/impersonate reset")) {
+                if (impersonate && sc2.equals("/impersonate reset") || sc2.equals("/im reset")) {
                     loggedin = wait;
                     impersonate = false;
                     wait = database.empty;
                     systemmsg = new TextMessage(database.system, "Reset impersonation.", loggedin);
                     message(systemmsg, n_log);
-                } else if (sc2.equals("/impersonate reset")) {
+                } else if (sc2.equals("/impersonate reset") || sc2.equals("/im reset")) {
                     line(c.yw + "No impersonation to reset.");
                 } else {
-                    if (sc2.startsWith("/impersonate")) {
+                    if (sc2.startsWith("/impersonate") || sc2.startsWith("/im")) {
 
                         if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
                             switch (sc2.toLowerCase()) {
+                                case "/im":
                                 case "/impersonate":
                                     wait = loggedin;
                                     loggedin = database.impersonated;
@@ -92,7 +117,7 @@ public class Main {
                                     message(systemmsg, n_log);
                                     break;
                                 default:
-                                    database.impersonated.changeusername(database.impersonated.getUsername(), database.impersonated.getPassword(), sc2.replaceAll("/impersonate ", ""));
+                                    database.impersonated.changeusername(database.impersonated.getUsername(), database.impersonated.getPassword(), sc2.replaceAll("/impersonate ", "").replaceAll("/im ", ""));
                                     wait = loggedin;
                                     loggedin = database.impersonated;
                                     impersonate = true;
@@ -167,10 +192,10 @@ public class Main {
                         break;
                     case "/generatenewuuid":
                         if (loggedin.getRank() != rank.MUTED || loggedin.getRank() != rank.DEFAULT) {
-                            System.out.println(c.cy + UUID.randomUUID().toString());
-                            System.out.println(UUID.randomUUID().toString());
-                            System.out.println(UUID.randomUUID().toString());
-                            System.out.println(UUID.randomUUID().toString() + c.rs);
+                            System.out.println(c.cy + UUID.randomUUID());
+                            System.out.println(UUID.randomUUID());
+                            System.out.println(UUID.randomUUID());
+                            System.out.println(UUID.randomUUID() + c.rs);
                             c_log.logcmd(sc2, loggedin);
                         } else {
                             line("You must be VIP or above to use this command.");
@@ -244,8 +269,15 @@ public class Main {
             for (int i = 0; i < database.accounts.size(); i++) {
 
                 if (database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
-                    loggedin = database.accounts.get(i);
-                    success = true;
+                    if (!database.bannedpeople.contains(database.accounts.get(i))) {
+                        loggedin = database.accounts.get(i);
+                        success = true;
+                    } else {
+                        TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
+                        message(banreturn, n_log);
+                        success = false;
+                    }
+
                 }
 
             }
