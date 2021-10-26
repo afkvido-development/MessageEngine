@@ -16,7 +16,7 @@ public class Main {
     static Account loggedin;
     static messageLog n_log = new messageLog("the msg log"); //Create Message log
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
 
 

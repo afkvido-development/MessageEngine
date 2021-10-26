@@ -2,6 +2,8 @@ package msg.account;
 
 import msg.resocurces.c;
 import msg.resocurces.rank;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.UUID;
 
 public class Account {
@@ -36,7 +38,7 @@ public class Account {
     }
 
     // Change Property [Internal Only]
-    private void unlocked_changerank (String rank) {
+    private void unlocked_changerank (@NotNull String rank) {
         switch (rank.toUpperCase()) {
             case "CHAT":
                 this.rank = msg.resocurces.rank.CHAT;

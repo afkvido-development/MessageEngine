@@ -16,29 +16,17 @@ public class banlist {
 
     }
 
-    public void add (Account account, Integer duration, String reason) throws InterruptedException {
+    public void add (Account account, Integer duration, String reason) {
         accounts.add(account);
         if (duration == 0) {
             durations.add(2147483647);
         } else {
             durations.add(duration);
-            waitToUnban(account);
         }
 
         reasons.add(reason);
     }
 
-    public void waitToUnban (Account account) throws InterruptedException {
-        for (int i = 0; i < accounts.size(); i++) {
-            if (accounts.get(i) == account) {
-                break;
-            }
-
-            wait(Math.round(durations.get(i) * 60000));
-
-            remove(accounts.get(i), "Ban time ended");
-        }
-    }
 
     public void remove (Account account, String reason) {
         for (int i = 0; i < accounts.size(); i++) {
