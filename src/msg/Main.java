@@ -14,7 +14,8 @@ import java.util.UUID; // UUID System, also UUID generator.
 public class Main {
 
     static Account loggedin;
-    static messageLog n_log = new messageLog("the msg log"); //Create Message log
+    public static messageLog n_log = new messageLog("the msg log"); //Create Message log
+    public static commandLog c_log = new commandLog("cmd log");
 
     public static void main(String[] args) {
 
@@ -23,7 +24,7 @@ public class Main {
 
         database.load(); //Load Database. This initializes all the Accounts
 
-        commandLog c_log = new commandLog("cmd log");
+
         boolean blacklist = false;
         loggedin = database.empty;
         boolean impersonate = false;
@@ -67,10 +68,12 @@ public class Main {
                             line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
                             c_log.logcmd(sc2, loggedin);
 
-                            database.bannedpeople.add(database.accounts.get(i), 1, "Banned");
+                            database.bannedpeople.add(database.accounts.get(i), 15, "Banned");
 
                             if (loggedin == database.accounts.get(i)) {
-                                TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
+                                //TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
+                                TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned", loggedin);
+
                                 message(banreturn, n_log);
                                 login();
                                 sc2 = "cancel_messageL";
