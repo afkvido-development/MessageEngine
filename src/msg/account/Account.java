@@ -174,4 +174,8 @@ public class Account {
 
         return profile_.toString();
     }
+
+    public String getColorCode () {
+        return this.namecolor;
+    }
 }

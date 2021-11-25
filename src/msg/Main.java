@@ -16,13 +16,25 @@ public class Main {
     static Account loggedin;
     public static messageLog n_log = new messageLog("the msg log"); //Create Message log
     public static commandLog c_log = new commandLog("cmd log");
+    public static String mode;
+    public static Boolean debug_mode1;
 
     public static void main(String[] args) {
 
 
+        if (System.getenv("RUN").equals("debug")) {
+        line(c.wh + "Running MessageEngine by gemsvido");
+        line(c.yw + "Entering Debug Mode");
+        mode = "debug";
+        debug_mode1 = true;
+        } else if (System.getenv("RUN").equals("main")) {
+            line(c.wh + "Running MessageEngine by gemsvido");
+            line("Config: Main");
+            mode = "main";
+            debug_mode1 = false;
+        }
 
-
-        database.load(); //Load Database. This initializes all the Accounts
+        database.load(); //Load Database. This loads in all the Accounts
 
 
         boolean blacklist = false;
@@ -33,7 +45,10 @@ public class Main {
         TextMessage systemmsg;
 
 
+
+
         login();
+        line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName());
 
 
         while (true) {
@@ -68,7 +83,7 @@ public class Main {
                             line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
                             c_log.logcmd(sc2, loggedin);
 
-                            database.bannedpeople.add(database.accounts.get(i), 15, "Banned");
+
 
                             if (loggedin == database.accounts.get(i)) {
                                 //TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
@@ -206,6 +221,7 @@ public class Main {
                         }
                         break;
                     default:
+                        if (sc2.equals("cancel_messageL"))
                         line(c.yw + "Unknown Command [RR]");
                 }
 
@@ -271,14 +287,13 @@ public class Main {
 
             for (int i = 0; i < database.accounts.size(); i++) {
 
-                if (database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
-                    if (!database.bannedpeople.contains(database.accounts.get(i))) {
+                if (!database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
+                    if (false) {
+
+                        success = false;
+                    } else {
                         loggedin = database.accounts.get(i);
                         success = true;
-                    } else {
-                        TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
-                        message(banreturn, n_log);
-                        success = false;
                     }
 
                 }

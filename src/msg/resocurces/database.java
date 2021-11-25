@@ -16,7 +16,7 @@ public class database {
         public static ArrayList<String> ez;
         public static Boolean loaded = false;
         public static ArrayList<String> messageblacklist;
-        public static banlist bannedpeople;
+
 
         public static void load () {
 
@@ -24,7 +24,7 @@ public class database {
 
                         // Add ban list
                         do {
-                                bannedpeople = new banlist();
+
 
                         } while (false);
 
