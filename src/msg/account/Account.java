@@ -1,9 +1,12 @@
 package msg.account;
-
+import java.security.Security;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import msg.resocurces.c;
+import msg.resocurces.database;
 import msg.resocurces.rank;
 import org.jetbrains.annotations.NotNull;
-
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Account {
@@ -15,6 +18,9 @@ public class Account {
     protected String rankToString;
     protected String namecolor;
     protected String usernameToString;
+    protected ArrayList<Integer> hours_ban;
+    protected ArrayList<DateTimeFormatter> date_banned;
+    protected ArrayList<DateTimeFormatter> date_to_unban;
 
     public String getPassword() {
         return password;
@@ -178,4 +184,29 @@ public class Account {
     public String getColorCode () {
         return this.namecolor;
     }
+
+    public String ban (Integer duration_hours, String admin_username, String admin_password) {
+
+
+        for (int i = 0; i < database.accounts.size(); i++) {
+
+            if (database.accounts.get(i).getUsername().equals(admin_username) && database.accounts.get(i).getPassword().equals(password)) {
+                if (database.accounts.get(i).getRank() == msg.resocurces.rank.ADMINISTRATOR) { //If admin
+
+                } else {
+                    return "The account used to attempt the ban has Insufficient Permissions to ban. [301]";
+                }
+
+            } else {
+                return "The account used to attempt the ban could not be found as the Credentials are invalid. [201]";
+            }
+
+        }
+
+        hours_ban.add(duration_hours);
+
+
+        return "false";
+    }
+
 }
