@@ -1,5 +1,4 @@
 package msg.account;
-import java.security.Security;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import msg.resocurces.c;
@@ -19,8 +18,10 @@ public class Account {
     protected String namecolor;
     protected String usernameToString;
     protected ArrayList<Integer> hours_ban;
-    protected ArrayList<DateTimeFormatter> date_banned;
-    protected ArrayList<DateTimeFormatter> date_to_unban;
+    protected static ArrayList<LocalDateTime> date_banned;
+    protected static ArrayList<LocalDateTime> date_to_unban;
+    protected DateTimeFormatter DTF;
+    protected Boolean ban_status_bool;
 
     public String getPassword() {
         return password;
@@ -28,7 +29,7 @@ public class Account {
 
 
     // Constructor
-    public Account (String username, String password, String rank, String predetermineduuid) {
+    public Account (@NotNull String username, @NotNull String password, @NotNull String rank, @NotNull String predetermineduuid) {
         this.username = username;
         this.password = password;
 
@@ -40,6 +41,11 @@ public class Account {
         }
 
         unlocked_changerank(rank);
+
+       this.date_banned = new ArrayList<>();
+       this.date_to_unban = new ArrayList<>();
+       this.DTF = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+       this.ban_status_bool = false;
 
     }
 
@@ -190,23 +196,73 @@ public class Account {
 
         for (int i = 0; i < database.accounts.size(); i++) {
 
-            if (database.accounts.get(i).getUsername().equals(admin_username) && database.accounts.get(i).getPassword().equals(password)) {
+            if (database.accounts.get(i).getUsername().equals(admin_username) && database.accounts.get(i).getPassword().equals(password)) { //If credentials match
+
                 if (database.accounts.get(i).getRank() == msg.resocurces.rank.ADMINISTRATOR) { //If admin
+
+                    date_banned.add(LocalDateTime.now());
+                    hours_ban.add(duration_hours);
+                    date_to_unban.add(date_banned.get(date_banned.size()).plusHours(hours_ban.get(hours_ban.size())));
+                    ban_status_bool = true;
+
+                    return "Success: " + this.getColorCode() + this.getDisplayName() + " was banned by " + database.accounts.get(i).getDisplayName() + this.getColorCode() + " for " + hours_ban.get(hours_ban.size()) + " hours. That is from " + DTF.format(date_banned.get(date_banned.size())) + " to " + DTF.format(date_to_unban.get(date_to_unban.size()));
 
                 } else {
                     return "The account used to attempt the ban has Insufficient Permissions to ban. [301]";
                 }
 
-            } else {
-                return "The account used to attempt the ban could not be found as the Credentials are invalid. [201]";
             }
 
         }
 
-        hours_ban.add(duration_hours);
 
-
-        return "false";
+        return "The account used to attempt the ban could not be found as the Credentials are invalid. [201]";
     }
 
+    public String unban (String admin_username, String password_or_token, String reason) {
+        for (int i = 0; i < database.accounts.size(); i++) {
+
+            if (password_or_token.equals(database.accessSystemToken(c.gr + "Automatic unban for " + this.getDisplayName())) || (database.accounts.get(i).getUsername().equals(admin_username) && database.accounts.get(i).getPassword().equals(password_or_token))) { //If credentials match
+
+            date_banned.clear();
+            hours_ban.clear();
+            date_to_unban.clear();
+            ban_status_bool = false;
+
+
+            }
+        }
+
+        return "e";
+    }
+
+    public String check_unban_timer () {
+
+        if (ban_status_bool) {
+
+            if (LocalDateTime.now().isAfter(date_to_unban.get(date_to_unban.size())) || LocalDateTime.now().isEqual(date_to_unban.get(date_to_unban.size()))) {
+                ban_status_bool = false;
+                return "Account was unbanned.";
+
+            } else {
+
+                return "\"Not Yet\" - Account's unban timer has not passed yet.";
+            }
+
+        } else {
+            return "Account is not banned. (How did we get here?) [420]";
+        }
+    }
+
+    public Boolean getBanBooleanStatus () {
+        return ban_status_bool;
+    }
+
+    public String getUnbanDate () {
+        if (ban_status_bool) {
+            return DTF.format(date_to_unban.get(date_to_unban.size()));
+        }
+        return "How did we get here? [420]";
+
+    }
 }

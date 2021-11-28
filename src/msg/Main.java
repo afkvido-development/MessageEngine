@@ -13,7 +13,7 @@ import java.util.UUID; // UUID System, also UUID generator.
 @SuppressWarnings("InfiniteLoopStatement")
 public class Main {
 
-    static Account loggedin;
+    public static Account loggedin;
     public static messageLog n_log = new messageLog("the msg log"); //Create Message log
     public static commandLog c_log = new commandLog("cmd log");
     public static String mode;
@@ -80,6 +80,8 @@ public class Main {
                 if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
                     for (int i = 0; i < database.accounts.size(); i++) {
                         if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/ban ", ""))) {
+
+                            database.accounts.get(i).ban(1, "gemsvido", "please_subscribe");
                             line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
                             c_log.logcmd(sc2, loggedin);
 
@@ -227,7 +229,7 @@ public class Main {
 
 
             } else if (blacklist) {
-                line(c.yw + "Blocked inappropriate message");
+                line(c.yw + "Your message could not be sent [701].");
                 n_log.logmessage(new TextMessage(loggedin, c.pr + "Said \"" + sc2 + "\", was not sent.", database.chat));
             } else {
 
@@ -240,6 +242,7 @@ public class Main {
                             message(nextmsg, n_log);
                             break;
                         case "cancel_messageL":
+                            line(c.yw + "Cancelled message [702]");
                             n_log.logmessage(new TextMessage(loggedin, c.yw + "Cancelled message: " + sc2, database.chat));
                             break;
                         default:
@@ -248,7 +251,7 @@ public class Main {
 
                     }
                 } else {
-                    line(c.yw + "You are muted.");
+                    line(c.yw + "You are muted, therefore your message could not be sent [703]. (get rekt)");
                     n_log.logmessage(new TextMessage(loggedin, c.yw + "Attempted to say \"" + sc2 + "\", but was muted.", database.chat));
                 }
 
@@ -285,10 +288,16 @@ public class Main {
             System.out.print(c.yw + "Password: ");
             String sc6 = sc5.nextLine();
 
+
             for (int i = 0; i < database.accounts.size(); i++) {
 
+                database.accounts.get(i).check_unban_timer();
+
                 if (!database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
-                    if (false) { //If banned
+                    if (database.accounts.get(i).getBanBooleanStatus()) { //If banned
+
+                    line(c.yw + "Your account could not be logged in to. [201]");
+                    line(c.yw + "Your account is currently banned. Your account will be unbanned on " + database.accounts.get(i).getUnbanDate() + " (dd/mm/yyyy)");
                         success = false;
                     } else {
                         loggedin = database.accounts.get(i);

@@ -1,5 +1,8 @@
 package msg.resocurces;
+import msg.Main;
 import msg.account.Account;
+import msg.message.TextMessage;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -11,6 +14,7 @@ public class database {
         public static Account test;
         public static Account chat;
         public static Account empty;
+        public static Account SYSTEM_TOKEN;
         public static ArrayList<Account> accounts;
         public static Account impersonated;
         public static ArrayList<String> ez;
@@ -36,6 +40,7 @@ public class database {
                                 chat = new Account("chat", "f252b880-8329-4ba1-bfb0-c2ad8d785980", "CHAT", "5af07648-8059-4809-9e74-c2a6a141f286");
                                 empty = new Account("null", UUID.randomUUID().toString(), "", "");
                                 impersonated = new Account("Jimothy", UUID.randomUUID().toString(), "DEFAULT", "");
+                                SYSTEM_TOKEN = new Account("SYSTEM_TOKEN", UUID.randomUUID().toString(), "DEFAULT", "");
 
                         } while (false);
 
@@ -190,13 +195,15 @@ public class database {
                                 messageblacklist.add("anus");
                                 messageblacklist.add("sex");
                                 messageblacklist.add("porn");
+                                messageblacklist.add("testicles");
 
                         } while (false);
 
                         loaded = true;
 
                 } else {
-                        System.out.println("Database already loaded. To reload, use reload()");
+                        TextMessage alert_1 = new TextMessage(system, "Database already loaded. To reload, use reload() [801]", Main.loggedin);
+                        Main.message(alert_1, Main.n_log);
                 }
 
         }
@@ -221,7 +228,8 @@ public class database {
                         loaded = false;
 
                 } else {
-                        System.out.println("Database is not loaded. Use load() to load it.");
+                        TextMessage alert_2 = new TextMessage(system, "Database is not loaded. To reload, use load() [802]", Main.loggedin);
+                        Main.message(alert_2, Main.n_log);
                 }
         }
 
@@ -231,7 +239,8 @@ public class database {
                         unload();
                         load();
                 } else {
-                        System.out.println("Database is not loaded. Use load() to load it.");
+                        TextMessage alert_3 = new TextMessage(system, "Database is not loaded. To reload, use load() [803]", Main.loggedin);
+                        Main.message(alert_3, Main.n_log);
                 }
         }
 
@@ -240,19 +249,16 @@ public class database {
                         int random = new Random().nextInt(database.ez.size());
                         return ez.get(random);
                 } else {
-                        System.out.println(c.yw + "Database is not loaded");
+                        System.out.println(c.yw + "Database is not loaded [804]");
                         return null;
                 }
 
 
         }
 
-        public static String addToBan (Account account, Integer duration_mins) {
-                return "To be made";
-        }
-
-        public static String removeFromBan () {
-                return "To be made";
+        public static String accessSystemToken (String reason) {
+                Main.c_log.logcmd("System token was accessed. Reason: " + reason, system);
+                return SYSTEM_TOKEN.getPassword();
         }
 
 
