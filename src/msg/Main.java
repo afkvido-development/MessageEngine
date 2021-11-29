@@ -291,18 +291,26 @@ public class Main {
 
             for (int i = 0; i < database.accounts.size(); i++) {
 
+
+
                 if (database.accounts.get(i).getBanBooleanStatus()) {
 
                     database.accounts.get(i).check_unban_timer();
                 }
 
-                if (!database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
+
+
+
+                if (database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
+
                     if (database.accounts.get(i).getBanBooleanStatus()) { //If banned
 
                     line(c.yw + "Your account could not be logged in to. [101]");
                     line(c.yw + "Your account is currently banned. Your account will be unbanned on " + database.accounts.get(i).getUnbanDate() + " (dd/mm/yyyy)");
                         success = false;
+
                     } else {
+
                         loggedin = database.accounts.get(i);
                         success = true;
                     }
