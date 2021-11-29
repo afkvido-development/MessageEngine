@@ -39,9 +39,6 @@ public class Main {
             } else {
                 System.exit(0);
             }
-
-
-
         } else {
 
             if (System.getenv("RUN").equals("debug")) {
@@ -144,6 +141,8 @@ public class Main {
                     for (int i = 0; i < database.accounts.size(); i++) {
                         if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/ban ", ""))) {
 
+
+                            // Use ban command
                             database.accounts.get(i).ban(1, loggedin.getUsername(), loggedin.getPassword());
                             line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
                             c_log.logcmd(sc2, loggedin);
