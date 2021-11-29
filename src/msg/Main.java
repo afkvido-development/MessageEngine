@@ -22,61 +22,124 @@ public class Main {
     public static void main(String[] args) {
 
 
-        if (System.getenv("RUN").equals("debug")) {
-        line(c.wh + "Running MessageEngine by gemsvido");
-        line(c.yw + "Entering Debug Mode");
-        mode = "debug";
-        debug_mode1 = true;
-        } else if (System.getenv("RUN").equals("main")) {
-            line(c.wh + "Running MessageEngine by gemsvido");
-            line("Config: Main");
-            mode = "main";
-            debug_mode1 = false;
+        // Run Configurations
+        if (System.getenv("RUN") == null) {
+            line(c.rd + "Invalid run configuration. [902]");
+            line("Check the wiki for more information: https://github.com/afkvido/MessageEngine/wiki/Error-Codes#error-code-list");
+            Scanner wait1 = new Scanner(System.in);
+            String wait2 = wait1.nextLine();
+
+            if (wait2.equals("/configbypass missingENV")) {
+                line("Run configuration has been bypassed. Please remember that some features may be faulty.");
+                c_log.logcmd("Run configuration bypassed, running with no run ENV. /configbypass missingENV", database.empty);
+
+            } else if (wait2.startsWith("/configbypass")) {
+                line("Invalid configuration bypass.");
+                System.exit(0);
+            } else {
+                System.exit(0);
+            }
+
+
+
+        } else {
+
+            if (System.getenv("RUN").equals("debug")) {
+                line(c.wh + "Running MessageEngine by gemsvido");
+                line(c.yw + "Entering Debug Mode");
+                mode = "debug";
+                debug_mode1 = true;
+            } else if (System.getenv("RUN").equals("main")) {
+                line(c.wh + "Running MessageEngine by gemsvido");
+                line("Config: Main");
+                mode = "main";
+                debug_mode1 = false;
+            } else {
+
+                line(c.rd + "Invalid run configuration. [901]");
+                line("Check the wiki for more information: https://github.com/afkvido/MessageEngine/wiki/Error-Codes#error-code-list");
+                Scanner wait1 = new Scanner(System.in);
+                String wait2 = wait1.nextLine();
+
+                if (wait2.equals("/configbypass invalidENV")) {
+                    line("Run configuration has been bypassed. Please remember that some features may be faulty.");
+                    c_log.logcmd("Run configuration bypassed, running with an invalid run ENV. /configbypass invalidENV", database.empty);
+
+                } else if (wait2.startsWith("/configbypass")) {
+                    line("Invalid configuration bypass.");
+                    System.exit(0);
+                }
+                else {
+                    System.exit(0);
+                }
+            }
         }
 
-        database.load(); //Load Database. This loads in all the Accounts
 
-
-        boolean blacklist = false;
-        loggedin = database.empty;
-        boolean impersonate = false;
-        Account wait = database.empty;
-        TextMessage nextmsg;
-        TextMessage systemmsg;
+        //Load Database. This loads in all the Accounts
+        database.load();
 
 
 
+        boolean blacklist = false; // Creates blacklist variable, used for chat filter
+        loggedin = database.empty; // Presets the account to prevent crashes.
+        boolean impersonate = false; // Creates impersonation variable, defaults to false.
+        Account wait = database.empty; // Creates hold/temporary account, used for impersonation feature.
+        TextMessage nextmsg; // Creates variable for the next message you send
+        TextMessage systemmsg; // Creates variable for system messages (sent to loggedin)
 
-        login();
-        line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName());
 
 
+
+        login(); // Opens login interface
+        line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName()); // Welcomes user
+
+        // Starts the loop, where you can chat and use commands
         while (true) {
 
-            //blacklist = false;
+            blacklist = false; // Resets blacklist
 
 
-            Scanner sc1 = new Scanner(System.in);
-            String sc2 = sc1.nextLine();
+            Scanner sc1 = new Scanner(System.in); // Receives user input
+            String sc2 = sc1.nextLine(); // Saves user input
 
+
+            // Mute command
             if (sc2.startsWith("/mute")) {
+
+                // If sufficient permissions
                 if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+
+                    // Find account
                     for (int i = 0; i < database.accounts.size(); i++) {
                         if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/mute ", ""))) {
+
+                            // Change to muted
                             database.accounts.get(i).changerank(rank.MUTED);
                             line(c.rd + "Muted " + database.accounts.get(i).getDisplayName());
+
+                            // Logs the command
                             c_log.logcmd(sc2, loggedin);
                             if (loggedin == database.accounts.get(i)) {
+
+                                // This won't be sent anyways.
                                 sc2 = "I am muted";
                             } else {
+
+                                // Cancels message if you are muting yourself.
                                 sc2 = "cancel_messageL";
                             }
                         }
                     }
                 } else {
-                    line(c.rd + "no, this is for moderators dumas");
+                    // If the command is used by a non-moderator.
+                    line(c.rd + "no, this is for moderators");
                 }
+
+                // Ban command
             } else if (sc2.startsWith("/ban")) {
+
+                // Check for sufficient permissions
                 if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
                     for (int i = 0; i < database.accounts.size(); i++) {
                         if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/ban ", ""))) {
@@ -311,6 +374,7 @@ public class Main {
 
                     } else {
 
+                        line("not banned");
                         loggedin = database.accounts.get(i);
                         success = true;
                     }

@@ -38,7 +38,7 @@ public class database {
                                 system = new Account("system", "12d9e695-4eb3-4567-8a50-d13bf5db9787", "ADMIN", "4b80a385-be1a-4ee6-ac27-831dade116ae");
                                 test = new Account("test", "test_passowrd", "ADMIN", "4b99fa8a-a87a-4187-bb0a-63329475f8b3");
                                 chat = new Account("chat", "f252b880-8329-4ba1-bfb0-c2ad8d785980", "CHAT", "5af07648-8059-4809-9e74-c2a6a141f286");
-                                empty = new Account("null", UUID.randomUUID().toString(), "", "");
+                                empty = new Account("Pre-login account", UUID.randomUUID().toString(), "", "");
                                 impersonated = new Account("Jimothy", UUID.randomUUID().toString(), "DEFAULT", "");
                                 SYSTEM_TOKEN = new Account("SYSTEM_TOKEN", UUID.randomUUID().toString(), "DEFAULT", "");
 
