@@ -7,6 +7,9 @@ import msg.resocurces.c; // Color Codes
 import msg.logging.commandLog;
 import msg.logging.messageLog; // MessageLog to log sent messages
 import msg.resocurces.rank; // Rank system
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Locale;
 import java.util.Scanner; // Scanner for Input, who would have guessed?
 import java.util.UUID; // UUID System, also UUID generator.
 
@@ -144,6 +147,8 @@ public class Main {
 
                             // Use ban command
                             database.accounts.get(i).ban(1, loggedin.getUsername(), loggedin.getPassword());
+
+
                             line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
                             c_log.logcmd(sc2, loggedin);
 
@@ -177,7 +182,7 @@ public class Main {
             if (sc2.startsWith("/")) {
 
 
-                if (impersonate && sc2.equals("/impersonate reset") || sc2.equals("/im reset")) {
+                if (impersonate && (sc2.equals("/impersonate reset") || sc2.equals("/im reset"))) {
                     loggedin = wait;
                     impersonate = false;
                     wait = database.empty;
@@ -237,42 +242,54 @@ public class Main {
                         }
                         break;
                     case "/databaseload":
+
                         if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                            debugLine("Info", "Loading database");
                             database.load();
                             c_log.logcmd(sc2, loggedin);
                         } else {
+                            debugLine("Info", "only Administrator or Owner can load the database");
                             line(c.rd + "piss off. admins only");
                             c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
+                    case "/logout":
+                        debugLine("Info", "/logout");
                     case "/login":
+                        debugLine("Info", "/login");
                         logout();
                         login();
                         c_log.logcmd(sc2, loggedin);
                         break;
                     case "/help":
+                        debugLine("Info", "/help");
                         line(c.pr + "Just type out your message. Not complicated.");
                         c_log.logcmd(sc2, loggedin);
                         break;
                     case "/logaccess messagelog":
+                        debugLine("Info", "successfully accessed message log");
                         if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER || loggedin.getRank() == rank.MODERATOR) {
                             line(n_log.viewLog());
                             c_log.logcmd(sc2, loggedin);
                         } else {
+                            debugLine("Info", "message log requires moderator or above");
                             line(c.yw + "Missing Permissions");
                             c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
                     case "/logaccess commandlog":
                         if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER || loggedin.getRank() == rank.MODERATOR) {
+                            debugLine("Info", "Successfully accessed command log");
                             line(c_log.viewLog());
                             c_log.logcmd(sc2, loggedin);
                         } else {
+                            debugLine("Info", "command log requires mod or above");
                             line(c.yw + "Missing Permissions");
                             c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
                     case "/generatenewuuid":
+                        debugLine("Info", "Successful /generatenewuuid");
                         if (loggedin.getRank() != rank.MUTED || loggedin.getRank() != rank.DEFAULT) {
                             System.out.println(c.cy + UUID.randomUUID());
                             System.out.println(UUID.randomUUID());
@@ -280,6 +297,7 @@ public class Main {
                             System.out.println(UUID.randomUUID() + c.rs);
                             c_log.logcmd(sc2, loggedin);
                         } else {
+                            debugLine("Info", "Needs VIP for /generatenewuuid");
                             line("You must be VIP or above to use this command.");
                             c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
@@ -291,6 +309,7 @@ public class Main {
 
 
             } else if (blacklist) {
+                debugLine("Info", "Message contains a  blacklisted term.");
                 line(c.yw + "Your message could not be sent [701].");
                 n_log.logmessage(new TextMessage(loggedin, c.pr + "Said \"" + sc2 + "\", was not sent.", database.chat));
             } else {
@@ -299,6 +318,7 @@ public class Main {
 
                     switch (sc2) {
                         case "ez":
+                            debugLine("Info", "\"ez\" was sent.");
                             String ez = database.returnez();
                             nextmsg = new TextMessage(loggedin, ez, database.chat);
                             message(nextmsg, n_log);
@@ -322,21 +342,26 @@ public class Main {
     }
 
     public static void line (String println) {
+
         System.out.print(println + "\n");
     }
 
-    public static void message(TextMessage message, messageLog log) {
+    public static void message(@NotNull TextMessage message, @NotNull messageLog log) {
+        debugLine("Info", "message()");
         System.out.println(message.toString());
         log.logmessage(message);
     }
 
     private static void logout() {
+        debugLine("Info", "logout()");
         loggedin = database.empty;
+        debugLine("Info", "Successfully logged out.");
         line(c.gr + "Successfully logged out");
     }
 
     private static void login () {
 
+        debugLine("Info", "login()");
         boolean success;
 
         do {
@@ -365,19 +390,24 @@ public class Main {
 
                 if (database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
 
+                    debugLine("Info", "Credentials match (i = " + i + ")");
                     if (database.accounts.get(i).getBanBooleanStatus()) { //If banned
 
-                    line(c.yw + "Your account could not be logged in to. [101]");
-                    line(c.yw + "Your account is currently banned. Your account will be unbanned on " + database.accounts.get(i).getUnbanDate() + " (dd/mm/yyyy)");
+                        debugLine("Info", "Account is literally banned");
+                        line(c.yw + "Your account could not be logged in to. [101]");
+                        line(c.yw + "Your account is currently banned. Your account will be unbanned on " + database.accounts.get(i).getUnbanDate() + " (dd/mm/yyyy)");
                         success = false;
 
                     } else {
 
-                        line("not banned");
+                        debugLine("Info", "Not banned");
                         loggedin = database.accounts.get(i);
                         success = true;
+                        break;
                     }
 
+                } else {
+                    debugLine("Info", "Credentials didn't match (i = " + i + ")");
                 }
 
             }
@@ -391,4 +421,12 @@ public class Main {
 
 
     }
+
+    public static void debugLine (String type, String text) {
+
+        if (debug_mode1) {
+            System.out.println(c.wh + "[" + type + "] " + text + c.rs);
+        }
+    }
+
 }

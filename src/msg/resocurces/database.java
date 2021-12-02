@@ -46,18 +46,26 @@ public class database {
 
                         // Add Accounts to ArrayList
                         do {
+                                Main.debugLine("Info", "Initializing accounts ArrayList");
                                 accounts = new ArrayList<>();
+                                Main.debugLine("Info", "Initialized accounts ArrayList");
+                                Main.debugLine("Info", "Adding existing accounts to the ArrayList");
                                 accounts.add(gemsvido);
                                 accounts.add(system);
                                 accounts.add(test);
                                 accounts.add(chat);
                                 accounts.add(empty);
+                                Main.debugLine("Info", "Added existing accounts to the ArrayList");
+
                         } while (false);
 
                         // Add ez messages to ArrayList
                         do {
 
+                                Main.debugLine("Info", "Initializing ez ArrayList");
                                 ez = new ArrayList<String>();
+                                Main.debugLine("Info", "Initialized ez ArrayList");
+                                Main.debugLine("Info", "Adding ez messages to ez ArrayList");
                                 ez.add("Wait... This isn't what I typed!");
                                 ez.add("Anyone else really like Rick Astley?");
                                 ez.add("Hey helper, how play game?");
@@ -182,13 +190,16 @@ public class database {
                                 ez.add("ez?");
                                 ez.add("Please give me money -Ivan aka Technoblade");
                                 ez.add("Please give me money -Ivan aka Technoblade");
+                                Main.debugLine("Info", "Added ez messages to ez ArrayList");
 
 
                         } while (false);
 
                         // Add Message Blacklist
                         do {
+                                Main.debugLine("Info", "Initializing message blacklist ArrayList");
                                 messageblacklist = new ArrayList<>();
+                                Main.debugLine("Info", "");
                                 messageblacklist.add("nigga");
                                 messageblacklist.add("penis");
                                 messageblacklist.add("vagina");
@@ -209,25 +220,39 @@ public class database {
         }
 
         public static void unload () {
+                Main.debugLine("Info", "Unloading database...");
 
                 if (loaded) {
 
+                        Main.debugLine("Info", "Nulling individual accounts...");
                         gemsvido = null;
                         system = null;
                         test = null;
                         chat = null;
                         empty = null;
                         impersonated = null;
+                        Main.debugLine("Info", "Nulled all individual accounts");
 
+                        Main.debugLine("Info", "Nulling account ArrayList...");
                         accounts = null;
+                        Main.debugLine("Info", "Nulled account ArrayList");
 
+                        Main.debugLine("Info", "Nulling ez list...");
                         ez = null;
+                        Main.debugLine("Info", "Nulled ez list...");
 
+                        Main.debugLine("Info", "Nulling message blacklist...");
                         messageblacklist = null;
+                        Main.debugLine("Info", "Nulled message blacklist...");
 
+                        Main.debugLine("Info", "Confirming loaded status");
                         loaded = false;
+                        Main.debugLine("Info", "database.loaded is now false");
+
+                        Main.debugLine("Info", "\nDatabase successfully unloaded");
 
                 } else {
+                        Main.debugLine("Info", "Nevermind. The database wasn't loaded in the first place.");
                         TextMessage alert_2 = new TextMessage(system, "Database is not loaded. To reload, use load() [802]", Main.loggedin);
                         Main.message(alert_2, Main.n_log);
                 }
@@ -235,10 +260,18 @@ public class database {
 
         public static void reload () {
                 if (loaded) {
+                        Main.debugLine("Info", "Reloading database.");
 
+                        Main.debugLine("Info", "Unloading database...");
                         unload();
+                        Main.debugLine("Info", "Unloaded database.");
+                        Main.debugLine("Info", "Loading database...");
                         load();
+                        Main.debugLine("Info", "Loaded database.");
+                        Main.debugLine("Info", "\nSuccessfully reloaded database.");
+
                 } else {
+                        Main.debugLine("Info", "Database could not be reloaded as the database isn't loaded.");
                         TextMessage alert_3 = new TextMessage(system, "Database is not loaded. To reload, use load() [803]", Main.loggedin);
                         Main.message(alert_3, Main.n_log);
                 }
@@ -246,9 +279,11 @@ public class database {
 
         public static String returnez () {
                 if (loaded) {
+                        Main.debugLine("Info", "Returning an ez message...");
                         int random = new Random().nextInt(database.ez.size());
                         return ez.get(random);
                 } else {
+                        Main.debugLine("Info", "Database needs to be loaded to access ez messages.");
                         System.out.println(c.yw + "Database is not loaded [804]");
                         return null;
                 }
