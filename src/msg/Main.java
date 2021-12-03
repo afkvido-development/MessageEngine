@@ -21,6 +21,7 @@ public class Main {
     public static commandLog c_log = new commandLog("cmd log");
     public static String mode;
     public static Boolean debug_mode1;
+    private static Boolean info_found_username;
 
     public static void main(String[] args) {
 
@@ -102,6 +103,55 @@ public class Main {
 
             Scanner sc1 = new Scanner(System.in); // Receives user input
             String sc2 = sc1.nextLine(); // Saves user input
+
+
+
+            // Info command
+
+            if (sc2.startsWith("/info")) {
+
+                if (sc2.equals("/info") || sc2.equals("/info " + loggedin.getUsername()) || sc2.equals("/info ")) {
+                    line(loggedin.toString());
+                    sc2 = "cancel_messageL";
+
+                } else {
+
+                    // If sufficient permissions
+                    if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+
+                        info_found_username = false;
+
+                        for (int i = 0; i < database.accounts.size(); i++) {
+                            if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/info ", ""))) {
+                                debugLine("Info", "Username matches (i = " + i + ")");
+                                line(database.accounts.get(i).toString());
+                                sc2 = "cancel_messageL";
+                                info_found_username = true;
+                                break;
+
+
+                            }
+
+                            debugLine("Info", "Username didn't match (i = " + i + ")");
+                        }
+
+                        if (!info_found_username) {
+                            line(c.yw + "Account not found");
+                        }
+
+
+                            } else { // Insufficient Permissions
+                        line("Insufficient Permissions. Use /info to get your own info, you need Admin or above to see other's info.");
+                        sc2 = "cancel_messageL";
+                    }
+
+
+
+                }
+
+
+            }
+
 
 
             // Mute command
@@ -324,7 +374,7 @@ public class Main {
                             message(nextmsg, n_log);
                             break;
                         case "cancel_messageL":
-                            line(c.yw + "Cancelled message [702]");
+                            debugLine("Info", "Cancelled message [702]");
                             n_log.logmessage(new TextMessage(loggedin, c.yw + "Cancelled message: " + sc2, database.chat));
                             break;
                         default:
@@ -412,7 +462,10 @@ public class Main {
 
             }
 
-            if (success) { line(c.gr + "Successfully logged in"); }
+            if (success) {
+                Main.debugLine("Info", "Successful login to " + loggedin.getDisplayName());
+                line(c.gr + "Successfully logged in");
+            }
             else { line(c.rd + "no"); }
 
 
@@ -422,10 +475,18 @@ public class Main {
 
     }
 
-    public static void debugLine (String type, String text) {
+    public static void debugLine (String type, @NotNull String text) {
 
         if (debug_mode1) {
-            System.out.println(c.wh + "[" + type + "] " + text + c.rs);
+
+            if (type == null) {
+                System.out.println(c.wh + "[Debug] " + text + c.rs);
+            } else if (type.equals("")) {
+                System.out.println(c.wh + text + c.rs);
+            } else {
+                System.out.println(c.wh + "[" + type + "] " + text + c.rs);
+            }
+
         }
     }
 

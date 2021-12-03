@@ -11,7 +11,7 @@ public class database {
 
         public static Account gemsvido;
         public static Account system;
-        public static Account test;
+        public static Account Admin_account;
         public static Account chat;
         public static Account empty;
         public static Account SYSTEM_TOKEN;
@@ -24,23 +24,22 @@ public class database {
 
         public static void load () {
 
+
+
                 if (!loaded) {
-
-                        // Add ban list
-                        do {
-
-
-                        } while (false);
+                        Main.debugLine("Info", "Loading database...");
 
                         // Add Account Data
                         do {
+                                Main.debugLine("Info", "Defining preset accounts...");
                                 gemsvido = new Account("gemsvido", "please_subscribe", "OWNER", "6b33c874-61bd-4472-a1da-b42d3b121c14");
-                                system = new Account("system", "12d9e695-4eb3-4567-8a50-d13bf5db9787", "ADMIN", "4b80a385-be1a-4ee6-ac27-831dade116ae");
-                                test = new Account("test", "test_passowrd", "ADMIN", "4b99fa8a-a87a-4187-bb0a-63329475f8b3");
+                                system = new Account("SYSTEM", "12d9e695-4eb3-4567-8a50-d13bf5db9787", "ADMIN", "4b80a385-be1a-4ee6-ac27-831dade116ae");
+                                Admin_account = new Account("Administrator", "4f8964fe-57c9-4c7d-a6ad-936d4dd8a3c8", "ADMIN", "4b99fa8a-a87a-4187-bb0a-63329475f8b3");
                                 chat = new Account("chat", "f252b880-8329-4ba1-bfb0-c2ad8d785980", "CHAT", "5af07648-8059-4809-9e74-c2a6a141f286");
                                 empty = new Account("Pre-login account", UUID.randomUUID().toString(), "", "");
                                 impersonated = new Account("Jimothy", UUID.randomUUID().toString(), "DEFAULT", "");
                                 SYSTEM_TOKEN = new Account("SYSTEM_TOKEN", UUID.randomUUID().toString(), "DEFAULT", "");
+                                Main.debugLine("Info", "Defined preset accounts.");
 
                         } while (false);
 
@@ -52,9 +51,10 @@ public class database {
                                 Main.debugLine("Info", "Adding existing accounts to the ArrayList");
                                 accounts.add(gemsvido);
                                 accounts.add(system);
-                                accounts.add(test);
+                                accounts.add(Admin_account);
                                 accounts.add(chat);
                                 accounts.add(empty);
+                                accounts.add(SYSTEM_TOKEN);
                                 Main.debugLine("Info", "Added existing accounts to the ArrayList");
 
                         } while (false);
@@ -118,7 +118,6 @@ public class database {
                                 ez.add("Nvidia bread is the future of bread.");
                                 ez.add(c.pr + "twitch.tv/gemsvido" + c.rs);
                                 ez.add(c.pr + "twitch.tv/gemsvido" + c.rs);
-                                ez.add(c.pr + "twitch.tv/V183Z" + c.rs);
                                 ez.add("Subscribe to gemsvido");
                                 ez.add("Fortnite sucks balz");
                                 ez.add("crack");
@@ -179,7 +178,6 @@ public class database {
                                 ez.add("Nvidia bread is the future of bread.");
                                 ez.add(c.pr + "twitch.tv/gemsvido" + c.rs);
                                 ez.add(c.pr + "twitch.tv/gemsvido" + c.rs);
-                                ez.add(c.pr + "twitch.tv/V183Z" + c.rs);
                                 ez.add("Subscribe to gemsvido");
                                 ez.add("Fortnite sucks balz");
                                 ez.add("crack");
@@ -199,7 +197,8 @@ public class database {
                         do {
                                 Main.debugLine("Info", "Initializing message blacklist ArrayList");
                                 messageblacklist = new ArrayList<>();
-                                Main.debugLine("Info", "");
+                                Main.debugLine("Info", "Initialized message blacklist ArrayList");
+                                Main.debugLine("Info", "Adding blacklisted messages to blacklist ArrayList...");
                                 messageblacklist.add("nigga");
                                 messageblacklist.add("penis");
                                 messageblacklist.add("vagina");
@@ -207,12 +206,14 @@ public class database {
                                 messageblacklist.add("sex");
                                 messageblacklist.add("porn");
                                 messageblacklist.add("testicles");
+                                Main.debugLine("Info", "Added blacklisted messages to blacklist ArrayList.");
 
                         } while (false);
 
                         loaded = true;
 
                 } else {
+                        Main.debugLine("Info", "Database is already loaded. Reload with reload(), or unload with unload()");
                         TextMessage alert_1 = new TextMessage(system, "Database already loaded. To reload, use reload() [801]", Main.loggedin);
                         Main.message(alert_1, Main.n_log);
                 }
@@ -227,7 +228,7 @@ public class database {
                         Main.debugLine("Info", "Nulling individual accounts...");
                         gemsvido = null;
                         system = null;
-                        test = null;
+                        Admin_account = null;
                         chat = null;
                         empty = null;
                         impersonated = null;
@@ -247,9 +248,9 @@ public class database {
 
                         Main.debugLine("Info", "Confirming loaded status");
                         loaded = false;
-                        Main.debugLine("Info", "database.loaded is now false");
+                        Main.debugLine("Info", "database.loaded is now false\n");
 
-                        Main.debugLine("Info", "\nDatabase successfully unloaded");
+                        Main.debugLine("Info", "Database successfully unloaded");
 
                 } else {
                         Main.debugLine("Info", "Nevermind. The database wasn't loaded in the first place.");
