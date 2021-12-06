@@ -35,7 +35,7 @@ public class database {
                                 gemsvido = new Account("gemsvido", "please_subscribe", "OWNER", "6b33c874-61bd-4472-a1da-b42d3b121c14");
                                 system = new Account("SYSTEM", "12d9e695-4eb3-4567-8a50-d13bf5db9787", "ADMIN", "4b80a385-be1a-4ee6-ac27-831dade116ae");
                                 Admin_account = new Account("Administrator", "4f8964fe-57c9-4c7d-a6ad-936d4dd8a3c8", "ADMIN", "4b99fa8a-a87a-4187-bb0a-63329475f8b3");
-                                chat = new Account("chat", "f252b880-8329-4ba1-bfb0-c2ad8d785980", "CHAT", "5af07648-8059-4809-9e74-c2a6a141f286");
+                                chat = new Account("chat", UUID.randomUUID().toString(), "CHAT", "5af07648-8059-4809-9e74-c2a6a141f286");
                                 empty = new Account("Pre-login account", UUID.randomUUID().toString(), "", "");
                                 impersonated = new Account("Jimothy", UUID.randomUUID().toString(), "DEFAULT", "");
                                 SYSTEM_TOKEN = new Account("SYSTEM_TOKEN", UUID.randomUUID().toString(), "DEFAULT", "");

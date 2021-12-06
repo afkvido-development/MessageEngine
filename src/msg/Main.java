@@ -36,6 +36,7 @@ public class Main {
             if (wait2.equals("/configbypass missingENV")) {
                 line("Run configuration has been bypassed. Please remember that some features may be faulty.");
                 c_log.logcmd("Run configuration bypassed, running with no run ENV. /configbypass missingENV", database.empty);
+                debug_mode1 = false;
 
             } else if (wait2.startsWith("/configbypass")) {
                 line("Invalid configuration bypass.");
@@ -65,6 +66,7 @@ public class Main {
                 if (wait2.equals("/configbypass invalidENV")) {
                     line("Run configuration has been bypassed. Please remember that some features may be faulty.");
                     c_log.logcmd("Run configuration bypassed, running with an invalid run ENV. /configbypass invalidENV", database.empty);
+                    debug_mode1 = false;
 
                 } else if (wait2.startsWith("/configbypass")) {
                     line("Invalid configuration bypass.");
@@ -353,8 +355,7 @@ public class Main {
                         }
                         break;
                     default:
-                        if (sc2.equals("cancel_messageL"))
-                        line(c.yw + "Unknown Command [RR]");
+                        line(c.yw + "Unknown Command []");
                 }
 
 
@@ -376,6 +377,8 @@ public class Main {
                         case "cancel_messageL":
                             debugLine("Info", "Cancelled message [702]");
                             n_log.logmessage(new TextMessage(loggedin, c.yw + "Cancelled message: " + sc2, database.chat));
+                            break;
+                        case "":
                             break;
                         default:
                             nextmsg = new TextMessage(loggedin, sc2, database.chat);
