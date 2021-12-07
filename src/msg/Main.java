@@ -90,6 +90,11 @@ public class Main {
         Account wait = database.empty; // Creates hold/temporary account, used for impersonation feature.
         TextMessage nextmsg; // Creates variable for the next message you send
         TextMessage systemmsg; // Creates variable for system messages (sent to loggedin)
+        Scanner changepwd1 = new Scanner(System.in);
+        String changepwd2;
+        String changepwd3;
+        String changepwd4;
+        String changepwd5;
 
 
 
@@ -119,7 +124,7 @@ public class Main {
                 } else {
 
                     // If sufficient permissions
-                    if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                    if (loggedin.getRank() == rank.ADMINISTRATOR|| loggedin.getRank() == rank.OWNER) {
 
                         info_found_username = false;
 
@@ -312,6 +317,31 @@ public class Main {
                         logout();
                         login();
                         c_log.logcmd(sc2, loggedin);
+                        break;
+                    case "/changepwd":
+                    case "/changepassword":
+                        line("Change Password. To abort, just enter the wrong credentials.");
+                        System.out.print("Enter your username: ");
+                        changepwd2 = changepwd1.nextLine();
+                        System.out.print("Enter your current password: ");
+                        changepwd3 = changepwd1.nextLine();
+                        System.out.print("Enter your new password: ");
+                        changepwd4 = changepwd1.nextLine();
+                        System.out.print("Confirm your new password: ");
+                        changepwd5 = changepwd1.nextLine();
+
+                        if (!changepwd2.equals(loggedin.getUsername())) {
+                            line(c.yw + "Your username doesn't match what you entered.");
+                        } else if (!changepwd3.equals(loggedin.getPassword())) {
+                            line(c.yw + "Your password doesn't match the password your current password you entered");
+                        } else if (!changepwd4.equals(changepwd5)) {
+                            line(c.yw + "New password doesn't match with the confirm new password");
+                        } else if (changepwd3.equals(changepwd4)) {
+                            line(c.yw + "New password is identical to current password.");
+                        } else {
+                            line(loggedin.changepassword(changepwd2, changepwd3, changepwd4));
+                        }
+
                         break;
                     case "/help":
                         debugLine("Info", "/help");
