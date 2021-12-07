@@ -9,7 +9,6 @@ import msg.logging.messageLog; // MessageLog to log sent messages
 import msg.resocurces.rank; // Rank system
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Locale;
 import java.util.Scanner; // Scanner for Input, who would have guessed?
 import java.util.UUID; // UUID System, also UUID generator.
 
@@ -384,6 +383,21 @@ public class Main {
                             c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
+
+                    case "/crash printcrash":
+                        if (debug_mode1) {
+                            msg.programs.crash.print_lag();
+                            break;
+                        } else {
+                            line(c.yw + "Unknown Command []");
+                            break; }
+                    case "/crash securityexception":
+                        if (debug_mode1) {
+                            msg.programs.crash.security_issue_exception("ree");
+                            break;
+                        } else {
+                            line(c.yw + "Unknown Command []");
+                            break; }
                     default:
                         line(c.yw + "Unknown Command []");
                 }
