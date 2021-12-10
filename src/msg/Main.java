@@ -196,7 +196,7 @@ public class Main {
             } else if (sc2.startsWith("/ban")) {
 
                 // Check for sufficient permissions
-                if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                if (mC()) {
                     for (int i = 0; i < database.accounts.size(); i++) {
                         if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/ban ", ""))) {
 
@@ -249,7 +249,7 @@ public class Main {
                 } else {
                     if (sc2.startsWith("/impersonate") || sc2.startsWith("/im")) {
 
-                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
+                        if (mC()) {
                             switch (sc2.toLowerCase()) {
                                 case "/im":
                                 case "/impersonate":
@@ -383,17 +383,23 @@ public class Main {
                             c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
                         }
                         break;
-
+                    case "/crash runtime_exception":
+                        if (debug_mode1) {
+                            msg.programs.crash.runtime_exception("REEEEEEEEEEEEEE");
+                            break;
+                        } else {
+                            line(c.yw + "Unknown Command []");
+                            break; }
                     case "/crash printcrash":
                         if (debug_mode1) {
-                            msg.programs.crash.print_lag();
+                            msg.programs.crash.function_crash();
                             break;
                         } else {
                             line(c.yw + "Unknown Command []");
                             break; }
                     case "/crash securityexception":
                         if (debug_mode1) {
-                            msg.programs.crash.security_issue_exception("ree");
+                            msg.programs.crash.security_issue_exception("bruh");
                             break;
                         } else {
                             line(c.yw + "Unknown Command []");
@@ -537,4 +543,41 @@ public class Main {
         }
     }
 
+    private static boolean mC() {
+        // mC means moderator command
+        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.OWNER) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean dB (Integer mode, Boolean print_unknown_command) {
+
+        /** Modes:
+
+         1:
+         2:
+
+         */
+//
+
+
+        if (debug_mode1) {
+
+            switch (mode) {
+
+            }
+
+        } else {
+            if (print_unknown_command) {
+                line(c.yw + "Unknown Command []");
+                return false;
+        }
+
+        return false;
+    }
+        return true;
+
+    }
 }
