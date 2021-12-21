@@ -1,9 +1,10 @@
-# MessageEngine
+# MessageEngine PTB+
 
+Public Test Beta+
 
-This is a singleplayer Java project that I made just becasue why not. This is the master branch, where things are hopefully stable and only fully approved commits.
-
-If you're looking for a more fresh and updated version, check out the PTB Branch: [PTB](https://github.com/afkvido/MessageEngine/tree/PTB)
+This is a more frequently updated, fresh, and potentially more glitchy version of MessageEngine.
+This version will be updated maximum once a day.
+If you're looking for the Alpha test: check out the [Alpha](https://github.com/afkvido/MessageEngine/tree/Alpha) branch.
 
 
 ## Important
@@ -15,8 +16,4 @@ If you're looking for a more fresh and updated version, check out the PTB Branch
 Check out our [discord support server](https://disboard.org/server/893975758677086238)
 
 ## Features and commands
-[Check out the wiki!](https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list)
-
-<h1 align="center">
-<img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
-	</h1>
+[List of commands is on the wiki](https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list)
