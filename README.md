@@ -16,3 +16,7 @@ Check out our [discord support server](https://disboard.org/server/8939757586770
 
 ## Features and commands
 [Check out the wiki!](https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list)
+
+<h1 align="center">
+<img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
+	</h1>
