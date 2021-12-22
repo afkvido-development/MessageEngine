@@ -2,12 +2,12 @@
 
 ## Supported Versions
 
-Currently, there is no account security, save account, new account, or anything. You can log into the owner account for testing purposees with the username 'gemsvido', and the password 'please_subscribe'
+Currently, there is no account security, save account, new account, or anything.
 
 
 | Version      | Supported          |
 | -------      | ------------------ |
-| Alpha Test   | Full Security      |
+| v0.1.0-Stable  | Singleplayer, No vulnerabilities     |
 
 ## Reporting a Vulnerability
 
