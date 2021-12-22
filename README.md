@@ -1,15 +1,12 @@
 # MessageEngine
 
 
-This is a singleplayer Java project that I made just becasue why not. This is the master branch, where things are hopefully stable and only fully approved commits.
+This is a singleplayer Java project that I made just becasue why not. This is the OfficialRelease branch, where things are hopefully stable and only fully approved commits.
 
-If you're looking for a more fresh and updated version, check out the PTB Branch: [PTB](https://github.com/afkvido/MessageEngine/tree/PTB)
+Looking for a more fresh/updated version? [Public Test Beta](https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta)
 
+Looking for the newest, most updated version? [Public Alpha Test](https://github.com/afkvido/MessageEngine-Alpha/tree/Alpha)
 
-## Important
-- Java project
-- Requires JDK 15+
-- No server (still singleplayer)
 
 ## Support/Contact Us
 Check out our [discord support server](https://disboard.org/server/893975758677086238)
