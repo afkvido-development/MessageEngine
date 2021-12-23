@@ -1,5 +1,5 @@
 # Contributor Covenant Code of Conduct
-Revamped by gemsvido, original taken from GitHub idk
+Revamped by gemsvido, original taken from GitHub.
 ## Our Standards
 
 
