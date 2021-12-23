@@ -22,13 +22,6 @@ Check out our [discord support server](https://disboard.org/server/8939757586770
   * [Suggestions](https://github.com/afkvido-development/MessageEngine/discussions/categories/suggestions) - Suggest something for MessageEngine here!
   * [Bug Report](https://github.com/afkvido-development/MessageEngine/issues/new/choose) - Report a bug in MessageEngine
 
-### MessageEngine Alpha
-  * [MessageEngine Alpha](https://github.com/afkvido/MessageEngine-Alpha) - The most updated and newest version of MessageEngine. Warning: contains many bugs
-  * [Alpha Announcements](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-announcements) - Official updates and information from staff about the alpha.
-  * [Alpha Feedback](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-feedback) - Leave your feedback about MessageEngine Alpha here!
-  * [Alpha Forum](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-forum) - Discuss MessageEngine Alpha here!
-  * [Alpha Bug Report](https://github.com/afkvido/MessageEngine-Alpha/issues/new/choose) - Report a bug in MessageEngine Alpha
-
 ### MessageEngine Public Test Beta
   * [MessageEngine PTB](https://github.com/afkvido-development/MessageEngine-PTB) - MessageEngine Public Test Beta. Frequently updated, but hopefully not frequently glitchy.
   * [PTB Announcements](https://github.com/afkvido-development/MessageEngine-PTB/discussions/categories/ptb-announcements) - Official updates and information from staff about the PTB
@@ -44,6 +37,13 @@ Check out our [discord support server](https://disboard.org/server/8939757586770
   * [MEL Project Showcase](https://github.com/afkvido-development/MessageEngineLITE/discussions/categories/project-showcase) - Show off a project you've made with MessageEngineLITE!
   * [MEL Announcements](https://github.com/afkvido-development/MessageEngineLITE/discussions/categories/announcements) - Our official GitHub announcements page! Important updates and info from staff posted here.
   * [MEL Suggestions](https://github.com/afkvido-development/MessageEngineLITE/discussions/categories/suggestions) - Suggest something for MessageEngineLITE.
+
+### MessageEngine Alpha
+  * [MessageEngine Alpha](https://github.com/afkvido/MessageEngine-Alpha) - The most updated and newest version of MessageEngine. Warning: contains many bugs
+  * [Alpha Announcements](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-announcements) - Official updates and information from staff about the alpha.
+  * [Alpha Feedback](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-feedback) - Leave your feedback about MessageEngine Alpha here!
+  * [Alpha Forum](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-forum) - Discuss MessageEngine Alpha here!
+  * [Alpha Bug Report](https://github.com/afkvido/MessageEngine-Alpha/issues/new/choose) - Report a bug in MessageEngine Alpha
 
 
 
