@@ -15,6 +15,8 @@ Check out our [discord support server](https://disboard.org/server/8939757586770
 ### MessageEngine Official
   * [MessageEngine](https://github.com/afkvido-development/MessageEngine) - The stable release of MessageEngine
   * [MessageEngine Announcements](https://github.com/afkvido-development/MessageEngine/discussions/categories/announcements) - Announcements for MessageEngine
+  * [MessageEngine Official Release](https://github.com/afkvido-development/MessageEngine/releases) - A compiled JAR of MessageEngine.
+  * [Wiki](https://github.com/afkvido-development/MessageEngine/wiki) - The official wiki for MessageEngine
   * [Community Q&A](https://github.com/afkvido-development/MessageEngine/discussions/categories/community-q-a) - Ask the community a question here! You can also answer questions from the community if you know the answer!
   * [Official Forum](https://github.com/afkvido-development/MessageEngine/discussions/categories/forum) - Discuss anything about MessageEngine here!
   * [Official Q&A](https://github.com/afkvido-development/MessageEngine/discussions/categories/official-q-a) - Ask staff questions about MessageEngine here!
