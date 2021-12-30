@@ -1,101 +1,52 @@
+// Base Package
 package msg;
 
-import msg.resocurces.database; // Database with all necessary stuff like Account info, ArrayLists, ez, etc.
-import msg.account.Account; // Account class
-import msg.message.TextMessage; // TextMessage Class
-import msg.resocurces.c; // Color Codes
+// Import all necessary files
+
+import msg.account.Account;
+import msg.commands.Commands;
 import msg.logging.commandLog;
-import msg.logging.messageLog; // MessageLog to log sent messages
-import msg.resocurces.rank; // Rank system
+import msg.logging.messageLog;
+import msg.message.TextMessage;
+import msg.programs.PreLoader;
+import msg.resocurces.c;
+import msg.resocurces.database;
+import msg.resocurces.rank;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Scanner; // Scanner for Input, who would have guessed?
-import java.util.UUID; // UUID System, also UUID generator.
+import java.util.Scanner;
+import java.util.UUID;
 
-@SuppressWarnings("InfiniteLoopStatement")
+@SuppressWarnings("InfiniteLoopStatement") // Temporary solution to while true
 public class Main {
 
-    public static Account loggedin;
-    public static messageLog n_log = new messageLog("the msg log"); //Create Message log
-    public static commandLog c_log = new commandLog("cmd log");
-    public static String mode;
-    public static Boolean debug_mode1;
-    private static Boolean info_found_username;
+    // Create all static variables
+
+    public static Account loggedin; // Account that is logged in
+    public static messageLog n_log = new messageLog("The Message log i guess"); //Create Message log
+    public static commandLog c_log = new commandLog("The Command log I guess"); // Create command log
+    public static String mode; // Decides on how to run the program (debug, main, etc.)
+    public static Boolean debug_mode1; // Debug boolean (true = debug mode)
+    static Boolean info_found_username; // For login and other account finding purposes
+    public static String sc2;
+
 
     public static void main(String[] args) {
 
 
-        // Run Configurations
-        if (System.getenv("RUN") == null) {
-            line(c.rd + "Invalid run configuration. [902]");
-            line("Check the wiki for more information: https://github.com/afkvido/MessageEngine/wiki/Error-Codes#error-code-list");
-            Scanner wait1 = new Scanner(System.in);
-            String wait2 = wait1.nextLine();
+        // PRE-LOADING
 
-            if (wait2.equals("/configbypass missingENV")) {
-                line("Run configuration has been bypassed. Please remember that some features may be faulty.");
-                c_log.logcmd("Run configuration bypassed, running with no run ENV. /configbypass missingENV", database.empty);
-                debug_mode1 = false;
-
-            } else if (wait2.startsWith("/configbypass")) {
-                line("Invalid configuration bypass.");
-                System.exit(0);
-            } else {
-                System.exit(0);
-            }
-        } else {
-
-            if (System.getenv("RUN").equals("debug")) {
-                line(c.wh + "Running MessageEngine by gemsvido");
-                line(c.yw + "Entering Debug Mode");
-                mode = "debug";
-                debug_mode1 = true;
-            } else if (System.getenv("RUN").equals("main")) {
-                line(c.wh + "Running MessageEngine by gemsvido");
-                line("Config: Main");
-                mode = "main";
-                debug_mode1 = false;
-            } else {
-
-                line(c.rd + "Invalid run configuration. [901]");
-                line("Check the wiki for more information: https://github.com/afkvido/MessageEngine/wiki/Error-Codes#error-code-list");
-                Scanner wait1 = new Scanner(System.in);
-                String wait2 = wait1.nextLine();
-
-                if (wait2.equals("/configbypass invalidENV")) {
-                    line("Run configuration has been bypassed. Please remember that some features may be faulty.");
-                    c_log.logcmd("Run configuration bypassed, running with an invalid run ENV. /configbypass invalidENV", database.empty);
-                    debug_mode1 = false;
-
-                } else if (wait2.startsWith("/configbypass")) {
-                    line("Invalid configuration bypass.");
-                    System.exit(0);
-                }
-                else {
-                    System.exit(0);
-                }
-            }
-        }
+        line(c.wh + "[Info] Starting PreLoader...");
+        PreLoader.PreLoading(false);
+        line(c.wh + "[Info] PreLoader finished.");
 
 
-        //Load Database. This loads in all the Accounts
-        database.load();
+        // Create all local variables
 
-
-
-        boolean blacklist = false; // Creates blacklist variable, used for chat filter
+        boolean blacklist; // Creates blacklist variable, used for chat filter
         loggedin = database.empty; // Presets the account to prevent crashes.
-        boolean impersonate = false; // Creates impersonation variable, defaults to false.
-        Account wait = database.empty; // Creates hold/temporary account, used for impersonation feature.
         TextMessage nextmsg; // Creates variable for the next message you send
         TextMessage systemmsg; // Creates variable for system messages (sent to loggedin)
-        Scanner changepwd1 = new Scanner(System.in);
-        String changepwd2;
-        String changepwd3;
-        String changepwd4;
-        String changepwd5;
-
-
 
 
         login(); // Opens login interface
@@ -104,11 +55,11 @@ public class Main {
         // Starts the loop, where you can chat and use commands
         while (true) {
 
-            blacklist = false; // Resets blacklist
+            blacklist = false; // Resets message blacklist status (For chat filter)
 
 
             Scanner sc1 = new Scanner(System.in); // Receives user input
-            String sc2 = sc1.nextLine(); // Saves user input
+            sc2 = sc1.nextLine(); // Saves user input
 
 
 
@@ -160,72 +111,6 @@ public class Main {
 
 
 
-            // Mute command
-            if (sc2.startsWith("/mute")) {
-
-                // If sufficient permissions
-                if (loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
-
-                    // Find account
-                    for (int i = 0; i < database.accounts.size(); i++) {
-                        if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/mute ", ""))) {
-
-                            // Change to muted
-                            database.accounts.get(i).changerank(rank.MUTED);
-                            line(c.rd + "Muted " + database.accounts.get(i).getDisplayName());
-
-                            // Logs the command
-                            c_log.logcmd(sc2, loggedin);
-                            if (loggedin == database.accounts.get(i)) {
-
-                                // This won't be sent anyways.
-                                sc2 = "I am muted";
-                            } else {
-
-                                // Cancels message if you are muting yourself.
-                                sc2 = "cancel_messageL";
-                            }
-                        }
-                    }
-                } else {
-                    // If the command is used by a non-moderator.
-                    line(c.rd + "no, this is for moderators");
-                }
-
-                // Ban command
-            } else if (sc2.startsWith("/ban")) {
-
-                // Check for sufficient permissions
-                if (mC()) {
-                    for (int i = 0; i < database.accounts.size(); i++) {
-                        if (database.accounts.get(i).getUsername().equals(sc2.replaceAll("/ban ", ""))) {
-
-
-                            // Use ban command
-                            database.accounts.get(i).ban(1, loggedin.getUsername(), loggedin.getPassword());
-
-
-                            line(c.rd + "Banned " + database.accounts.get(i).getDisplayName());
-                            c_log.logcmd(sc2, loggedin);
-
-
-
-                            if (loggedin == database.accounts.get(i)) {
-                                //TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned for " + c.cy + database.bannedpeople.getReason(database.accounts.get(i)) + c.rd + " for " + database.bannedpeople.getDuration(database.accounts.get(i)) + "m", loggedin);
-                                TextMessage banreturn = new TextMessage(database.system, c.rd + "Your account has been banned", loggedin);
-
-                                message(banreturn, n_log);
-                                login();
-                                sc2 = "cancel_messageL";
-                            } else {
-                                sc2 = "cancel_messageL";
-                            }
-                        }
-                    }
-                } else {
-                    line(c.rd + "you cant do that what were you exepecting. come back when ur mod or above.");
-                }
-            }
 
             for (int i = 0; i < database.messageblacklist.size(); i++) {
                 if (sc2.contains(database.messageblacklist.get(i))) {
@@ -238,79 +123,20 @@ public class Main {
             if (sc2.startsWith("/")) {
 
 
-                if (impersonate && (sc2.equals("/impersonate reset") || sc2.equals("/im reset"))) {
-                    loggedin = wait;
-                    impersonate = false;
-                    wait = database.empty;
-                    systemmsg = new TextMessage(database.system, "Reset impersonation.", loggedin);
-                    message(systemmsg, n_log);
-                } else if (sc2.equals("/impersonate reset") || sc2.equals("/im reset")) {
-                    line(c.yw + "No impersonation to reset.");
-                } else {
-                    if (sc2.startsWith("/impersonate") || sc2.startsWith("/im")) {
-
-                        if (mC()) {
-                            switch (sc2.toLowerCase()) {
-                                case "/im":
-                                case "/impersonate":
-                                    wait = loggedin;
-                                    loggedin = database.impersonated;
-                                    impersonate = true;
-                                    systemmsg = new TextMessage(database.system, "Impersonated Jimothy (Default)", wait);
-                                    message(systemmsg, n_log);
-                                    break;
-                                default:
-                                    database.impersonated.changeusername(database.impersonated.getUsername(), database.impersonated.getPassword(), sc2.replaceAll("/impersonate ", "").replaceAll("/im ", ""));
-                                    wait = loggedin;
-                                    loggedin = database.impersonated;
-                                    impersonate = true;
-                                    systemmsg = new TextMessage(database.system, "Impersonated " + database.impersonated.getUsername(), wait);
-                                    message(systemmsg, n_log);
-                            }
-                        } else if (loggedin.getRank() == rank.MODERATOR) {
-                            systemmsg = new TextMessage(database.system, "You must be Admin or higher to use this command.", loggedin);
-                            message(systemmsg, n_log);
-                        } else {
-                            line(c.yw + "Unknown command");
-                        }
-                    }
-                }
 
 
 
                 switch (sc2.toLowerCase()) {
                     case "/databasereload":
-                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
-                            database.reload();
-                            c_log.logcmd(sc2, loggedin);
-                        } else {
-                            line(c.rd + "piss off. admins only");
-                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
-                        }
+                        Commands.databaseunload(loggedin.getRank());
                         break;
                     case "/databaseunload":
-                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
-                            database.unload();
-                            c_log.logcmd(sc2, loggedin);
-                        } else {
-                            line(c.rd + "piss off. admins only");
-                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
-                        }
+                        Commands.databaseunload(loggedin.getRank());
                         break;
                     case "/databaseload":
-
-                        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.OWNER) {
-                            debugLine("Info", "Loading database");
-                            database.load();
-                            c_log.logcmd(sc2, loggedin);
-                        } else {
-                            debugLine("Info", "only Administrator or Owner can load the database");
-                            line(c.rd + "piss off. admins only");
-                            c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + sc2, loggedin);
-                        }
+                        Commands.databaseload(loggedin.getRank());
                         break;
                     case "/logout":
-                        debugLine("Info", "/logout");
                     case "/login":
                         debugLine("Info", "/login");
                         logout();
@@ -319,33 +145,10 @@ public class Main {
                         break;
                     case "/changepwd":
                     case "/changepassword":
-                        line("Change Password. To abort, just enter the wrong credentials.");
-                        System.out.print("Enter your username: ");
-                        changepwd2 = changepwd1.nextLine();
-                        System.out.print("Enter your current password: ");
-                        changepwd3 = changepwd1.nextLine();
-                        System.out.print("Enter your new password: ");
-                        changepwd4 = changepwd1.nextLine();
-                        System.out.print("Confirm your new password: ");
-                        changepwd5 = changepwd1.nextLine();
-
-                        if (!changepwd2.equals(loggedin.getUsername())) {
-                            line(c.yw + "Your username doesn't match what you entered.");
-                        } else if (!changepwd3.equals(loggedin.getPassword())) {
-                            line(c.yw + "Your password doesn't match the password your current password you entered");
-                        } else if (!changepwd4.equals(changepwd5)) {
-                            line(c.yw + "New password doesn't match with the confirm new password");
-                        } else if (changepwd3.equals(changepwd4)) {
-                            line(c.yw + "New password is identical to current password.");
-                        } else {
-                            line(loggedin.changepassword(changepwd2, changepwd3, changepwd4));
-                        }
-
+                        Commands.changePassword_SC();
                         break;
                     case "/help":
-                        debugLine("Info", "/help");
-                        line(c.pr + "Just type out your message. Not complicated.");
-                        c_log.logcmd(sc2, loggedin);
+                        Commands.help(loggedin);
                         break;
                     case "/logaccess messagelog":
                         debugLine("Info", "successfully accessed message log");
@@ -371,7 +174,7 @@ public class Main {
                         break;
                     case "/generatenewuuid":
                         debugLine("Info", "Successful /generatenewuuid");
-                        if (loggedin.getRank() != rank.MUTED || loggedin.getRank() != rank.DEFAULT) {
+                        if (loggedin.getRank() != rank.DEFAULT) {
                             System.out.println(c.cy + UUID.randomUUID());
                             System.out.println(UUID.randomUUID());
                             System.out.println(UUID.randomUUID());
@@ -384,26 +187,14 @@ public class Main {
                         }
                         break;
                     case "/crash runtime_exception":
-                        if (debug_mode1) {
                             msg.programs.crash.runtime_exception("REEEEEEEEEEEEEE");
                             break;
-                        } else {
-                            line(c.yw + "Unknown Command []");
-                            break; }
                     case "/crash printcrash":
-                        if (debug_mode1) {
                             msg.programs.crash.function_crash();
                             break;
-                        } else {
-                            line(c.yw + "Unknown Command []");
-                            break; }
                     case "/crash securityexception":
-                        if (debug_mode1) {
                             msg.programs.crash.security_issue_exception("bruh");
                             break;
-                        } else {
-                            line(c.yw + "Unknown Command []");
-                            break; }
                     default:
                         line(c.yw + "Unknown Command []");
                 }
@@ -415,7 +206,7 @@ public class Main {
                 n_log.logmessage(new TextMessage(loggedin, c.pr + "Said \"" + sc2 + "\", was not sent.", database.chat));
             } else {
 
-                if (loggedin.getRank() != rank.MUTED) {
+
 
                     switch (sc2) {
                         case "ez":
@@ -435,10 +226,6 @@ public class Main {
                             message(nextmsg, n_log);
 
                     }
-                } else {
-                    line(c.yw + "You are muted, therefore your message could not be sent [703]. (get rekt)");
-                    n_log.logmessage(new TextMessage(loggedin, c.yw + "Attempted to say \"" + sc2 + "\", but was muted.", database.chat));
-                }
 
             }
         }
@@ -446,12 +233,12 @@ public class Main {
 
     public static void line (String println) {
 
-        System.out.print(println + "\n");
+        System.out.print(println + c.rs + "\n");
     }
 
     public static void message(@NotNull TextMessage message, @NotNull messageLog log) {
         debugLine("Info", "message()");
-        System.out.println(message.toString());
+        System.out.println(message);
         log.logmessage(message);
     }
 
@@ -470,6 +257,7 @@ public class Main {
         do {
 
             success = false;
+
             //Login
             Scanner sc3 = new Scanner(System.in);
             System.out.print(c.yw + "Please log in.\nUsername: ");
@@ -478,50 +266,7 @@ public class Main {
             System.out.print(c.yw + "Password: ");
             String sc6 = sc5.nextLine();
 
-
-            for (int i = 0; i < database.accounts.size(); i++) {
-
-
-
-                if (database.accounts.get(i).getBanBooleanStatus()) {
-
-                    database.accounts.get(i).check_unban_timer();
-                }
-
-
-
-
-                if (database.accounts.get(i).getUsername().equals(sc4) && database.accounts.get(i).getPassword().equals(sc6)) {
-
-                    debugLine("Info", "Credentials match (i = " + i + ")");
-                    if (database.accounts.get(i).getBanBooleanStatus()) { //If banned
-
-                        debugLine("Info", "Account is literally banned");
-                        line(c.yw + "Your account could not be logged in to. [101]");
-                        line(c.yw + "Your account is currently banned. Your account will be unbanned on " + database.accounts.get(i).getUnbanDate() + " (dd/mm/yyyy)");
-                        success = false;
-
-                    } else {
-
-                        debugLine("Info", "Not banned");
-                        loggedin = database.accounts.get(i);
-                        success = true;
-                        break;
-                    }
-
-                } else {
-                    debugLine("Info", "Credentials didn't match (i = " + i + ")");
-                }
-
-            }
-
-            if (success) {
-                Main.debugLine("Info", "Successful login to " + loggedin.getDisplayName());
-                line(c.gr + "Successfully logged in");
-            }
-            else { line(c.rd + "no"); }
-
-
+            success = msg.commands.Commands.login(sc4, sc6);
 
         } while (!success);
 
@@ -545,39 +290,8 @@ public class Main {
 
     private static boolean mC() {
         // mC means moderator command
-        if (loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.OWNER) {
-            return true;
-        } else {
-            return false;
-        }
+        return loggedin.getRank() == rank.ADMINISTRATOR || loggedin.getRank() == rank.MODERATOR || loggedin.getRank() == rank.OWNER;
     }
 
-    private static boolean dB (Integer mode, Boolean print_unknown_command) {
 
-        /** Modes:
-
-         1:
-         2:
-
-         */
-//
-
-
-        if (debug_mode1) {
-
-            switch (mode) {
-
-            }
-
-        } else {
-            if (print_unknown_command) {
-                line(c.yw + "Unknown Command []");
-                return false;
-        }
-
-        return false;
-    }
-        return true;
-
-    }
 }

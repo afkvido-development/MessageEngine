@@ -12,7 +12,6 @@ public enum rank {
     VIPPLUS,
     VIP,
     DEFAULT,
-    MUTED,
     CHAT,
 
 }
