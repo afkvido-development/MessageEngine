@@ -1,8 +1,8 @@
 # MessageEngine
 
+[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>](https://github.com/afkvido-development/MessageEngine/releases)
 
-This is a singleplayer Java project that I made just because why not. This is the Official Release, where things are hopefully stable and only fully approved commits.
-
+This is the official release, the code is stable.
 Looking for a more fresh/updated version? [Public Test Beta](https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta)
 
 
