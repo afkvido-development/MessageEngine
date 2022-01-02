@@ -146,7 +146,7 @@ public class Account {
     public String changepassword (String username, String oldpassword, String newpassword) {
 
         if (username.equals(this.username) && oldpassword.equals(this.password)) {
-            this.password = password;
+            this.password = newpassword;
             return c.gr + "Successfully changed the password of " + c.cy + username + c.gr + " from " + c.cy + oldpassword + c.gr + " to " + c.cy + newpassword;
         } else {
             return c.yw + "Could not change the password of " + c.cy + username + c.yw + " to " + c.cy + newpassword;
