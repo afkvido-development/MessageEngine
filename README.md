@@ -6,8 +6,9 @@ This is the official release, the code is stable.
 Looking for a more fresh/updated version? [Public Test Beta](https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta)
 
 
-## Support/Contact Us
-Check out our [discord support server](https://disboard.org/server/893975758677086238)
+## Contact Us
+
+[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/full_logo_blurple_RGB.png" width="170"/>](https://disboard.org/server/893975758677086238)
 
 ## Features and commands
 [Check out the wiki!](https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list)
