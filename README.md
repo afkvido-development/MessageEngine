@@ -1,6 +1,6 @@
 # MessageEngine
 
-[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>](https://github.com/afkvido-development/MessageEngine/releases)
+[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>](https://afkvido-development.github.io/MessageEngine/)
 
 This is the official release, the code is stable.
 Looking for a more fresh/updated version? [Public Test Beta](https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta)
