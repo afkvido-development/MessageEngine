@@ -1,4 +1,4 @@
-package msg.v;
+package msg.version;
 
 public final class Version {
 
@@ -7,7 +7,7 @@ public final class Version {
      *  ..........................................................................
      *
      *  For forks without pull requests: make the version vX.X.X-Yourgithubname
-     *  Example: v0.1.2-afkvido
+     *  Example: v0.0.0-afkvido
      * ......................................................................
      *
      *  For pull requests: Do not change the version, we will do this ourselves.
@@ -18,17 +18,15 @@ public final class Version {
      *  ............................................................
      *
      *  IF YOU ARE ACTUALLY USING MESSAGEENGINE AS INTENDED:
-     *  If you are injecting messageengine in your project, we ask that you change the version to [The Version you're using]+Inject.
-     *
-     *  Example v0.1.1-Stable+Inject
+     *  If you are injecting messageengine in your project, we ask that you use the variable injectVersion instead of Version.
      *
      *
      */
 
 
-    public static final String Version = "v0.1.1-Stable";
+    public static final String Version = "v0.1.2";
 
-    public static final String injectVersion = "v0.1.1-Stable+Inject";
+    public static final String injectVersion = "v0.1.2+Inject";
 
 
 

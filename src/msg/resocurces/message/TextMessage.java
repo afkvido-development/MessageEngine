@@ -8,8 +8,8 @@
  * @gemsvido - twitch.tv/gemsvido
  **/
 
-package msg.message;
-import msg.account.Account;
+package msg.resocurces.message;
+import msg.resocurces.account.Account;
 import msg.resocurces.c;
 import msg.resocurces.rank;
 

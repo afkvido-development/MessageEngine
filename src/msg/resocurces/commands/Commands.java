@@ -1,4 +1,4 @@
-package msg.commands;
+package msg.resocurces.commands;
 import msg.Main;
 import msg.resocurces.c;
 import msg.resocurces.database;
@@ -71,31 +71,15 @@ public class Commands {
             for (int i = 0; i < database.accounts.size(); i++) {
 
 
-
-                if (database.accounts.get(i).getBanBooleanStatus()) {
-
-                    database.accounts.get(i).check_unban_timer();
-                }
-
-
-
-
                 if (database.accounts.get(i).getUsername().equals(LOGIN_USERNAME) && database.accounts.get(i).getPassword().equals(LOGIN_PASSWORD)) {
 
                     Main.debugLine("Info", "Credentials match (i = " + i + ")");
-                    if (database.accounts.get(i).getBanBooleanStatus()) { //If banned
 
-                        Main.debugLine("Info", "Account is literally banned");
-                        line(c.yw + "Your account could not be logged in to. [101]");
-                        line(c.yw + "Your account is currently banned. Your account will be unbanned on " + database.accounts.get(i).getUnbanDate() + " (dd/mm/yyyy)");
 
-                    } else {
-
-                        Main.debugLine("Info", "Not banned");
                         Main.loggedin = database.accounts.get(i);
                         success = true;
                         break;
-                    }
+
 
                 } else {
                     Main.debugLine("Info", "Credentials didn't match (i = " + i + ")");
@@ -134,23 +118,20 @@ public class Commands {
 
     }
 
-    public static String help (msg.account.@NotNull Account DisplayHelpFor) {
+    public static String help (msg.resocurces.account.@NotNull Account DisplayHelpFor) {
 
-    switch (DisplayHelpFor.getRank()) {
-        case MODERATOR:
-            return """
-                   -------Moderation Commands-------
-                    /mute <user>
-                    /ban <user>
-                    /impersonate <Username>
-                    -------Account Commands-------
-                    /login
-                    /logout
-                    /changepassword
-                    """;
-        case OWNER:
-        case ADMINISTRATOR:
-            return """
+        return switch (DisplayHelpFor.getRank()) {
+            case MODERATOR -> """
+                    -------Moderation Commands-------
+                     /mute <user>
+                     /ban <user>
+                     /impersonate <Username>
+                     -------Account Commands-------
+                     /login
+                     /logout
+                     /changepassword
+                     """;
+            case OWNER, ADMINISTRATOR -> """
                     -------Database Commands-------
                     /databaseunload
                     /databasereload
@@ -164,17 +145,18 @@ public class Commands {
                     /logout
                     /changepassword
                     """;
-        default:
-            return "e";
-    }
+            default -> "e";
+        };
 
 
 
 
     }
 
-    public static void viewMessagelog() {
-        
+
+
+    public static String ez () {
+        return ez.fire();
     }
 
 
@@ -187,11 +169,9 @@ public class Commands {
 
         if (Permission == rank.ADMINISTRATOR || Permission== rank.OWNER) {
             database.unload();
-            Main.c_log.logcmd(Main.sc2, Main.loggedin);
             success = true;
         } else {
             line(c.rd + "dont even try");
-            Main.c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + Main.sc2, Main.loggedin);
             success = false;
         }
 
@@ -208,13 +188,11 @@ public class Commands {
         if (Permission == rank.ADMINISTRATOR || Permission == rank.OWNER) {
             Main.debugLine("Info", "Loading database");
             database.load();
-            Main.c_log.logcmd(Main.sc2, Main.loggedin);
             success = true;
 
         } else {
             Main.debugLine("Info", "Only Administrators or Owners can load the database.");
             line(c.rd + "admins only");
-            Main.c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + Main.sc2, Main.loggedin);
             success = false;
         }
 
@@ -228,11 +206,9 @@ public class Commands {
 
         if (Permission == rank.ADMINISTRATOR || Permission == rank.OWNER) {
             database.reload();
-            Main.c_log.logcmd(Main.sc2, Main.loggedin);
             success = true;
         } else {
             line(c.rd + "admins only, become a cool kid first.");
-            Main.c_log.logcmd(c.wh + "[Attempted, failed]" + c.rs + Main.sc2, Main.loggedin);
             success = false;
         }
 

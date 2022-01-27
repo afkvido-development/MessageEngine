@@ -11,9 +11,5 @@
 
 _____ 
 
-### Download v0.1.0-Stable [Old]
-[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="200"/>](https://github.com/afkvido-development/MessageEngine/releases/tag/v0.1.0-Stable)
-
-### Download v0.1.1-Stable [Latest]
-
-[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="200"/>](https://github.com/afkvido-development/MessageEngine/releases/tag/v0.1.1-Stable)
+### Download v0.1.2 [Latest]
+[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="200"/>](https://github.com/afkvido-development/MessageEngine/releases/tag/v0.1.2)
