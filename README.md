@@ -42,11 +42,11 @@ Looking for a more fresh/updated version? [Public Test Beta](https://github.com/
   * [MEL Suggestions](https://github.com/afkvido-development/MessageEngineLITE/discussions/categories/suggestions) - Suggest something for MessageEngineLITE.
 
 ### MessageEngine Alpha
-  * [MessageEngine Alpha](https://github.com/afkvido/MessageEngine-Alpha) - The most updated and newest version of MessageEngine. Warning: contains many bugs
-  * [Alpha Announcements](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-announcements) - Official updates and information from staff about the alpha.
-  * [Alpha Feedback](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-feedback) - Leave your feedback about MessageEngine Alpha here!
-  * [Alpha Forum](https://github.com/afkvido/MessageEngine-Alpha/discussions/categories/alpha-forum) - Discuss MessageEngine Alpha here!
-  * [Alpha Bug Report](https://github.com/afkvido/MessageEngine-Alpha/issues/new/choose) - Report a bug in MessageEngine Alpha
+  * [MessageEngine Alpha](https://github.com/afkvido-development/MessageEngine-Alpha) - The most updated and newest version of MessageEngine. Warning: contains many bugs
+  * [Alpha Announcements](https://github.com/afkvido-development/MessageEngine-Alpha/discussions/categories/alpha-announcements) - Official updates and information from staff about the alpha.
+  * [Alpha Feedback](https://github.com/afkvido-development/MessageEngine-Alpha/discussions/categories/alpha-feedback) - Leave your feedback about MessageEngine Alpha here!
+  * [Alpha Forum](https://github.com/afkvido-development/MessageEngine-Alpha/discussions/categories/alpha-forum) - Discuss MessageEngine Alpha here!
+  * [Alpha Bug Report](https://github.com/afkvido-development/MessageEngine-Alpha/issues/new/choose) - Report a bug in MessageEngine Alpha
 
 
 
