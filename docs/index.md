@@ -1,7 +1,7 @@
 # MessageEngine
 
 ### Download Compiled MessageEngine
-[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="200"/>](https://github.com/afkvido-development/MessageEngine/releases)
+[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="200"/>](https://github.com/afkvido-development/MessageEngine/releases/latest)
 
 ### Download Source Code .zip [Latest]
 [<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="200"/>](https://github.com/afkvido-development/MessageEngine/archive/refs/heads/OfficialRelease.zip)
