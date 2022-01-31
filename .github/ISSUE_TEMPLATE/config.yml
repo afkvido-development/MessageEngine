@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Suggestion
+    url: https://github.com/afkvido-development/MessageEngine/discussions/new?category=suggestions
+    about: Suggest something for MessageEngine!
   - name: Need help?
     url: https://disboard.org/server/893975758677086238
     about: Ask questions in our discord!
