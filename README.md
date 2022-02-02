@@ -1,5 +1,59 @@
-# MessageEngine
+<h1 align = "center">MessageEngine</h1>
 
+<h5 align = "center">
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/pulse">
+	<img alt="Commits" src = "https://img.shields.io/github/commit-activity/y/afkvido-development/MessageEngine?color=purple&label=Commits&logo=Git&logoColor=white&style=for-the-badge">
+</a>⠀
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/releases/latest">	
+	<img alt="Version" src="https://img.shields.io/github/v/release/afkvido-development/MessageEngine?label=Version&logo=Java&logoColor=white&style=for-the-badge">
+</a>⠀
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/tree/OfficialRelease">	
+	<img alt="Data" src="https://img.shields.io/github/repo-size/afkvido-development/MessageEngine?color=lightblue&label=Data&logo=GitHub&logoColor=white&style=for-the-badge">
+</a>⠀	
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/stargazers">	
+	<img alt="Stars" src="https://img.shields.io/github/stars/afkvido-development/MessageEngine?logo=GitHub&logoColor=white&style=for-the-badge">
+</a>⠀
+	
+<p></p>	
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/blob/OfficialRelease/LICENSE.txt">	
+	<img alt="License" src="https://img.shields.io/badge/License-MPL--2.0-important?logo=GitHub&logoColor=white&style=for-the-badge">
+</a>⠀
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/actions">	
+	<img alt="Actions" src="https://img.shields.io/github/workflow/status/afkvido-development/MessageEngine/CI?label=Checks&logo=GitHub%20Actions&logoColor=white&style=for-the-badge">
+</a>⠀
+	
+	
+<a href = "https://github.com/afkvido-development/MessageEngine/search?l=java">	 
+	<img alt="Java" src="https://img.shields.io/github/languages/top/afkvido-development/MessageEngine?color=cyan&logo=java&logoColor=white&style=for-the-badge">⠀
+</a>⠀
+
+<a href = "https://disboard.org/server/893975758677086238">	 
+	<img alt="Discord" src="https://img.shields.io/discord/893975758677086238?color=blue&label=Discord&logo=Discord&logoColor=white&style=for-the-badge">
+</a>⠀
+
+<p></p>	
+	
+<a href = "https://github.com/afkvido-development/MessageEngine-API">
+    <img alt="API" src="https://img.shields.io/website?down_color=critical&down_message=Offline&label=API&logo=CircleCI&logoColor=white&style=for-the-badge&up_color=brgreen&up_message=Online&url=https%3A%2F%2Fraw.githubusercontent.com%2Fafkvido-development%2FMessageEngine-API%2Fmaster%2Fsrc%2Fapi%2FAPI.yml">
+</a>⠀
+
+<a href = "https://github.com/afkvido-development/MessageEngine-PTB/find/OfficialRelease">
+	<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/afkvido-development/MessageEngine?color=green&label=Lines&logo=Circle&logoColor=white&style=for-the-badge">
+</a>⠀
+
+<a href = "https://github.com/afkvido-development/MessageEngine/issues">	
+	<img alt="issues" src="https://img.shields.io/github/issues/afkvido-development/MessageEngine?color=success&label=issues&logo=GitHub%20Actions&logoColor=white&style=for-the-badge">
+</a>⠀	
+	
+</h5>⠀
+
+______
 [<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>](https://afkvido-development.github.io/MessageEngine/)
 
 This is the official release, the code is stable.
@@ -48,8 +102,8 @@ Looking for a more fresh/updated version? [Public Test Beta](https://github.com/
   * [Alpha Forum](https://github.com/afkvido-development/MessageEngine-Alpha/discussions/categories/alpha-forum) - Discuss MessageEngine Alpha here!
   * [Alpha Bug Report](https://github.com/afkvido-development/MessageEngine-Alpha/issues/new/choose) - Report a bug in MessageEngine Alpha
 
+_____
 
-
-<h1 align="center">
+<h2 align="center">
 <img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
-	</h1>
+	</h2>
