@@ -54,18 +54,28 @@
 </h5>⠀
 
 ______
-[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>](https://afkvido-development.github.io/MessageEngine/)
+<a href = "https://afkvido-development.github.io/MessageEngine/">
+<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>
+</a>
 
+<p></p>
+<p>
 This is the official release, the code is stable.
-Looking for a more fresh/updated version? [Public Test Beta](https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta)
+	Looking for a more fresh/updated version? Check out the <a href = "https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta"> Public Test Beta</a>!
+</p>
+
+<h2>Contact Us</h2>
+
+<a href = "https://disboard.org/server/893975758677086238">
+	
+<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/full_logo_blurple_RGB.png" width="170">	
+	
+</a>	
 
 
-## Contact Us
+<h2>Features and commands</h2>
 
-[<img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/full_logo_blurple_RGB.png" width="170"/>](https://disboard.org/server/893975758677086238)
-
-## Features and commands
-[Check out the wiki!](https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list)
+<a href = "https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list">Check out the wiki!</a>
 
 ### MessageEngine Official
   * [MessageEngine](https://github.com/afkvido-development/MessageEngine) - The stable release of MessageEngine
