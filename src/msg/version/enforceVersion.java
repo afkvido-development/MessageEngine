@@ -1,13 +1,24 @@
 package msg.version;
-import msg.resocurces.c;
+
+import msg.i;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Scanner;
 
-public class enforceVersion {
+/** Class is used to enforce the version, aka prevent people from running old versions of MessageEngine without using debugs */
+public final @Unmodifiable @NotNull class enforceVersion {
 
+    public static Boolean debug = false;
 
+    /** This is what is run to enforce the version. */
+    public static void fire () {
 
-    public static void fire() {
+        if (debug) {
+
+            i.line(i.yellow + "EnforceVersion is disabled.\nThis should " + i.red + "ONLY" + i.yellow + " be used for debugging purposes." + i.white);
+
+        } else {
 
         Scanner wait = new Scanner(System.in);
 
@@ -21,11 +32,11 @@ public class enforceVersion {
 
 
         if (apiConnection.equals("false")) {
-            System.out.println(c.rd + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine");
+            i.line(i.red + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine Alpha");
             wait.nextLine();
             System.exit(0);
         } else if (!apiConnection.equals("api\n")) {
-            System.out.println(c.rd + "API error, make sure you're on the latest version of MessageEngine" + c.rs);
+            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine Alpha" + i.white);
             wait.nextLine();
             System.exit(0);
         }
@@ -36,25 +47,29 @@ public class enforceVersion {
         String latest = "waiting";
 
         try {
-            latest = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/Stable.yml");
+            latest = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/Alpha.yml");
         } catch (Exception ignored) {}
 
         if (latest.equals("waiting")) {
 
-            System.out.println(c.rd + "API error, make sure you're on the latest version of MessageEngine" + c.rs);
+            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine Alpha" + i.white);
             wait.nextLine();
             System.exit(0);
 
         } else if (!(Version.Version + "\n").equals(latest)) {
-            System.out.print(c.yw + "You are running MessageEngine " + c.cy + Version.Version + c.yw + ", the latest version is " + c.cy + latest + c.yw + ".");
-            System.out.println(c.rd + "You are on an unsupported version of MessageEngine. \nMake sure you're on the latest version of MessageEngine" + c.rs);
-            System.out.println(c.cy + "Download the latest version of MessageEngine: https://afkvido-development.github.io/MessageEngine/");
+            i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the latest version is " + i.cyan + latest.replace("\n", "") + i.yellow + ".");
+            i.line(i.red + "\nYou are on an unsupported version of MessageEngine Alpha. \nMake sure you're on the latest version of MessageEngine Alpha" + i.white);
+            i.line(i.cyan + "Download the latest version of MessageEngine: https://messageengine-alpha.github.io");
             wait.nextLine();
             System.exit(0);
+
+
+        }
         }
 
     }
 
-
+    /** Private constructor prevents utility class from being initialized. */
+    private enforceVersion () {}
 
 }

@@ -1,8 +1,16 @@
 package msg.version;
 
-public final class Version {
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
-    /**
+/** <strong>Version tracker</strong>, to enforce updates and correct server-to-client version.
+ * <p></p> This utility class cannot be initialized.
+ * */
+public @NotNull @Unmodifiable final class Version {
+
+    /*
+     * ...........................................................................
+     *
      *  NOTE: IF YOU ARE MAKING YOUR OWN PROJECT WITH MESSAGEENGINE THEN READ THIS.
      *  ..........................................................................
      *
@@ -17,17 +25,19 @@ public final class Version {
      *  PLEASE CONTACT ME ON MY DISCORD SERVER https://disboard.org/server/893975758677086238
      *  ............................................................
      *
-     *  IF YOU ARE ACTUALLY USING MESSAGEENGINE AS INTENDED:
-     *  If you are injecting messageengine in your project, we ask that you use the variable injectVersion instead of Version.
+     *  If you are injecting messageengine in your project, please use injectVersion instead of Version
      *
      *
      */
 
+    /** Version of MessageEngine */
+    public @NotNull @Unmodifiable static final String Version = "0.1.3";
 
-    public static final String Version = "v0.1.2";
+    /** Version of MessageEngine that gets injected into other projects. */
+    public @NotNull @Unmodifiable static final String injectVersion = Version + "+Inject";
 
-    public static final String injectVersion = "v0.1.2+Inject";
-
+    /** Utility class <strong>Version</strong> cannot be initialized.*/
+    private Version () {}
 
 
 

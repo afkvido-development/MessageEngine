@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug (Latest)" type="JarApplication">
+    <output_file path="$PROJECT_DIR$/out/logs/Debug_Latest.txt" is_save="true" />
+    <option name="JAR_PATH" value="$PROJECT_DIR$/build/latest.jar" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="PASS_PARENT_ENVS" value="false" />
+    <envs>
+      <env name="CONFIG" value="debug" />
+    </envs>
+    <method v="2">
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="latest" />
+      </option>
+    </method>
+  </configuration>
+</component>

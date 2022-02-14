@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test Version package" type="JUnit" factoryName="JUnit" folderName="Package tests">
+    <output_file path="$PROJECT_DIR$/out/logs/Test_Version_package.txt" is_save="true" />
+    <module name="MessageEngine" />
+    <option name="MAIN_CLASS_NAME" value="" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="directory" />
+    <dir value="$PROJECT_DIR$/test/msg/version" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="latest" />
+        <artifact name="MessageEngine-Alpha" />
+      </option>
+    </method>
+  </configuration>
+</component>

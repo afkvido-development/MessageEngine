@@ -1,13 +1,16 @@
 package msg.version;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class URLreader {
+/** This is used to read URLs.*/
+public interface URLreader {
 
-
-    public static String check(String c) throws Exception {
+    /** Read a URL */
+    static @NotNull String check (@NotNull String c) throws Exception {
 
         URL oracle = new URL(c);
         BufferedReader in = new BufferedReader(

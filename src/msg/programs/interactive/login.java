@@ -1,29 +1,51 @@
 package msg.programs.interactive;
 
 import msg.Main;
-import msg.resocurces.account.Account;
-import msg.resocurces.c;
-import msg.resocurces.rank;
+import msg.i;
+import msg.resources.account.Account;
+import msg.resources.rank;
 import msg.version.URLreader;
 import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
 
-public class login {
+public final class login {
 
-    static String svAddress;
-    static String disabled;
-    static String svName;
-    static String svUrl;
-    static String svVersion;
-    static String server_address;
+    /** Server Address */
+    private static String svAddress;
 
-    static String username;
-    static String password;
+    /** Is the server disabled? */
+    private static String disabled;
 
+    /** Server Name */
+    private static String svName;
 
-    public static void serverLogin() {
+    /** Server URL */
+    private static String svUrl;
+
+    /** Server Version */
+    private static String svVersion;
+
+    /** Server Address */
+    public static String server_address;
+
+    /** Debug mode for local server */
+    public static Boolean debug = false;
+
+    /** User's username */
+    private static String username;
+
+    /** User's password */
+    private static String password;
+
+    //------------------------------------
+
+    /** This is run when the client needs to log in */
+    public static void go () { if (debug == null || !debug) serverLogin(); }
+
+    /** Log in to a server */
+    private static void serverLogin () {
 
         boolean success;
 
@@ -32,25 +54,22 @@ public class login {
             success = false;
 
             Scanner server_address_scan = new Scanner(System.in);
-            System.out.print(c.cy + "Server Address: ");
+            i.text(i.cyan + "Server Address: ");
             server_address = server_address_scan.nextLine();
 
             Scanner username_scan = new Scanner(System.in);
-            System.out.print(c.cy + "Username: ");
+            i.text(i.cyan + "Username: ");
             username = username_scan.nextLine();
 
             Scanner password_scan = new Scanner(System.in);
-            System.out.print(c.cy + "Password: ");
+            i.text(i.cyan + "Password: ");
             password = password_scan.nextLine();
 
 
-            if (!server_address.endsWith(".msgeng")) {
-                System.out.println(c.yw + "Server address must end with .msgeng");
-            }
 
 
             String ghServerAddress = "https://github.com/" + server_address;
-            String mainYml = "https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Main.yml";
+            String mainYml = "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml";
             String p = "";
 
 
@@ -65,7 +84,7 @@ public class login {
 
                 if (valid) {
 
-                    System.out.println(c.gr + "Successfully pinged " + c.cy + svAddress);
+                    i.line(i.green + "Successfully pinged " + i.cyan + svAddress);
                     String n = "";
 
 
@@ -73,7 +92,7 @@ public class login {
 
                     try {
 
-                        n = URLreader.check("https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Accounts/!%20AccountList.yml");
+                        n = URLreader.check("https://raw.githubusercontent.com/" + server_address + "/main/src/Accounts/!%20AccountList.yml");
 
                     } catch (Exception ignored) {}
 
@@ -85,7 +104,7 @@ public class login {
                     for (String value : line) {
 
                         if (value.equals(username)) {
-                            System.out.println("Account listed (1/2)");
+                            i.line("Account listed (1/2)");
                             break;
                         }
 
@@ -99,7 +118,7 @@ public class login {
 
                     try {
 
-                       s = URLreader.check("https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Accounts/" + username + ".yml");
+                       s = URLreader.check("https://raw.githubusercontent.com/" + server_address + "/main/src/Accounts/" + username + ".yml");
 
                     } catch (Exception ignored) {}
 
@@ -109,18 +128,18 @@ public class login {
 
                     if (serverAccUsername.equals(username) && serverAccPassword.equals(password)) {
 
-                        System.out.println(c.gr + "Successfully connected to " + c.pr + svName + c.gr + " (" + c.cy + svAddress + c.gr + ") as " + c.cy + username);
+                        i.line(i.green + "Successfully connected to " + i.purple + svName + i.green + " (" + i.cyan + svAddress + i.green + ") as " + i.cyan + username);
                         success = true;
 
                     } else {
-                        System.out.println(c.yw + "Credentials did not match");
+                        i.line(i.yellow + "Credentials did not match");
                     }
 
 
 
 
                 } else {
-                    System.out.println(c.rd + "Could not connect to " + c.cy + server_address);
+                    i.line(i.red + "Could not connect to " + i.cyan + server_address);
                 }
 
 
@@ -129,7 +148,8 @@ public class login {
 
     }
 
-    public static void SortMainYml (@NotNull String mainYml) {
+    /** Sort Main.yml from a server, while logging in */
+    private static void SortMainYml (@NotNull String mainYml) {
 
         String[] lines = mainYml.split("\\n");
 
@@ -141,7 +161,8 @@ public class login {
 
     }
 
-    public static Boolean checkServerValidity () {
+    /** This checks if the server can be logged in to from this client */
+    public static @NotNull Boolean checkServerValidity () {
 
         Boolean[] valid = new Boolean[5];
 
@@ -151,26 +172,25 @@ public class login {
         valid[3] = true;
         valid[4] = Version.Version.equals(svVersion);
 
-        for (int i = 0; i < valid.length; i++) {
-            if (!valid[i]) {
+        for (int l = 0; l < valid.length; l++) {
+            if (!valid[l]) {
 
-                System.out.println(c.rd + "Server invalid");
+                i.line(i.red + "Server invalid");
 
-                switch (i) {
-                    case 0:
-                        System.out.println(c.yw + "Server Address is invalid. ");
-                        System.out.println(c.wh + "at " + c.cy + "https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Main.yml");
-                        break;
-                    case 1:
-                        System.out.println(c.yw + "Server is disabled. ");
-                        System.out.println(c.wh + "at " + c.cy + "https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Main.yml");
-                        break;
-                    case 4:
-                        System.out.println(c.yw + "Server version does not match client version.");
-                        System.out.println(c.wh + "at " + c.cy + "https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Main.yml");
-                    default:
-                        throw new IndexOutOfBoundsException("420: How did we get here?");
-
+                switch (l) {
+                    case 0 -> {
+                        i.line(i.yellow + "Server Address is invalid. ");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml");
+                    }
+                    case 1 -> {
+                        i.line(i.yellow + "Server is disabled. ");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml");
+                    }
+                    case 4 -> {
+                        i.line(i.yellow + "Server version does not match client version.");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml");
+                    }
+                    default -> throw new IndexOutOfBoundsException("420: How did we get here?");
                 }
 
                 return false;
@@ -179,25 +199,22 @@ public class login {
             }
         }
 
-        // TEMPORARY UNTIL CHATSERVER WORKS:
 
-        Main.loggedin =  temporary();
+        setAccount(getAccount());
 
-        // END TEMPORARY
 
         return true;
 
     }
 
-
-
-    private static Account temporary () {
+    /** This configures the account on the client once it's been read from the server */
+    private static Account getAccount() {
 
         String rank1 = "DEFAULT";
 
         try {
 
-            rank1 = URLreader.check("https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/Accounts/" + username + ".yml");
+            rank1 = URLreader.check("https://raw.githubusercontent.com/" + server_address + "/main/src/Accounts/" + username + ".yml");
 
         } catch (Exception ignored) {}
 
@@ -224,4 +241,9 @@ public class login {
         return new Account(username, password, rank3, "");
     }
 
+    /** This sets the account once it's been obtained. */
+    public static void setAccount (@NotNull Account account) { Main.loggedin = account; }
+
+    /** Private constructor prevents the login class from being initialized. */
+    private login () {}
 }
