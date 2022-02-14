@@ -32,11 +32,11 @@ public final @Unmodifiable @NotNull class enforceVersion {
 
 
         if (apiConnection.equals("false")) {
-            i.line(i.red + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine Alpha");
+            i.line(i.red + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine");
             wait.nextLine();
             System.exit(0);
         } else if (!apiConnection.equals("api\n")) {
-            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine Alpha" + i.white);
+            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine" + i.white);
             wait.nextLine();
             System.exit(0);
         }
@@ -47,19 +47,19 @@ public final @Unmodifiable @NotNull class enforceVersion {
         String latest = "waiting";
 
         try {
-            latest = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/Alpha.yml");
+            latest = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/Stable.yml");
         } catch (Exception ignored) {}
 
         if (latest.equals("waiting")) {
 
-            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine Alpha" + i.white);
+            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine" + i.white);
             wait.nextLine();
             System.exit(0);
 
         } else if (!(Version.Version + "\n").equals(latest)) {
             i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the latest version is " + i.cyan + latest.replace("\n", "") + i.yellow + ".");
-            i.line(i.red + "\nYou are on an unsupported version of MessageEngine Alpha. \nMake sure you're on the latest version of MessageEngine Alpha" + i.white);
-            i.line(i.cyan + "Download the latest version of MessageEngine: https://messageengine-alpha.github.io");
+            i.line(i.red + "\nYou are on an unsupported version of MessageEngine. \nMake sure you're on the latest version of MessageEngine" + i.white);
+            i.line(i.cyan + "Download the latest version of MessageEngine: https://github.com/afkvido-development/MessageEngine/releases/latest ");
             wait.nextLine();
             System.exit(0);
 
