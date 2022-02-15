@@ -9,10 +9,22 @@ import java.net.URL;
 /** This is used to read URLs.*/
 public interface URLreader {
 
-    /** Read a URL */
-    static @NotNull String check (@NotNull String c) throws Exception {
+    String fail = "URLreader failed";
 
-        URL oracle = new URL(c);
+
+    /** Read a URL */
+    static @NotNull String check (@NotNull String url) {
+        String r = fail;
+        try {
+            r = read(url);
+        } catch (Exception ignored) {}
+        return r;
+
+    }
+
+    private static @NotNull String read (@NotNull String url) throws Exception {
+
+        URL oracle = new URL(url);
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(oracle.openStream()));
 
@@ -23,7 +35,6 @@ public interface URLreader {
 
         in.close();
         return r.toString();
-
     }
 
 

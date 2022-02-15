@@ -11,61 +11,66 @@ public final @Unmodifiable @NotNull class enforceVersion {
 
     public static Boolean debug = false;
 
+
     /** This is what is run to enforce the version. */
     public static void fire () {
 
+        boolean valid = false;
+        Scanner wait = new Scanner(System.in);
+        String latestVersion = "waiting";
+
+
+
+
         if (debug) {
-
             i.line(i.yellow + "EnforceVersion is disabled.\nThis should " + i.red + "ONLY" + i.yellow + " be used for debugging purposes." + i.white);
-
         } else {
 
-        Scanner wait = new Scanner(System.in);
+            String apiConnection = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/API.yml");
 
-        String apiConnection = "false";
+            if (apiConnection.equals(URLreader.fail)) {
+                i.line(i.red + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine");
+                wait.nextLine();
+                System.exit(0);
+            } else if (!apiConnection.equals("api\n")) {
+                i.line(i.red + "API error, make sure you're on the latest version of MessageEngine" + i.white);
+                wait.nextLine();
+                System.exit(0);
+            }
 
-        try {
 
-            apiConnection = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/API.yml");
-
-        } catch (Exception ignored) {}
+            String allowed;
+            allowed = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/AllowedVersions.yml");
 
 
-        if (apiConnection.equals("false")) {
-            i.line(i.red + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine");
-            wait.nextLine();
-            System.exit(0);
-        } else if (!apiConnection.equals("api\n")) {
-            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine" + i.white);
-            wait.nextLine();
-            System.exit(0);
+            String[] allowedVersions = allowed.split("\\n");
+
+
+            latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml");
+
+
+
+            valid = false;
+
+            for (String allowedVersion : allowedVersions) {
+
+                if ((Version.Version + "\n").equals(allowedVersion.replace("\n", ""))) {
+                    valid = true;
+                    i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the latest version is " + i.cyan + latestVersion + i.gray + ".");
+                }
+            }
+
         }
 
 
-
-
-        String latest = "waiting";
-
-        try {
-            latest = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/Stable.yml");
-        } catch (Exception ignored) {}
-
-        if (latest.equals("waiting")) {
-
-            i.line(i.red + "API error, make sure you're on the latest version of MessageEngine" + i.white);
-            wait.nextLine();
-            System.exit(0);
-
-        } else if (!(Version.Version + "\n").equals(latest)) {
-            i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the latest version is " + i.cyan + latest.replace("\n", "") + i.yellow + ".");
+        if (!valid) {
+            i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the latest version is " + i.cyan + latestVersion.replace("\n", "") + i.yellow + ".");
             i.line(i.red + "\nYou are on an unsupported version of MessageEngine. \nMake sure you're on the latest version of MessageEngine" + i.white);
             i.line(i.cyan + "Download the latest version of MessageEngine: https://github.com/afkvido-development/MessageEngine/releases/latest ");
             wait.nextLine();
             System.exit(0);
-
-
         }
-        }
+
 
     }
 

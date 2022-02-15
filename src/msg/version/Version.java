@@ -14,8 +14,8 @@ public @NotNull @Unmodifiable final class Version {
      *  NOTE: IF YOU ARE MAKING YOUR OWN PROJECT WITH MESSAGEENGINE THEN READ THIS.
      *  ..........................................................................
      *
-     *  For forks without pull requests: make the version vX.X.X-Yourgithubname
-     *  Example: v0.0.0-afkvido
+     *  For forks without pull requests: make the version X.X.X-Yourgithubname
+     *  Example: 0.0.0-afkvido
      * ......................................................................
      *
      *  For pull requests: Do not change the version, we will do this ourselves.
