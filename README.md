@@ -77,17 +77,17 @@ This is the official release, the code is stable.
 
 <a href = "https://github.com/afkvido/MessageEngine/wiki/Commands#commands-list">Check out the wiki!</a>
 
-### The repository
-  * [MessageEngine](https://github.com/afkvido-development/MessageEngine) - The stable release of MessageEngine
-  * [MessageEngine Announcements](https://github.com/afkvido-development/MessageEngine/discussions/categories/announcements) - Announcements for MessageEngine
-  * [MessageEngine Official Release](https://github.com/afkvido-development/MessageEngine/releases) - A compiled JAR of MessageEngine.
-  * [Wiki](https://github.com/afkvido-development/MessageEngine/wiki) - The official wiki for MessageEngine
-  * [Community Q&A](https://github.com/afkvido-development/MessageEngine/discussions/categories/community-q-a) - Ask the community a question here! You can also answer questions from the community if you know the answer!
-  * [Official Forum](https://github.com/afkvido-development/MessageEngine/discussions/categories/forum) - Discuss anything about MessageEngine here!
-  * [Official Q&A](https://github.com/afkvido-development/MessageEngine/discussions/categories/official-q-a) - Ask staff questions about MessageEngine here!
-  * [Project Showcase](https://github.com/afkvido-development/MessageEngine/discussions/categories/project-showcase) - Show off something you've made with MessageEngine
-  * [Suggestions](https://github.com/afkvido-development/MessageEngine/discussions/categories/suggestions) - Suggest something for MessageEngine here!
-  * [Bug Report](https://github.com/afkvido-development/MessageEngine/issues/new/choose) - Report a bug in MessageEngine
+## The repository
+  * <a href = "https://github.com/afkvido-development/MessageEngine">MessageEngine</a> - The stable release of MessageEngine
+  * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/announcements">MessageEngine Announcements</a> - Announcements for MessageEngine
+  * <a href = "https://github.com/afkvido-development/MessageEngine/releases">MessageEngine Official Release</a> - A compiled JAR of MessageEngine.
+  * <a href = "https://github.com/afkvido-development/MessageEngine/wiki">Wiki</a> - The official wiki for MessageEngine
+  * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/community-q-a">Community Q&A</a> - Ask the community a question here! You can also answer questions from the community if you know the answer!
+  * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/forum">Official Forum</a> - Discuss anything about MessageEngine here!
+  * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/official-q-a">Official Q&A</a> - Ask staff questions about MessageEngine here!
+  * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/project-showcase">Project Showcase</a> - Show off something you've made with MessageEngine
+  * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/suggestions">Suggestions</a> - Suggest something for MessageEngine here!
+  * <a href = "https://github.com/afkvido-development/MessageEngine/issues/new/choose">Bug Report</a> - Report a bug in MessageEngine
 
 _____
 
