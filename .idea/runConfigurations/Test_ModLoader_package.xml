@@ -2,6 +2,9 @@
   <configuration default="false" name="Test ModLoader package" type="JUnit" factoryName="JUnit" folderName="Package tests">
     <output_file path="$PROJECT_DIR$/out/logs/Test_ModLoader_package.txt" is_save="true" />
     <module name="MessageEngine" />
+    <selectedOptions>
+      <option name="environmentVariables" visible="false" />
+    </selectedOptions>
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="directory" />

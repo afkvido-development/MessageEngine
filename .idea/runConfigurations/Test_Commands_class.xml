@@ -1,6 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test Commands class" type="JUnit" factoryName="JUnit" folderName="Class tests">
     <module name="MessageEngine" />
+    <selectedOptions>
+      <option name="environmentVariables" visible="false" />
+    </selectedOptions>
     <option name="PACKAGE_NAME" value="msg.resources.commands" />
     <option name="MAIN_CLASS_NAME" value="msg.resources.commands.CommandsTest" />
     <option name="METHOD_NAME" value="" />

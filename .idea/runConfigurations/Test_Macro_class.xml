@@ -1,6 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test Macro class" type="JUnit" factoryName="JUnit" folderName="Class tests">
     <module name="MessageEngine" />
+    <selectedOptions>
+      <option name="environmentVariables" visible="false" />
+    </selectedOptions>
     <option name="PACKAGE_NAME" value="msg.modloader.mods" />
     <option name="MAIN_CLASS_NAME" value="msg.modloader.mods.macroTest" />
     <option name="METHOD_NAME" value="" />

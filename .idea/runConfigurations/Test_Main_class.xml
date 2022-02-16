@@ -1,6 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test Main class" type="JUnit" factoryName="JUnit" folderName="Class tests">
     <module name="MessageEngine" />
+    <selectedOptions>
+      <option name="environmentVariables" visible="false" />
+    </selectedOptions>
     <option name="PACKAGE_NAME" value="msg" />
     <option name="MAIN_CLASS_NAME" value="msg.MainTest" />
     <option name="METHOD_NAME" value="" />
