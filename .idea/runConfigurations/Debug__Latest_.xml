@@ -10,7 +10,7 @@
     </envs>
     <method v="2">
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="latest" />
+        <artifact name="Latest" />
       </option>
     </method>
   </configuration>

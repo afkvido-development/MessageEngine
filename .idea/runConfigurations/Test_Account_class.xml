@@ -9,8 +9,7 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="latest" />
-        <artifact name="MessageEngine-Alpha" />
+        <artifact name="Latest" />
       </option>
     </method>
   </configuration>
