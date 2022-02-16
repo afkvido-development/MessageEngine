@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main: Debug" type="Application" factoryName="Application">
+    <envs>
+      <env name="CONFIG" value="debug" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="msg.Main" />
+    <module name="MessageEngine" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="Latest" />
+      </option>
+    </method>
+  </configuration>
+</component>

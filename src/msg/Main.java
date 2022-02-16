@@ -36,7 +36,7 @@ import java.util.Scanner;
 
         i.info("Starting PreLoader...");
         PreLoader.PreLoading(false);
-        i.info("PreLoader finished.");
+        i.info("PreLoader finished.\n\n");
 
 
         // SETUP
