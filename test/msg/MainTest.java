@@ -8,10 +8,15 @@ import msg.resources.account.Account;
 import msg.resources.rank;
 import org.junit.jupiter.api.Test;
 
-/** All tests for the <strong>main</strong> class. */
+/** All tests for the <strong>main</strong> class. <p></p>
+ * @author gemsvidø
+ * @since 0.2.0 */
 class MainTest {
 
-    /** This tests the <strong>main</strong> method in the <strong>main</strong> class, using developer.LocalServer to run an offline server. */
+    /** This tests the <strong>main</strong> method in the <strong>main</strong> class,
+     * using developer.LocalServer to run an offline server. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void mainLocalServer () {
 
         System.out.println("\nMainTest.main  [\n");
@@ -47,7 +52,9 @@ class MainTest {
         System.out.println("\n]\n\n\n");
     }
 
-    /** This tests the <strong>main</strong> method in the <strong>main</strong> class, using <code>gemvido/AlphaCS.msgeng</code> as the server. */
+    /** This tests the <strong>main</strong> method in the <strong>main</strong> class, using <code>gemvido/AlphaCS.msgeng</code> as the server. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void mainOnlineServer () {
         System.out.println("\nMainTest.main  [\n");
 
@@ -86,7 +93,8 @@ class MainTest {
         System.out.println("\n]\n\n\n");
     }
 
-    /** Private constructor prevents utility class <strong>MainTest</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>MainTest</strong> from being initialized. <p></p>
+     * @author gemsvidø */
     private MainTest () {}
 
 

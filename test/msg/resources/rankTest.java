@@ -4,10 +4,14 @@ import org.junit.jupiter.api.Test;
 import msg.i;
 import java.util.Arrays;
 
-/** All tests for the <strong>rank</strong> class. */
+/** All tests for the <strong>rank</strong> class. <p></p>
+ * @author gemsvidø
+ * @since 0.2.0  */
 class rankTest {
 
-    /** This tests the <strong>values</strong> method in the <strong>rank</strong> class. */
+    /** This tests the <strong>values</strong> method in the <strong>rank</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void values () {
         System.out.println("\nrankTest.values  [\n");
         rank[] values = rank.values();
@@ -16,7 +20,9 @@ class rankTest {
 
     }
 
-    /** This tests the <strong>valueOf</strong> method in the <strong>rank</strong> class. */
+    /** This tests the <strong>valueOf</strong> method in the <strong>rank</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void valueOf () {
         System.out.println("\nrankTest.valueOf  [\n");
         rank value = rank.valueOf("OWNER");
@@ -44,7 +50,8 @@ class rankTest {
         System.out.println(i.white + "\n]\n\n\n");
     }
 
-    /** Private constructor prevents utility class <strong>rankTest</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>rankTest</strong> from being initialized. <p></p>
+     * @author gemsvidø */
     private rankTest () {}
 
 }

@@ -3,10 +3,14 @@ package msg.resources;
 import org.junit.jupiter.api.Test;
 import msg.i;
 
-/** All tests for the <strong>ClipBored</strong> class. */
+/** All tests for the <strong>ClipBored</strong> class. <p></p>
+ * @author gemsvidø
+ * @since 0.2.0  */
 class ClipBoredTest {
 
-    /** This tests the <strong>copy</strong> method in the <strong>ClipBored</strong> class. */
+    /** This tests the <strong>copy</strong> method in the <strong>ClipBored</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void copy () {
         i.line("\nClipBoredTest.copy  [\n");
         String text = "Copied to clipboard (copy method)";
@@ -16,7 +20,9 @@ class ClipBoredTest {
         i.line(i.white + "\n]");
     }
 
-    /** This tests the <strong>get</strong> method in the <strong>ClipBored</strong> class. */
+    /** This tests the <strong>get</strong> method in the <strong>ClipBored</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void get () {
         i.line("\nClipBoredTest.get  [\n");
         String text = "Copied to clipboard (get method)";
@@ -26,7 +32,9 @@ class ClipBoredTest {
         i.line(i.white + "\n]");
     }
 
-    /** This tests the <strong>print</strong> method in the <strong>ClipBored</strong> class. */
+    /** This tests the <strong>print</strong> method in the <strong>ClipBored</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0   */
     @Test void print () {
         i.line("\nClipBoredTest.print  [\n");
         String text = "Copied to clipboard (print method)";
@@ -36,6 +44,7 @@ class ClipBoredTest {
         i.line(i.white + "\n]");
     }
 
-    /** Private constructor prevents utility class <strong>ClipBoredTest</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>ClipBoredTest</strong> from being initialized.  <p></p>
+     * @author gemsvidø */
     private ClipBoredTest () {}
 }

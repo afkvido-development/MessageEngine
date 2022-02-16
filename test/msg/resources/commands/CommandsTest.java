@@ -6,11 +6,15 @@ import msg.i;
 import msg.resources.rank;
 import org.junit.jupiter.api.Test;
 
-/** All tests for the <strong>Commands</strong> class. */
+/** All tests for the <strong>Commands</strong> class.  <p></p>
+ * @author gemsvidø
+ * @since 0.2.0  */
 final class CommandsTest {
 
 
-    /** This tests the <strong>fire</strong> method in the <strong>Commands</strong> class. */
+    /** This tests the <strong>fire</strong> method in the <strong>Commands</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0   */
     @Test void fire () {
         System.out.println("\nCommandsTest.fire  [\n");
         Account account = new Account("Account for Commands", "AFC password", rank.ADMINISTRATOR);
@@ -19,7 +23,9 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>changePassword_SC</strong> method in the <strong>Commands</strong> class. */
+    /** This tests the <strong>changePassword_SC</strong> method in the <strong>Commands</strong> class.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void changePassword_SC () {
         System.out.println("\nCommandsTest.changePassword_SC  [\n");
         // Test coming soon.
@@ -27,7 +33,9 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>generateUUIDs</strong> method in the <strong>Commands</strong> class, and the account has VIP. */
+    /** This tests the <strong>generateUUIDs</strong> method in the <strong>Commands</strong> class, and the account has VIP. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0   */
     @Test void generateUUIDsYesVIP () {
         System.out.println("\nCommandsTest.generateUUIDsYesVIP  [\n");
         Account account = new Account("Account for Commands", "AFC password", rank.VIP);
@@ -35,7 +43,9 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>generateUUIDs</strong> method in the <strong>Commands</strong> class, but the account does not have VIP. */
+    /** This tests the <strong>generateUUIDs</strong> method in the <strong>Commands</strong> class, but the account does not have VIP.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void generateUUIDsNoVIP () {
         System.out.println("\nCommandsTest.generateUUIDsNoVIP  [\n");
         Account account = new Account("Account for Commands", "AFC password", rank.DEFAULT);
@@ -43,7 +53,9 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>changePasswordSuccess</strong> method in the <strong>Commands</strong> class, and the process is successful. */
+    /** This tests the <strong>changePasswordSuccess</strong> method in the <strong>Commands</strong> class, and the process is successful.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void changePasswordSuccess () {
         System.out.println("\nCommandsTest.changePasswordSuccess  [\n");
         Main.loggedin = new Account("Password testing Account", "Password", rank.VIP);
@@ -53,7 +65,9 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>changePasswordSuccess</strong> method in the <strong>Commands</strong> class, and the process is unsuccessful, because the old password is identical to the new password. */
+    /** This tests the <strong>changePasswordSuccess</strong> method in the <strong>Commands</strong> class, and the process is unsuccessful, because the old password is identical to the new password. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0   */
     @Test void changePasswordFail1 () {
         System.out.println("\nCommandsTest.changePasswordFail1  [\n");
         Main.loggedin = new Account("Password testing Account", "Password", rank.VIP);
@@ -63,7 +77,10 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>changePasswordSuccess</strong> method in the <strong>Commands</strong> class, and the process is unsuccessful, because the new password doesn't match the confirm new password. */
+    /** This tests the <strong>changePasswordSuccess</strong> method in the <strong>Commands</strong> class,
+     * and the process is unsuccessful, because the new password doesn't match the confirm new password. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0   */
     @Test void changePasswordFail2 () {
         System.out.println("\nCommandsTest.changePasswordFail2  [\n");
         Main.loggedin = new Account("Password testing Account", "Password", rank.VIP);
@@ -73,7 +90,9 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>ez</strong> method in the <strong>Commands</strong> class. */
+    /** This tests the <strong>ez</strong> method in the <strong>Commands</strong> class. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0   */
     @Test void ez () {
         System.out.println("\nCommandsTest.ez  [\n");
         String ze = Commands.ez();
@@ -81,7 +100,8 @@ final class CommandsTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** Private constructor prevents utility class <strong>CommandsTest</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>CommandsTest</strong> from being initialized.  <p></p>
+     * @author gemsvidø */
     private CommandsTest () {}
 
 }

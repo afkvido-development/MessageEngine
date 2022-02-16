@@ -5,10 +5,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-/** All tests for the <strong>CommandsTypes</strong> class. */
+/** All tests for the <strong>CommandsTypes</strong> class. <p></p>
+ * @author gemsvidø
+ * @since 0.2.0   */
 final class CommandsTypesTest {
 
-    /** This tests the <strong>values</strong> method in the <strong>CommandsTypes</strong> class. */
+    /** This tests the <strong>values</strong> method in the <strong>CommandsTypes</strong> class.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void values () {
         System.out.println("\nCommandsTypesTest.values  [\n");
         CommandsTypes[] values = CommandsTypes.values();
@@ -16,7 +20,9 @@ final class CommandsTypesTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** This tests the <strong>values</strong> method in the <strong>CommandsTypes</strong> class. */
+    /** This tests the <strong>values</strong> method in the <strong>CommandsTypes</strong> class.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     @Test void valueOf () {
         System.out.println("\nCommandsTypesTest.valueOf  [\n");
         CommandsTypes value = CommandsTypes.valueOf("changePassword_SC");
@@ -34,6 +40,7 @@ final class CommandsTypesTest {
         System.out.println(i.white + "\n]");
     }
 
-    /** Private constructor prevents utility class <strong>CommandsTypesTest</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>CommandsTypesTest</strong> from being initialized. <p></p>
+     * @author gemsvidø */
     private CommandsTypesTest () {}
 }

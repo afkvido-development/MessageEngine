@@ -6,10 +6,14 @@ import msg.resources.account.Account;
 import msg.resources.rank;
 import org.junit.jupiter.api.Test;
 
-/** All tests for the <strong>macro</strong> class. */
+/** All tests for the <strong>macro</strong> class.  <p></p>
+ * @author gemsvidø
+ * @since 0.2.0 */
 final class macroTest {
 
-    /** This tests the <strong>tbh</strong> method in the <strong>macro</strong> class, with debug mode on. */
+    /** This tests the <strong>tbh</strong> method in the <strong>macro</strong> class, with debug mode on.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     @Test void tbhYesDebug() {
         System.out.println("\nmacroTest.tbhYesDebug  [\n");
         Account afm = new Account("Author for macro", "AFM password", rank.VIP);
@@ -19,7 +23,9 @@ final class macroTest {
         System.out.println("\n]\n\n\n");
     }
 
-    /** This tests the <strong>tbh</strong> method in the <strong>macro</strong> class, with debug mode off. */
+    /** This tests the <strong>tbh</strong> method in the <strong>macro</strong> class, with debug mode off.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     @Test void tbhNoDebug() {
         System.out.println("\nmacroTest.tbhNoDebug  [\n");
         Account afm = new Account("Author for macro", "AFM password", rank.VIP);
@@ -29,6 +35,7 @@ final class macroTest {
         System.out.println("\n]\n\n\n");
     }
 
-    /** Private constructor prevents utility class <strong>macroTest</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>macroTest</strong> from being initialized. <p></p>
+     * @author gemsvidø */
     private macroTest () {}
 }
