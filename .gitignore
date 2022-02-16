@@ -1,3 +1,4 @@
-# MessageEngine Official Release
 # Exclude:
 /out/
+/.idea/shelf/
+/.idea/workspace.xml
