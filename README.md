@@ -59,10 +59,7 @@ ______
 </a>
 
 <p></p>
-<p>
-This is the official release, the code is stable.
-	Looking for a more fresh/updated version? Check out the <a href = "https://github.com/afkvido-development/MessageEngine-PTB/tree/PublicTestBeta"> Public Test Beta</a>!
-</p>
+
 
 <h2>Contact Us</h2>
 
