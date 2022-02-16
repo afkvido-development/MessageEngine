@@ -7,6 +7,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
+/** The Account class, customizable with ranks, usernames, passwords, and UUIDs!
+ * This class is the most chaotic and glitchy part of MessageEngine.   <p></p>
+ * @author gemsvidø
+ * @since 0.1.0 */
 public class Account {
 
     //-----------------------------------------------------------
@@ -14,28 +18,44 @@ public class Account {
     //-----------------------------------------------------------
 
 
-    /** Account username */
+    /** Account username   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     protected @NotNull String username;
 
-    /** Account password */
+    /** Account password   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     protected @NotNull String password;
 
-    /** Account UUID. Generated/Decided on construct, stays final. */
+    /** Account UUID. Generated/Decided on construct, stays final.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     protected @NotNull final String uuid;
 
-    /** Account rank. */
+    /** Account rank.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     protected rank rank;
 
-    /** Rendered account rank */
+    /** Rendered account rank   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     protected String rankToString;
 
-    /** Name color of the rendered account display, usually decided by a rank. */
+    /** Name color of the rendered account display, usually decided by a rank.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     protected String namecolor;
 
-    /** Rendered account username */
+    /** Rendered account username   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     protected String usernameToString;
 
-    /** Account connection token */
+    /** Account connection token   <p></p>
+     * @author gemsvidø
+     * @since 0.1.2  */
     protected String connection_token;
 
 
@@ -47,7 +67,9 @@ public class Account {
     // Constructors (Public)
     //-----------------------------------------------------------
 
-    /** Construct an account with a pre-determined UUID. */
+    /** Construct an account with a pre-determined UUID.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     public Account (@NotNull String username, @NotNull String password, @NotNull rank rank, @Nullable String uuid) {
         this.username = username;
         this.password = password;
@@ -63,7 +85,9 @@ public class Account {
 
     }
 
-    /** Construct an account with a randomly generated UUID. */
+    /** Construct an account with a randomly generated UUID.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.13 */
     public Account (@NotNull String username, @NotNull String password, @NotNull rank rank) {
         this.username = username;
         this.password = password;
@@ -82,6 +106,9 @@ public class Account {
     // Change Property (Private)
     //-----------------------------------------------------------
 
+    /** Change the rank of the account <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     private void changeRank_ (@NotNull rank newRank) {
 
         this.rank = newRank;
@@ -116,10 +143,16 @@ public class Account {
         }
     }
 
+    /** Change the password of the account   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     private void changePassword_ (@NotNull String newPassword) {
         this.password = newPassword;
     }
 
+    /** Change the username of the account    <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     private void changeUsername_ (@NotNull String newUsername) {
         this.username = newUsername;
 
@@ -171,7 +204,9 @@ public class Account {
     // Getter (Public)
     //-----------------------------------------------------------
 
-    /** Returns a summary of the account, including some potentially sensitive information. */
+    /** Returns a summary of the account, including some potentially sensitive information.    <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public @NotNull String toString () {
         return namecolor + username + i.purple + "'s Account Information\n" + i.blue + "Username: "
         + namecolor + this.username + i.blue + "\nPassword: " + i.cyan + this.password + i.blue + "\nUUID: "
@@ -179,19 +214,29 @@ public class Account {
         + "\nDisplay Name: " + usernameToString;
     }
 
-    /** Returns the account's rank */
+    /** Returns the account's rank   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     public @NotNull rank getRank () { return rank; }
 
-    /** Returns the account's username */
+    /** Returns the account's username   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     public @NotNull String getUsername () { return username; }
 
-    /** Returns the account's display name. */
+    /** Returns the account's display name.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0  */
     public @NotNull String getDisplayName () { return usernameToString; }
 
-    /** Returns the account's ANSI color code. */
+    /** Returns the account's ANSI color code.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.11 */
     public @NotNull String getColorCode () { return this.namecolor; }
 
-    /** Get the account's password.  */
+    /** Get the account's password.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.0   */
     public @NotNull String getPassword () { return password; }
 
 
@@ -202,12 +247,18 @@ public class Account {
     // Connection token (Public)
     //-----------------------------------------------------------
 
-    /** Create a new connection token for the account */
+    /** Create a new connection token for the account   <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     public void createConnectionToken () { connection_token = UUID.randomUUID().toString(); }
 
-    /** Returns the connection token for the account */
+    /** Returns the connection token for the account   <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     public @Nullable String requestConnectionToken () { return connection_token; }
 
-    /** Sets the account's connection token to <code>null</code> */
+    /** Sets the account's connection token to <code>null</code>    <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     public void resetConnectionToken () { connection_token = null; }
 }

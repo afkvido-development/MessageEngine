@@ -10,17 +10,24 @@ import java.util.Scanner;
 
 
 /** The main class. It all happens here. <p></p>
- * @author gemsvidø */
+ * @author gemsvidø
+ * @since 0.0.0 */
 @SuppressWarnings("InfiniteLoopStatement") public final class Main {
 
 
-    /** Account that is logged in. */
+    /** Account that is logged in. <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static Account loggedin;
 
-    /** Input from Scanner, used to read sent messages and commands */
+    /** Input from Scanner, used to read sent messages and commands. <p></p>
+     * @author gemsvidø
+     * @since 0.0.0 */
     public volatile static String Input;
 
-    /** The main method. It all happens here. */
+    /** The main method. It all happens here. <p></p>
+     * @author gemsvidø
+     * @since 0.0.0 */
     public static void main (@Nullable String[] args) {
 
 
@@ -49,7 +56,8 @@ import java.util.Scanner;
         }
     }
 
-    /** Utility class <strong>Main</strong> cannot be initialized*/
+    /** Utility class <strong>Main</strong> cannot be initialized <p></p>
+     @author gemsvidø */
     private Main () {}
 
 

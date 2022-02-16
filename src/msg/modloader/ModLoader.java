@@ -4,6 +4,9 @@ import msg.i;
 import msg.programs.PreLoader;
 import org.jetbrains.annotations.NotNull;
 
+/** ModLoader, this loads all the mods.  <p></p>
+ * @author gemsvidø
+ * @since 0.1.12 */
 @SuppressWarnings("EmptyMethod")
 public final class ModLoader {
 
@@ -23,7 +26,9 @@ public final class ModLoader {
     */
 
 
-    /** List of all scripts to be loaded. */
+    /** List of all scripts to be loaded.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     private static void ScriptList (@NotNull Integer b) {
 
         // LOAD ALL SCRIPTS HERE
@@ -33,7 +38,9 @@ public final class ModLoader {
     }
 
 
-    /** List of all mods to be loaded. <strong>CURRENTLY WIP</strong>  */
+    /** List of all mods to be loaded. <strong>CURRENTLY WIP</strong>   <p></p>
+     * @author gemsvidø
+     * @since <strong>COMING SOON</strong> */
     private static void ModList (@NotNull Integer c) {
 
 
@@ -42,7 +49,9 @@ public final class ModLoader {
 
     }
 
-    /** This method loads all the mods */
+    /** This method loads all the mods  <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     public static void LoadMods (@NotNull String ClientToken, int p) {
 
         if (!ClientToken.equals(i.getToken())) {
@@ -58,7 +67,8 @@ public final class ModLoader {
     }
 
 
-    /** Private constructor prevents utility class <strong>ModLoader</strong> from being initialized. */
+    /** Private constructor prevents utility class <strong>ModLoader</strong> from being initialized.  <p></p>
+     * @author gemsvidø */
     private ModLoader () {}
 
 

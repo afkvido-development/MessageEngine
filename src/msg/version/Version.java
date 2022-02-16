@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Unmodifiable;
 /** <strong>Version tracker</strong>, to enforce updates and correct server-to-client version.
  * <br></br>This utility class cannot be initialized. <p></p>
  * @author gemsvidø
+ * @since 0.1.4
  * */
 public @NotNull @Unmodifiable final class Version {
 
@@ -31,13 +32,18 @@ public @NotNull @Unmodifiable final class Version {
      *
      */
 
-    /** Version of MessageEngine */
-    public @NotNull @Unmodifiable static final String Version = "0.1.4";
+    /** Version of MessageEngine  <p></p>
+     * @author gemsvidø
+     * @since 0.1.4 */
+    public @NotNull @Unmodifiable static final String Version = "0.2.0";
 
-    /** Version of MessageEngine that gets injected into other projects. */
+    /** Version of MessageEngine that gets injected into other projects.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.5 */
     public @NotNull @Unmodifiable static final String injectVersion = Version + "+Inject";
 
-    /** Utility class <strong>Version</strong> cannot be initialized.*/
+    /** Utility class <strong>Version</strong> cannot be initialized.  <p></p>
+     * @author gemsvidø */
     private Version () {}
 
 

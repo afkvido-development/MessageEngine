@@ -15,23 +15,31 @@ import java.util.UUID;
 
 
 /** <strong>The new database</strong>, also a utility class! <p></p>
- * @author gemsvidø */
+ * @author gemsvidø
+ * @since 0.2.0 */
 public @NotNull @Unmodifiable final class i {
 
     //---------------------------------------------------
     // Clipboard
 
-    public static final ClipBored cb = new ClipBored();
+    /** Utility ClipBoard  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
+    public static final @NotNull @Unmodifiable ClipBored cb = new ClipBored();
 
     // Clipboard
     //---------------------------------------------------
     //---------------------------------------------------
     // Token/Security things
 
-    /** Client Token */
+    /** Client Token   <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     private static final @Unmodifiable @NotNull String Token = UUID.randomUUID().toString();
 
-    /** Get Client Token */
+    /** Get Client Token  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static @Unmodifiable @NotNull String getToken () {
         return Token;
     }
@@ -41,10 +49,14 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Debug stuff
 
-    /** Decides if the project is using debug mode or not. If it is, then debug lines will show. */
+    /** Decides if the project is using debug mode or not. If it is, then debug lines will show.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.1 */
     public static volatile @NotNull Boolean debugMode = true;
 
-    /** Prints a debug line, only if debug mode is enabled. */
+    /** Prints a debug line, only if debug mode is enabled.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.1 */
     public static void debugLine (@Nullable String type, @NotNull String text) {
 
         if (i.debugMode) {
@@ -66,7 +78,9 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Accounts
 
-    /** Local Server is where messages are sent. This will be removed in v1.0, because we will have real, multiplayer servers. */
+    /** Local Server is where messages are sent. This will be removed in v1.0, because we will have real, multiplayer servers.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull Account localServer = new Account("localServer", UUID.randomUUID().toString(), rank.CHAT);
 
     // Accounts
@@ -74,39 +88,57 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Color Codes
     
-    /** <strong>Reset</strong> color to <strong>default white</strong> */
+    /** <strong>Reset</strong> color to <strong>default white</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String white = "\u001B[0m";
 
 
-    /** Change color to <strong>Black</strong> */
+    /** Change color to <strong>Black</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String black = "\u001B[30m";
 
 
-    /** Change color to <strong>Red</strong> */
+    /** Change color to <strong>Red</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String red = "\u001B[31m";
 
 
-    /** Change color to <strong>Green</strong> */
+    /** Change color to <strong>Green</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String green = "\u001B[32m";
 
 
-    /** Change color to <strong>Yellow</strong> */
+    /** Change color to <strong>Yellow</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String yellow = "\u001B[33m";
 
 
-    /** Change color to <strong>Blue</strong> */
+    /** Change color to <strong>Blue</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String blue = "\u001B[34m";
 
 
-    /** Change color to <strong>Purple</strong> */
+    /** Change color to <strong>Purple</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String purple = "\u001B[35m";
 
 
-    /** Change color to <strong>Cyan</strong> */
+    /** Change color to <strong>Cyan</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String cyan = "\u001B[36m";
 
 
-    /** Change color to <strong>Gray</strong> */
+    /** Change color to <strong>Gray</strong>  <p></p>
+     * @author gemsvidø
+     * @since 0.1.0 */
     public static final @Unmodifiable @NotNull String gray = "\u001B[37m";
 
 
@@ -115,6 +147,9 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Info method
 
+    /** Prints an info line  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void info (@NotNull String info) {
         System.out.print(i.gray + "[Info] " + info + i.white);
     }
@@ -126,22 +161,30 @@ public @NotNull @Unmodifiable final class i {
     // Text method
 
 
-    /** Just a better version of <code>System.out.print()</code> <br></br> For Strings only. */
+    /** Just a better version of <code>System.out.print()</code> <br></br> For Strings only.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void text (@NotNull String text) {
         System.out.print(text + i.white);
     }
 
-    /** Just a better version of <code>System.out.print()</code> <br></br> For all Objects only. */
+    /** Just a better version of <code>System.out.print()</code> <br></br> For all Objects only.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void text (@NotNull Object text) {
         System.out.print(text + i.white);
     }
 
-    /** Just a better version of <code>System.out.print()</code> <br></br> Prints literally nothing, just resets the color. */
+    /** Just a better version of <code>System.out.print()</code> <br></br> Prints literally nothing, just resets the color.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void text ()  {
         System.out.print(i.white);
     }
 
-    /** Just a better version of <code>System.out.print()</code> <br></br> For integers only. */
+    /** Just a better version of <code>System.out.print()</code> <br></br> For integers only.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void text (@NotNull Integer text) {
         System.out.print(text + i.white);
     }
@@ -151,22 +194,30 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Line method
 
-    /** Just a better version of <code>System.out.println()</code> <br></br> For Strings only. */
+    /** Just a better version of <code>System.out.println()</code> <br></br> For Strings only.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void line (@NotNull String text) {
         System.out.print(text + i.white + "\n");
     }
 
-    /** Just a better version of <code>System.out.println()</code> <br></br> For all Objects only. */
+    /** Just a better version of <code>System.out.println()</code> <br></br> For all Objects only.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void line (@NotNull Object text) {
         System.out.print(text + i.white + "\n");
     }
 
-    /** Just a better version of <code>System.out.println()</code> <br></br> Prints a blank line */
+    /** Just a better version of <code>System.out.println()</code> <br></br> Prints a blank line  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void line () {
         System.out.println();
     }
 
-    /** Just a better version of <code>System.out.println()</code> <br></br> For integers only. */
+    /** Just a better version of <code>System.out.println()</code> <br></br> For integers only.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     public static void line (@NotNull Integer text) {
         System.out.println(text + i.white + "\n");
     }
@@ -176,13 +227,17 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Send a message
 
-    /** Send a TextMessage, but do not trigger any mods */
+    /** Send a TextMessage, but do not trigger any mods. <p></p>
+     * @author gemsvidø
+     * @since 0.1.13 */
     public static void display (@NotNull TextMessage message) {
         i.debugLine("Info", "message()");
         line(message);
     }
 
-    /** Send a TextMessage, and triggers all mods that trigger on message() */
+    /** Send a TextMessage, and triggers all mods that trigger on message() <p></p>
+     * @author gemsvidø
+     * @since 0.1.10 */
     public static void message (@NotNull TextMessage message) {
         display(message);
         ModLoader.LoadMods(i.getToken(), 5);
@@ -193,7 +248,9 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Process input
 
-    /** Process an input */
+    /** Process an input <p></p>
+     * @author gemsvidø
+     * @since 0.1.13 */
     static void ProcessInput (@NotNull String Input) {
 
         TextMessage nextmsg;

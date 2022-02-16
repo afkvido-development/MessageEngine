@@ -10,13 +10,19 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.Objects;
 import java.util.UUID;
 
-/** PreLoader runs before you can log in */
+/** PreLoader runs before you can log in   <p></p>
+ * @author gemsvidø
+ * @since 0.1.6 */
 public @NotNull final class PreLoader {
 
-    /** When PreLoader finishes, this is set to true, to prevent PreLoader from running multiple times */
+    /** When PreLoader finishes, this is set to true, to prevent PreLoader from running multiple times  <p></p>
+     * @author gemsvidø
+     * @since 0.1.6 */
     private static boolean PreLoaderFinished = false;
 
-    /** Run Configurations handle debug mode and main mode. */
+    /** Run Configurations handle debug mode and main mode.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.6 */
     private static void RunConfig () {
 
         i.line(i.gray + "[Info/PreLoader] Starting PreLoader RunConfig");
@@ -37,17 +43,23 @@ public @NotNull final class PreLoader {
 
     }
 
-    /** Loads all the mods */
+    /** Loads all the mods  <p></p>
+     * @author gemsvidø
+     * @since 0.1.6 */
     private static void loadMods (int e) { ModLoader.LoadMods(i.getToken(), e); }
 
-    /** Prevents PreLoader from being initialized. */
+    /** Prevents PreLoader from being initialized.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.6 */
     private PreLoader () {}
 
 
 
     // ----------------------------------- Above: Resources, Below: PreLoading --------------
 
-    /** The entire PreLoading process. */
+    /** The entire PreLoading process.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.6 */
     public static void PreLoading (@NotNull @Unmodifiable Boolean Force) {
 
         if (Force || !PreLoaderFinished) {

@@ -7,13 +7,16 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.Scanner;
 
 /** Class is used to enforce the version, aka prevent people from running old versions of MessageEngine without using debugs. <p></p>
- * @author gemsvidø */
+ * @author gemsvidø
+ *  @since 0.1.4 */
 public final @Unmodifiable @NotNull class enforceVersion {
 
     public static Boolean debug = false;
 
 
-    /** This is what is run to enforce the version. */
+    /** This is what is run to enforce the version.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.4 */
     public static void fire () {
 
         boolean valid = false;
@@ -82,7 +85,8 @@ public final @Unmodifiable @NotNull class enforceVersion {
 
     }
 
-    /** Private constructor prevents utility class from being initialized. */
+    /** Private constructor prevents utility class from being initialized.  <p></p>
+     * @author gemsvidø  */
     private enforceVersion () {}
 
 }

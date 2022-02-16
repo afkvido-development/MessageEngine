@@ -11,9 +11,13 @@ import java.io.IOException;
 
 /** ClipBored is a class used for interacting with the clipboard (ex. Copy and Paste).
  * I found some of the code on the web idk, but this class is improved and put together by gemsvidø. <p></p>
- * @author gemsvidø */
+ * @author gemsvidø
+ *  @since 0.1.12 */
 public @NotNull final class ClipBored {
 
+    /** Copy a string to the clipboard.   <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     void Copy (@NotNull String text) {
 
         StringSelection stringSelection = new StringSelection(text);
@@ -21,6 +25,9 @@ public @NotNull final class ClipBored {
         clipboard.setContents(stringSelection, null);
     }
 
+    /** Returns the clipboard contents as a string   <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     @NotNull String GetContents () {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Clipboard clipboard = toolkit.getSystemClipboard();
@@ -33,14 +40,23 @@ public @NotNull final class ClipBored {
         return result;
     }
 
+    /** Print the clipboard contents   <p></p>
+     * @author gemsvidø
+     * @since 0.1.12 */
     void Print () {
         i.text(GetContents());
     }
 
+    /** Print the Clipboard contents onto a new line.   <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     void PrintLine () {
         i.line(GetContents());
     }
 
+    /** Public constructor to initialize the ClipBored object   <p></p>
+     * @author gemsvidø
+     * @since 0.2.0  */
     public ClipBored () {}
 
 

@@ -7,44 +7,68 @@ import msg.resources.rank;
 import msg.version.URLreader;
 import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.Scanner;
 
+/** The server login thing, except it logs into a local server if the local server debug mode is on.  <p></p>
+ * @author gemsvidø
+ * @since 0.1.8 */
 public final class login {
 
-    /** Server Address */
+    /** Server Address  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String svAddress;
 
-    /** Is the server disabled? */
+    /** Is the server disabled?  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String disabled;
 
-    /** Server Name */
+    /** Server Name  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String svName;
 
-    /** Server URL */
+    /** Server URL  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String svUrl;
 
-    /** Server Version */
+    /** Server Version  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String svVersion;
 
-    /** Server Address */
+    /** Server Address  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     public static String server_address;
 
-    /** Debug mode for local server */
+    /** Debug mode for local server  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     public static Boolean debug = false;
 
-    /** User's username */
+    /** User's username  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String username;
 
-    /** User's password */
+    /** User's password  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static String password;
 
     //------------------------------------
 
-    /** This is run when the client needs to log in */
+    /** This is run when the client needs to log in  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     public static void go () { if (debug == null || !debug) serverLogin(); }
 
-    /** Log in to a server */
+    /** Log in to a server  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static void serverLogin () {
 
         boolean success;
@@ -150,7 +174,9 @@ public final class login {
 
     }
 
-    /** Sort Main.yml from a server, while logging in */
+    /** Sort Main.yml from a server, while logging in  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static void SortMainYml (@NotNull String mainYml) {
 
         String[] lines = mainYml.split("\\n");
@@ -163,7 +189,9 @@ public final class login {
 
     }
 
-    /** This checks if the server can be logged in to from this client */
+    /** This checks if the server can be logged in to from this client  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     public static @NotNull Boolean checkServerValidity () {
 
         Boolean[] valid = new Boolean[5];
@@ -209,7 +237,9 @@ public final class login {
 
     }
 
-    /** This configures the account on the client once it's been read from the server */
+    /** This configures the account on the client once it's been read from the server  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
     private static Account getAccount() {
 
         String rank1 = "DEFAULT";
@@ -243,9 +273,14 @@ public final class login {
         return new Account(username, password, rank3, "");
     }
 
-    /** This sets the account once it's been obtained. */
-    public static void setAccount (@NotNull Account account) { Main.loggedin = account; }
+    /** This sets the account once it's been obtained.  <p></p>
+     * @author gemsvidø
+     * @since 0.1.8 */
+    public static void setAccount (@NotNull Account account) {
+        Main.loggedin = account;
+    }
 
-    /** Private constructor prevents the login class from being initialized. */
+    /** Private constructor prevents the login class from being initialized.  <p></p>
+     * @author gemsvidø */
     private login () {}
 }

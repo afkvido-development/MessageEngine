@@ -9,19 +9,25 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
 import java.util.UUID;
 
-
+/** Commands, these can be run by macros or from local commands. <p></p>
+ * @author gemsvidø
+ * @since 0.1.12  */
 public final class Commands {
 
     // Fire
 
-    /** Runs a command. <br></br> This is mainly for macros. <br></br> Required VarArgs: CommandTypes cmd*/
+    /** Runs a command. <br></br> This is mainly for macros. <br></br> Required VarArgs: CommandTypes cmd <p></p>
+     * @author gemsvidø
+     *  @since 0.1.13  */
     public static void fire (@NotNull CommandsTypes cmd) { switch (cmd) { case ez -> ez(); case generateUUIDs -> generateUUIDs(Main.loggedin); case changePassword_SC -> changePassword_SC(); } }
 
 
     // Public: User Commands (Input from scanner)
 
 
-    /** Change password, input is obtained through a console dialog with Scanners. */
+    /** Change password, input is obtained through a console dialog with Scanners. <p></p>
+     * @author gemsvidø
+     *  @since 0.1.9   */
     public static void changePassword_SC () {
 
 
@@ -65,7 +71,9 @@ public final class Commands {
 
     }
 
-    /** Prints 4 randomly generated UUIDs, only if the account is VIP or above. */
+    /** Prints 4 randomly generated UUIDs, only if the account is VIP or above. <p></p>
+     * @author gemsvidø
+     *  @since 0.1.2   */
     public static void generateUUIDs (@NotNull Account acc) {
 
         if (acc.getRank() != rank.DEFAULT) {
@@ -79,7 +87,9 @@ public final class Commands {
 
     }
 
-    /** Change password, input is already sourced as VarArgs. You can make a custom input with this. */
+    /** Change password, input is already sourced as VarArgs. You can make a custom input with this. <p></p>
+     * @author gemsvidø
+     *  @since 0.1.9   */
     public static void changePassword (@NotNull String username, @NotNull String oldPwd, @NotNull String newPwd, @NotNull String confirmNewPwd) {
 
         if (!username.equals(Main.loggedin.getUsername())) {
@@ -96,10 +106,13 @@ public final class Commands {
 
     }
 
-    /** Returns a random <strong>ez</strong> response from the server */
+    /** Returns a random <strong>ez</strong> response from the server <p></p>
+     * @author gemsvidø
+     * @since 0.1.2   */
     public static @NotNull String ez () { return ez.fire(); }
 
-    /** Utility class <strong>Commands</strong> cannot be initialized*/
+    /** Utility class <strong>Commands</strong> cannot be initialized <p></p>
+     * @author gemsvidø  */
     private Commands () {}
 
 }
