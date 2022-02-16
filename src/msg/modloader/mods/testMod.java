@@ -10,6 +10,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
+/** Just a mod for testing.
+ * <p></p>
+ * @author gemsvidø
+ * @since 0.1.12
+ * @see msg.modloader.ModLoader */
 @Mod public interface testMod {
 
      @Script static void previewMessage(@NotNull Integer r) {

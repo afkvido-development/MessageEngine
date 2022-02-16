@@ -11,7 +11,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.UUID;
 
 
-/** THIS IS MEANT FOR <strong>DEBUGGING</strong> PURPOSES <strong>ONLY</strong>. THIS IS NOT A "JAILBREAK". You may make modified MessageEngine clients with this, but please don't abuse this debug panel. */
+/** THIS IS MEANT FOR <strong>DEBUGGING</strong> PURPOSES <strong>ONLY</strong>.
+ * THIS IS NOT A "JAILBREAK". You may make modified MessageEngine clients with this, but please don't abuse this debug panel.
+ * <p></p>
+ * @author gemsvidø
+ * @since 0.1.12
+ * @see msg.modloader.ModLoader */
 @Mod public interface developer {
 
 
