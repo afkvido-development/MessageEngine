@@ -1,8 +1,8 @@
 package msg;
 
 import msg.modloader.ModLoader;
-import msg.programs.PreLoader;
 import msg.programs.interactive.login;
+import msg.resources.ClipBored;
 import msg.resources.account.Account;
 import msg.resources.commands.Commands;
 import msg.resources.message.TextMessage;
@@ -14,14 +14,52 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.UUID;
 
 
-/** <strong>The new database</strong>, also a utility class! */
-public final class i {
+/** <strong>The new database</strong>, also a utility class! <p></p>
+ * @author gemsvidø */
+public @NotNull @Unmodifiable final class i {
 
+    //---------------------------------------------------
+    // Clipboard
+
+    public static final ClipBored cb = new ClipBored();
+
+    // Clipboard
+    //---------------------------------------------------
+    //---------------------------------------------------
+    // Token/Security things
+
+    /** Client Token */
+    private static final @Unmodifiable @NotNull String Token = UUID.randomUUID().toString();
+
+    /** Get Client Token */
+    public static @Unmodifiable @NotNull String getToken () {
+        return Token;
+    }
+
+    // Token/Security things
+    //---------------------------------------------------
     //---------------------------------------------------
     // Debug stuff
 
     /** Decides if the project is using debug mode or not. If it is, then debug lines will show. */
     public static volatile @NotNull Boolean debugMode = true;
+
+    /** Prints a debug line, only if debug mode is enabled. */
+    public static void debugLine (@Nullable String type, @NotNull String text) {
+
+        if (i.debugMode) {
+
+            if (type == null) {
+                i.line(i.gray + "[Debug] " + text + i.white);
+            } else if (type.equals("")) {
+                i.line(i.gray + text + i.white);
+            } else {
+                i.line(i.gray + "[" + type + "] " + text + i.white);
+            }
+
+        }
+    }
+
 
     // Debug stuff
     //---------------------------------------------------
@@ -29,7 +67,7 @@ public final class i {
     // Accounts
 
     /** Local Server is where messages are sent. This will be removed in v1.0, because we will have real, multiplayer servers. */
-    public static final @NotNull Account localServer = new Account("localServer", UUID.randomUUID().toString(), rank.CHAT);
+    public static final @Unmodifiable @NotNull Account localServer = new Account("localServer", UUID.randomUUID().toString(), rank.CHAT);
 
     // Accounts
     //---------------------------------------------------
@@ -73,6 +111,16 @@ public final class i {
 
 
     // Color codes
+    //---------------------------------------------------
+    //---------------------------------------------------
+    // Info method
+
+    public static void info (@NotNull String info) {
+        System.out.print(i.gray + "[Info] " + info + i.white);
+    }
+
+
+    // Info method
     //---------------------------------------------------
     //---------------------------------------------------
     // Text method
@@ -126,27 +174,6 @@ public final class i {
     // Line method
     //---------------------------------------------------
     //---------------------------------------------------
-    // Debug Line
-
-    /** Prints a debug line, only if debug mode is enabled. */
-    public static void debugLine (@Nullable String type, @NotNull String text) {
-
-        if (i.debugMode) {
-
-            if (type == null) {
-                i.line(i.gray + "[Debug] " + text + i.white);
-            } else if (type.equals("")) {
-                i.line(i.gray + text + i.white);
-            } else {
-                i.line(i.gray + "[" + type + "] " + text + i.white);
-            }
-
-        }
-    }
-
-    // Debug Line
-    //---------------------------------------------------
-    //---------------------------------------------------
     // Send a message
 
     /** Send a TextMessage, but do not trigger any mods */
@@ -158,7 +185,7 @@ public final class i {
     /** Send a TextMessage, and triggers all mods that trigger on message() */
     public static void message (@NotNull TextMessage message) {
         display(message);
-        ModLoader.LoadMods(PreLoader.getToken(), 5);
+        ModLoader.LoadMods(i.getToken(), 5);
     }
 
     // Send a message
@@ -204,7 +231,7 @@ public final class i {
                 i.line(print);
             }
 
-            ModLoader.LoadMods(PreLoader.getToken(), 7);
+            ModLoader.LoadMods(i.getToken(), 7);
 
 
         } else {

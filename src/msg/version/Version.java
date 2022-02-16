@@ -4,7 +4,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
 /** <strong>Version tracker</strong>, to enforce updates and correct server-to-client version.
- * <p></p> This utility class cannot be initialized.
+ * <br></br>This utility class cannot be initialized. <p></p>
+ * @author gemsvidø
  * */
 public @NotNull @Unmodifiable final class Version {
 
@@ -31,7 +32,7 @@ public @NotNull @Unmodifiable final class Version {
      */
 
     /** Version of MessageEngine */
-    public @NotNull @Unmodifiable static final String Version = "0.1.3";
+    public @NotNull @Unmodifiable static final String Version = "0.1.4";
 
     /** Version of MessageEngine that gets injected into other projects. */
     public @NotNull @Unmodifiable static final String injectVersion = Version + "+Inject";

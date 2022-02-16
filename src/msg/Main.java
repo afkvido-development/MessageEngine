@@ -9,7 +9,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Scanner;
 
 
-/** The main class. It all happens here. */
+/** The main class. It all happens here. <p></p>
+ * @author gemsvidø */
 @SuppressWarnings("InfiniteLoopStatement") public final class Main {
 
 
@@ -26,16 +27,16 @@ import java.util.Scanner;
 
         // PRE-LOADING
 
-        i.line(i.gray + "[Info] Starting PreLoader...");
+        i.info("Starting PreLoader...");
         PreLoader.PreLoading(false);
-        i.line(i.gray + "[Info] PreLoader finished.");
+        i.info("PreLoader finished.");
 
 
         // SETUP
 
         login.go();
         i.line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName()); // Welcomes user
-        ModLoader.LoadMods(PreLoader.getToken(), 5);
+        ModLoader.LoadMods(i.getToken(), 5);
 
         // Create all local variables
 

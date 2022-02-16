@@ -5,15 +5,13 @@ import msg.modloader.ModLoader;
 import msg.version.Version;
 import msg.version.enforceVersion;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Objects;
 import java.util.UUID;
 
 /** PreLoader runs before you can log in */
 public @NotNull final class PreLoader {
-
-    /** PreLoader token to ensure things like mods only load when permitted */
-    private static final String PreLoaderToken = UUID.randomUUID().toString();
 
     /** When PreLoader finishes, this is set to true, to prevent PreLoader from running multiple times */
     private static boolean PreLoaderFinished = false;
@@ -39,11 +37,8 @@ public @NotNull final class PreLoader {
 
     }
 
-    /** Obtains the PreLoader Token, used for loading things like mods */
-    public static String getToken () { return PreLoaderToken; }
-
     /** Loads all the mods */
-    private static void loadMods (int i) { ModLoader.LoadMods(getToken(), i); }
+    private static void loadMods (int e) { ModLoader.LoadMods(i.getToken(), e); }
 
     /** Prevents PreLoader from being initialized. */
     private PreLoader () {}
@@ -53,7 +48,7 @@ public @NotNull final class PreLoader {
     // ----------------------------------- Above: Resources, Below: PreLoading --------------
 
     /** The entire PreLoading process. */
-    public static void PreLoading (boolean Force) {
+    public static void PreLoading (@NotNull @Unmodifiable Boolean Force) {
 
         if (Force || !PreLoaderFinished) {
 

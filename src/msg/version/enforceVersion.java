@@ -6,7 +6,8 @@ import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Scanner;
 
-/** Class is used to enforce the version, aka prevent people from running old versions of MessageEngine without using debugs */
+/** Class is used to enforce the version, aka prevent people from running old versions of MessageEngine without using debugs. <p></p>
+ * @author gemsvidø */
 public final @Unmodifiable @NotNull class enforceVersion {
 
     public static Boolean debug = false;
@@ -38,6 +39,9 @@ public final @Unmodifiable @NotNull class enforceVersion {
                 System.exit(0);
             }
 
+            latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml");
+
+
 
             String allowed;
             allowed = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/AllowedVersions.yml");
@@ -46,17 +50,21 @@ public final @Unmodifiable @NotNull class enforceVersion {
             String[] allowedVersions = allowed.split("\\n");
 
 
-            latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml");
 
 
+            for (int v = 0; v < allowedVersions.length; v++) {
 
-            valid = false;
-
-            for (String allowedVersion : allowedVersions) {
-
-                if ((Version.Version + "\n").equals(allowedVersion.replace("\n", ""))) {
+                if ((Version.Version).equals(allowedVersions[v].replace("\n", ""))) {
                     valid = true;
-                    i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the latest version is " + i.cyan + latestVersion + i.gray + ".");
+
+                    if (Version.Version.equals(latestVersion.replace("\n", ""))) {
+                        i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the latest version" + i.gray + "!");
+                    } else {
+                        i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the latest version is " + i.cyan + latestVersion + i.gray + ".");
+                    }
+
+
+                    break;
                 }
             }
 

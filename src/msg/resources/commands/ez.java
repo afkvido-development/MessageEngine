@@ -9,6 +9,8 @@ import java.util.Random;
 
 import static msg.programs.interactive.login.server_address;
 
+/** Automatically replaces "ez" with messages from a predetermined list by a ChatServer. Inspired by Hypixel, made by gemsvidø. <p></p>
+ * @author gemsvidø */
 final @NotNull class ez {
 
     private static final @NotNull ArrayList<String> e = new ArrayList<>();

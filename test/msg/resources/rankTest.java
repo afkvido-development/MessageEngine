@@ -8,7 +8,7 @@ import java.util.Arrays;
 class rankTest {
 
     /** This tests the <strong>values</strong> method in the <strong>rank</strong> class. */
-    @Test void values() {
+    @Test void values () {
         System.out.println("\nrankTest.values  [\n");
         rank[] values = rank.values();
         System.out.println(i.yellow + Arrays.toString(values));
@@ -17,7 +17,7 @@ class rankTest {
     }
 
     /** This tests the <strong>valueOf</strong> method in the <strong>rank</strong> class. */
-    @Test void valueOf() {
+    @Test void valueOf () {
         System.out.println("\nrankTest.valueOf  [\n");
         rank value = rank.valueOf("OWNER");
         System.out.println(i.yellow + value);

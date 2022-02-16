@@ -27,7 +27,7 @@ class MainTest {
 
         // Welcome the user
         i.line(Main.loggedin.getColorCode() + "Welcome, " + Main.loggedin.getDisplayName()); // Welcomes user
-        ModLoader.LoadMods(PreLoader.getToken(), 5);
+        ModLoader.LoadMods(i.getToken(), 5);
 
 
 
@@ -63,7 +63,7 @@ class MainTest {
 
         // Welcome the user
         i.line(Main.loggedin.getColorCode() + "Welcome, " + Main.loggedin.getDisplayName()); // Welcomes user
-        ModLoader.LoadMods(PreLoader.getToken(), 5);
+        ModLoader.LoadMods(i.getToken(), 5);
 
 
 

@@ -43,11 +43,11 @@ public final class ModLoader {
     }
 
     /** This method loads all the mods */
-    public static void LoadMods (@NotNull String token, int p) {
+    public static void LoadMods (@NotNull String ClientToken, int p) {
 
-        if (!token.equals(PreLoader.getToken())) {
+        if (!ClientToken.equals(i.getToken())) {
 
-            i.line(i.yellow + "PreLoader token doesn't match." + i.white);
+            i.line(i.yellow + "Client token doesn't match." + i.white);
 
         } else {
 

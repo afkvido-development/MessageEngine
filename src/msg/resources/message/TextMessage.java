@@ -13,6 +13,8 @@ import msg.i;
 import msg.resources.rank;
 import org.jetbrains.annotations.NotNull;
 
+/** The TextMessage class itself, the core of MessageEngine. Made 100% by gemsvidø. <p></p>
+ * @author gemsvidø  */
 public class TextMessage {
 
     public final @NotNull Account author;

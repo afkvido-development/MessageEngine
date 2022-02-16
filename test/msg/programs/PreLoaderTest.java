@@ -9,7 +9,7 @@ final class PreLoaderTest {
     /** This tests the <strong>getToken</strong> method in the <strong>PreLoader</strong> class. */
     @Test void getToken () {
         System.out.println("\nPreLoaderTest.getToken  [\n");
-        String token = PreLoader.getToken();
+        String token = i.getToken();
         System.out.println(i.cyan + token);
         System.out.println(i.white + "\n]");
     }

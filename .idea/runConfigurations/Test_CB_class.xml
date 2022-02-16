@@ -2,7 +2,7 @@
   <configuration default="false" name="Test CB class" type="JUnit" factoryName="JUnit" folderName="Class tests">
     <module name="MessageEngine" />
     <option name="PACKAGE_NAME" value="msg.resources" />
-    <option name="MAIN_CLASS_NAME" value="msg.resources.CBTest" />
+    <option name="MAIN_CLASS_NAME" value="msg.resources.ClipBoredTest" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="PASS_PARENT_ENVS" value="false" />

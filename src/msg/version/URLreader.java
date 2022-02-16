@@ -6,7 +6,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-/** This is used to read URLs.*/
+/** This is used to read URLs. Improved by gemsvido, original from [idk]. <p></p>
+ * @author gemsvido */
 public interface URLreader {
 
     String fail = "URLreader failed";
