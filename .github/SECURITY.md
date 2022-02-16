@@ -1,11 +1,5 @@
 # Security Policy
 
-## Supported Versions
-
-
-| Version       | Supported                        |
-|---------------|----------------------------------|
-| v0.1.0-Stable | Singleplayer, No vulnerabilities |
 
 ## Reporting a Vulnerability
 
