@@ -54,7 +54,7 @@
 </h5>⠀
 
 ______
-<a href = "https://afkvido-development.github.io/MessageEngine/">
+<a href = "https://MessageEngine.github.io">
 <img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/Modern%20Download%20Button.png" width="225"/>
 </a>
 
