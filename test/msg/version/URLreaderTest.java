@@ -21,8 +21,7 @@ class URLreaderTest {
             i.printStackTrace();
         }
         System.out.println(e);
-        System.out.println(i.white + "\n]");
-
+        System.out.println(i.white + "\n]\n\n\n");
     }
 
     /** Private constructor prevents utility class <strong>URLreaderTest</strong> from being initialized. <p></p>

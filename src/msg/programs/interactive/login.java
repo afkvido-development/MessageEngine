@@ -9,6 +9,8 @@ import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
 
+import static msg.i.ServerAddress;
+
 /** The server login thing, except it logs into a local server if the local server debug mode is on.  <p></p>
  * @author gemsvidø
  * @since 0.1.8 */
@@ -32,17 +34,12 @@ public final class login {
     /** Server URL  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    private static String svUrl;
+    @SuppressWarnings("unused") private static String svUrl;
 
     /** Server Version  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
     private static String svVersion;
-
-    /** Server Address  <p></p>
-     * @author gemsvidø
-     * @since 0.1.8 */
-    public static String server_address;
 
     /** Debug mode for local server  <p></p>
      * @author gemsvidø
@@ -64,7 +61,11 @@ public final class login {
     /** This is run when the client needs to log in  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    public static void go () { if (debug == null || !debug) serverLogin(); }
+    public static void go () {
+        if (debug == null || !debug) {
+            serverLogin();
+        }
+    }
 
     /** Log in to a server  <p></p>
      * @author gemsvidø
@@ -79,7 +80,7 @@ public final class login {
 
             Scanner server_address_scan = new Scanner(System.in);
             i.text(i.cyan + "Server Address: ");
-            server_address = server_address_scan.nextLine();
+            ServerAddress = server_address_scan.nextLine();
 
             Scanner username_scan = new Scanner(System.in);
             i.text(i.cyan + "Username: ");
@@ -92,8 +93,8 @@ public final class login {
 
 
 
-            String ghServerAddress = "https://github.com/" + server_address;
-            String mainYml = "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml";
+            String ghServerAddress = "https://github.com/" + ServerAddress;
+            String mainYml = "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml";
             String p = "";
 
 
@@ -116,7 +117,7 @@ public final class login {
 
                     try {
 
-                        n = URLreader.check("https://raw.githubusercontent.com/" + server_address + "/main/src/Accounts/!%20AccountList.yml");
+                        n = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
 
                     } catch (Exception ignored) {}
 
@@ -144,7 +145,7 @@ public final class login {
 
                     try {
 
-                       s = URLreader.check("https://raw.githubusercontent.com/" + server_address + "/main/src/Accounts/" + username + ".yml");
+                       s = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Accounts/" + username + ".yml");
 
                     } catch (Exception ignored) {}
 
@@ -165,7 +166,7 @@ public final class login {
 
 
                 } else {
-                    i.line(i.red + "Could not connect to " + i.cyan + server_address);
+                    i.line(i.red + "Could not connect to " + i.cyan + ServerAddress);
                 }
 
 
@@ -196,7 +197,7 @@ public final class login {
 
         Boolean[] valid = new Boolean[5];
 
-        valid[0] = server_address.equals(svAddress);
+        valid[0] = ServerAddress.equals(svAddress);
         valid[1] = !disabled.equals("true");
         valid[2] = true;
         valid[3] = true;
@@ -210,15 +211,15 @@ public final class login {
                 switch (l) {
                     case 0 -> {
                         i.line(i.yellow + "Server Address is invalid. ");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml");
                     }
                     case 1 -> {
                         i.line(i.yellow + "Server is disabled. ");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml");
                     }
                     case 4 -> {
                         i.line(i.yellow + "Server version does not match client version.");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + server_address + "/main/src/Main.yml");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml");
                     }
                     default -> throw new IndexOutOfBoundsException("420: How did we get here?");
                 }
@@ -246,7 +247,7 @@ public final class login {
 
         try {
 
-            rank1 = URLreader.check("https://raw.githubusercontent.com/" + server_address + "/main/src/Accounts/" + username + ".yml");
+            rank1 = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Accounts/" + username + ".yml");
 
         } catch (Exception ignored) {}
 

@@ -2,12 +2,10 @@ package msg.resources.commands;
 
 import msg.version.URLreader;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
-import static msg.programs.interactive.login.server_address;
+import static msg.i.ServerAddress;
 
 /** Automatically replaces "ez" with messages from a predetermined list by a ChatServer. Inspired by Hypixel, made by gemsvidø. <p></p>
  * @author gemsvidø
@@ -50,7 +48,7 @@ final @NotNull class ez {
         String fetchEz = "";
 
         try {
-            fetchEz = URLreader.check("https://raw.githubusercontent.com/" + server_address.replace(".msgeng", "") + "/main/src/ez/list.txt");
+            fetchEz = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress.replace(".msgeng", "") + "/main/src/ez/list.txt");
         } catch (Exception ignored) {}
 
         String[] ezS = fetchEz.split("\\n");

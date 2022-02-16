@@ -14,8 +14,7 @@ final class developerTest {
     @Test void bypassVersion () {
         System.out.println("\ndeveloperTest.bypassVersion  [\n");
         developer.bypassVersion(3);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>localServer</strong> method in the <strong>developer</strong> class.  <p></p>
      * @author gemsvidø
@@ -23,8 +22,7 @@ final class developerTest {
     @Test void localServer () {
         System.out.println("\ndeveloperTest.localServer  [\n");
         developer.localServer(4);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>developerTest</strong> from being initialized.  <p></p>
      * @author gemsvidø */

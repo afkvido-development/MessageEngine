@@ -18,8 +18,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         String pwd = account.getPassword();
         System.out.println(i.cyan + pwd);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>changepassword</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -30,8 +29,7 @@ final class AccountTest {
         System.out.println(account + "\n");
         account.changePassword("Account Test Account", "ATA Password", "ATA Password CHANGED");
         System.out.println(account);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>changeusername</strong> method in the <strong>Account</strong> class.  <p></p>
      * @author gemsvidø
@@ -42,8 +40,7 @@ final class AccountTest {
         System.out.println(account + "\n");
         account.changeUsername("Account Test Account", "ATA Password", "Account Test Account CHANGED");
         System.out.println(account);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>getRank</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -53,8 +50,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         rank rk = account.getRank();
         System.out.println(rk);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>getUsername</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -64,8 +60,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         String name = account.getUsername();
         System.out.println(name);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>getDisplayName</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -75,8 +70,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         String displayname = account.getDisplayName();
         System.out.println(displayname);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>toString</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -86,8 +80,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         String string = account.toString();
         System.out.println(string);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>getColorCode</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -97,8 +90,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         String color = account.getColorCode();
         System.out.println(color + "This text is the same color as the rank.");
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>createConnectionToken</strong> method in the <strong>Account</strong> class.  <p></p>
      * @author gemsvidø
@@ -109,8 +101,7 @@ final class AccountTest {
         account.createConnectionToken();
         String token = account.requestConnectionToken();
         System.out.println(i.cyan + token);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>requestConnectionToken</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -120,8 +111,7 @@ final class AccountTest {
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         String token = account.requestConnectionToken();
         System.out.println(i.cyan + token);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>resetConnectionToken</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
@@ -130,8 +120,7 @@ final class AccountTest {
         System.out.println("\nAccountTest.resetConnectionToken  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         account.resetConnectionToken();
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>AccountTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

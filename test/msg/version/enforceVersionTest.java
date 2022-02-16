@@ -14,8 +14,7 @@ class enforceVersionTest {
     @Test void fire() {
         System.out.println("\nenforceVersionTest.fire  [\n");
         msg.version.enforceVersion.fire();
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>enforceVersionTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

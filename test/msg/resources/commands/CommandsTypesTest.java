@@ -17,8 +17,7 @@ final class CommandsTypesTest {
         System.out.println("\nCommandsTypesTest.values  [\n");
         CommandsTypes[] values = CommandsTypes.values();
         System.out.println(Arrays.toString(values));
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>values</strong> method in the <strong>CommandsTypes</strong> class.  <p></p>
      * @author gemsvidø
@@ -37,8 +36,7 @@ final class CommandsTypesTest {
         System.out.println(i.yellow + value);
         value = CommandsTypes.valueOf("ez");
         System.out.println(i.yellow + value);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>CommandsTypesTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

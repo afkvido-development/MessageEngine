@@ -49,8 +49,7 @@ class MainTest {
 
 
 
-        System.out.println("\n]\n\n\n");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>main</strong> method in the <strong>main</strong> class, using <code>gemvido/AlphaCS.msgeng</code> as the server. <p></p>
      * @author gemsvidø
@@ -66,7 +65,7 @@ class MainTest {
         login.setAccount(aa);
 
         // Connect to server
-        login.server_address = "gemvido/AlphaCS.msgeng";
+        i.ServerAddress = "gemvido/AlphaCS.msgeng";
 
         // Welcome the user
         i.line(Main.loggedin.getColorCode() + "Welcome, " + Main.loggedin.getDisplayName()); // Welcomes user
@@ -90,8 +89,7 @@ class MainTest {
 
 
 
-        System.out.println("\n]\n\n\n");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>MainTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

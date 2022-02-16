@@ -18,7 +18,7 @@ public @NotNull final class ClipBored {
     /** Copy a string to the clipboard.   <p></p>
      * @author gemsvidø
      * @since 0.1.12 */
-    void Copy (@NotNull String text) {
+    public void Copy (@NotNull String text) {
 
         StringSelection stringSelection = new StringSelection(text);
         java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -28,7 +28,7 @@ public @NotNull final class ClipBored {
     /** Returns the clipboard contents as a string   <p></p>
      * @author gemsvidø
      * @since 0.1.12 */
-    @NotNull String GetContents () {
+    public @NotNull String GetContents () {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Clipboard clipboard = toolkit.getSystemClipboard();
         String result = "";
@@ -43,14 +43,14 @@ public @NotNull final class ClipBored {
     /** Print the clipboard contents   <p></p>
      * @author gemsvidø
      * @since 0.1.12 */
-    void Print () {
+    public void Print () {
         i.text(GetContents());
     }
 
     /** Print the Clipboard contents onto a new line.   <p></p>
      * @author gemsvidø
      * @since 0.2.0 */
-    void PrintLine () {
+    public void PrintLine() {
         i.line(GetContents());
     }
 

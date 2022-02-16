@@ -19,8 +19,7 @@ class TextMessageTest {
         Account recipient = new Account("Recipient Username", "Recipient Password", rank.MVPPLUS2);
         TextMessage message = new TextMessage(account, "Message Text", recipient);
         System.out.println(message);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>TextMessageTest</strong> from being initialized. <p></p>
      * @author gemsvidø  */

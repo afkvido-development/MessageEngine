@@ -48,12 +48,14 @@ import java.util.Scanner;
         // Create all local variables
 
 
-        // Starts the loop, where you can chat and use commands
+        // The loop, where you can chat and use commands.
         while (true) {
             Scanner scan = new Scanner(System.in); // Receives user input
             Input = scan.nextLine(); // Saves user input
             i.ProcessInput(Input);
         }
+
+
     }
 
     /** Utility class <strong>Main</strong> cannot be initialized <p></p>

@@ -20,6 +20,16 @@ import java.util.UUID;
 public @NotNull @Unmodifiable final class i {
 
     //---------------------------------------------------
+    // Server Address
+
+    /** Server Address, accounts and ez messages are fetched from here  <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
+    public static volatile @Unmodifiable String ServerAddress;
+
+    // Server Address
+    //---------------------------------------------------
+    //---------------------------------------------------
     // Clipboard
 
     /** Utility ClipBoard  <p></p>
@@ -272,12 +282,12 @@ public @NotNull @Unmodifiable final class i {
 
                 try {
 
-                    print = URLreader.check("https://raw.githubusercontent.com/" + login.server_address.replace(".msgeng", "") + "/main/src/Commands/" + Input.replace("/", "") + ".txt");
+                    print = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/" + Input.replace("/", "") + ".txt");
 
                 } catch (Exception ignored) {
 
                     try {
-                        print = URLreader.check("https://raw.githubusercontent.com/" + login.server_address.replace(".msgeng", "") + "/main/src/Commands/notfound.txt");
+                        print = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/notfound.txt");
                     } catch (Exception ignore) {
                         print = i.red + "Failed to fetch.";
                     }

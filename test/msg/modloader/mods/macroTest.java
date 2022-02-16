@@ -20,8 +20,7 @@ final class macroTest {
         Main.loggedin = afm;
         i.debugMode = true;
         macro.tbh(6);
-        System.out.println("\n]\n\n\n");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>tbh</strong> method in the <strong>macro</strong> class, with debug mode off.  <p></p>
      * @author gemsvidø
@@ -32,8 +31,7 @@ final class macroTest {
         Main.loggedin = afm;
         i.debugMode = false;
         macro.tbh(6);
-        System.out.println("\n]\n\n\n");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>macroTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

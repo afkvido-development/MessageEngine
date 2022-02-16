@@ -15,8 +15,7 @@ final class PreLoaderTest {
         System.out.println("\nPreLoaderTest.getToken  [\n");
         String token = i.getToken();
         System.out.println(i.cyan + token);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>preLoading</strong> method in the <strong>PreLoader</strong> class. <p></p>
      * @author gemsvidø
@@ -24,8 +23,7 @@ final class PreLoaderTest {
     @Test void preLoadingNormal () {
         System.out.println("\nPreLoaderTest.preLoadingNormal  [\n");
         PreLoader.PreLoading(false);
-        System.out.println("\n]\n\n\n");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>preLoading</strong> method in the <strong>PreLoader</strong> class, it runs PreLoader twice without <code>force</code> being true. <p></p>
      * @author gemsvidø
@@ -34,8 +32,7 @@ final class PreLoaderTest {
         System.out.println("\nPreLoaderTest.preLoadingDoubleNoForce  [\n");
         PreLoader.PreLoading(false);
         PreLoader.PreLoading(false);
-        System.out.println("\n]\n\n\n");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>PreLoaderTest</strong> from being initialized.  <p></p>
      * @author gemsvidø */

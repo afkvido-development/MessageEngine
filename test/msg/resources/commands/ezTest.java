@@ -1,6 +1,5 @@
 package msg.resources.commands;
 
-import msg.programs.interactive.login;
 import msg.i;
 import org.junit.jupiter.api.Test;
 
@@ -17,19 +16,17 @@ final class ezTest {
 
         String ze = ez.fire();
         System.out.println(i.gray + "Ez message: " + i.cyan + ze);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>fire</strong> method in the <strong>ez</strong> class, and connects to the server <code>gemvido/AlphaCS.msgeng</code>. <p></p>
      * @author gemsvidø
      * @since 0.2.0   */
     @Test void fireOnline () {
         System.out.println("\nezTest.fireOnline  [\n");
-        login.server_address = "gemvido/AlphaCS.msgeng";
+        i.ServerAddress = "gemvido/AlphaCS.msgeng";
         String ze = ez.fire();
         System.out.println(i.gray + "Ez message: " + i.cyan + ze);
-        System.out.println(i.white + "\n]");
-    }
+        System.out.println(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>ezTest</strong> from being initialized. <p></p>
      * @author gemsvidø   */
