@@ -6,7 +6,7 @@ ______
 
 ### MicroPRs, README edits, Typo fixes, Other MiniPRs
 - MessageEngine is open to ALL pull requests as long as they are helpful (improve MessageEngine). We allow all types of MiniPRs as long as you follow our pull request guidelines.
-- If you have a random idea, but don't want to open a PR, feel free to talk about it in our [Discord](https://disboard.org/server/893975758677086238)
+- If you have a random idea, but don't want to open a PR, feel free to talk about it in our [Discord Server](https://disboard.org/server/893975758677086238)
 
 ### Allowed
 - Typo/Grammar fixes
