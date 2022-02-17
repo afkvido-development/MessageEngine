@@ -86,8 +86,10 @@ ______
   * <a href = "https://github.com/afkvido-development/MessageEngine/discussions/categories/suggestions">Suggestions</a> - Suggest something for MessageEngine here!
   * <a href = "https://github.com/afkvido-development/MessageEngine/issues/new/choose">Bug Report</a> - Report a bug in MessageEngine
 
-_____
+______
 
 <h2 align="center">
+<a href = "https://github.com/afkvido-development/MessageEngine">	
 <img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
-	</h2>
+</a>
+</h2>
