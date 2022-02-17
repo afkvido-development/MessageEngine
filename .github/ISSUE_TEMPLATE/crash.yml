@@ -1,5 +1,5 @@
-name: Bug Report
-description: Report a bug to help us improve MessageEngine.
+name: Crash Bug Report
+description: Report a bug that causes MessageEngine to crash.
 title: '[Csh] title'
 labels: ["Issue: Bug", "Issue: Open", "Issue: Crash"]
 body:
