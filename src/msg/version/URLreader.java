@@ -14,7 +14,9 @@ public interface URLreader {
     String fail = "URLreader failed";
 
 
-    /** Read a URL */
+    /** Read a URL. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
     static @NotNull String check (@NotNull String url) {
         String r = fail;
         try {
@@ -24,7 +26,11 @@ public interface URLreader {
 
     }
 
-    private static @NotNull String read (@NotNull String url) throws Exception {
+
+    /** Read a URL, if it couldn't return a String then it throws an Exception. <p></p>
+     * @author gemsvidø
+     * @since 0.2.0 */
+    static @NotNull String read (@NotNull String url) throws Exception {
 
         URL oracle = new URL(url);
         BufferedReader in = new BufferedReader(

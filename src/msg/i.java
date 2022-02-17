@@ -271,6 +271,7 @@ public @NotNull @Unmodifiable final class i {
 
             switch (Input.toLowerCase()) {
                 case "/logout" -> login.go();
+                case "/exit" -> System.exit(0);
                 case "/generatenewuuid" -> Commands.generateUUIDs(Main.loggedin);
                 default -> serverCommand = true;
             }
@@ -282,15 +283,11 @@ public @NotNull @Unmodifiable final class i {
 
                 try {
 
-                    print = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/" + Input.replace("/", "") + ".txt");
+                    print = URLreader.read("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/" + Input.replace("/", "") + ".txt");
 
                 } catch (Exception ignored) {
 
-                    try {
                         print = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/notfound.txt");
-                    } catch (Exception ignore) {
-                        print = i.red + "Failed to fetch.";
-                    }
 
                 }
 
@@ -310,7 +307,7 @@ public @NotNull @Unmodifiable final class i {
                     nextmsg = new TextMessage(Main.loggedin, z, i.localServer);
                     i.message(nextmsg);
                     break;
-                case "cancel_messageL": i.debugLine("Info", "Cancelled message [702]"); break;
+                case "cancel_messageL": i.debugLine("Info", "Cancelled message"); break;
                 case "": break;
                 default:
                     nextmsg = new TextMessage(Main.loggedin, Input, i.localServer);
