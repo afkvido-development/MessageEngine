@@ -42,7 +42,7 @@ import java.util.Scanner;
         i.line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName());
 
         // Load the mods that load after logging in
-        ModLoader.LoadMods(i.getToken(), 5);
+        ModLoader.LoadMods(i.getToken(), 4);
 
 
         // The loop, where you can chat and use commands.

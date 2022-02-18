@@ -56,11 +56,9 @@ public final @Unmodifiable @NotNull class enforceVersion {
             String[] allowedVersions = allowed.split("\\n");
 
 
+            for (String allowedVersion : allowedVersions) {
 
-
-            for (int v = 0; v < allowedVersions.length; v++) {
-
-                if ((Version.Version).equals(allowedVersions[v].replace("\n", ""))) {
+                if ((Version.Version).equals(allowedVersion.replace("\n", ""))) {
                     valid = true;
 
                     if (Version.Version.equals(latestVersion.replace("\n", ""))) {
