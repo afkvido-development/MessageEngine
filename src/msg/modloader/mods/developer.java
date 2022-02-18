@@ -21,9 +21,21 @@ import java.util.UUID;
 
 
 
-    /** THIS IS A VERSION CHECK BYPASS, IT IS MEANT FOR <strong>DEBUGGING</strong> PURPOSES <strong>ONLY</strong>. THIS IS NOT A "VERSION JAILBREAK". */
-    @Script static void bypassVersion (@NotNull Integer b) { if (b == 2) enforceVersion.debug = true; }
+    /** THIS IS A VERSION CHECK BYPASS, IT IS MEANT FOR <strong>DEBUGGING</strong> PURPOSES <strong>ONLY</strong>.
+     * THIS IS NOT A "VERSION JAILBREAK". <p></p>
+     * @author gemsvidø
+     * @since 0.1.12
+     * @see msg.modloader.mods.developer */
+    @Script static void bypassVersion (@NotNull Integer b) {
+        if (b == 2) {
+            enforceVersion.debug = true;
+        }
+    }
 
+    /** This lets you go on a local server while offline! Useful for testing, especially when your internet goes out. <p></p>
+     * @author gemsvidø
+     * @since 0.1.12
+     * @see msg.modloader.mods.developer */
     @Script static void localServer (@NotNull Integer b) {
 
 

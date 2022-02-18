@@ -17,7 +17,11 @@ import java.util.UUID;
  * @see msg.modloader.ModLoader */
 @Mod public interface testMod {
 
-     @Script static void previewMessage(@NotNull Integer r) {
+     /** This just previews some messages. <p></p>
+      * @author gemsvidø
+      * @since 0.1.12
+      * @see msg.modloader.mods.testMod */
+     @Script static void previewMessage (@NotNull Integer r) {
 
           if (r == 3) {
 
