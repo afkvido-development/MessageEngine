@@ -43,7 +43,7 @@
     <img alt="API" src="https://img.shields.io/website?down_color=critical&down_message=Offline&label=API&logo=CircleCI&logoColor=white&style=for-the-badge&up_color=brgreen&up_message=Online&url=https%3A%2F%2Fraw.githubusercontent.com%2Fafkvido-development%2FMessageEngine-API%2Fmaster%2Fsrc%2Fapi%2FAPI.yml">
 </a>⠀
 
-<a href = "https://github.com/afkvido-development/MessageEngine-PTB/find/main">
+<a href = "https://github.com/afkvido-development/MessageEngine/find/main">
 	<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/afkvido-development/MessageEngine?color=green&label=Lines&logo=Circle&logoColor=white&style=for-the-badge">
 </a>⠀
 
