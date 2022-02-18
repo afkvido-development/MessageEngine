@@ -9,8 +9,6 @@ import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
 
-import static msg.i.ServerAddress;
-
 /** The server login thing, except it logs into a local server if the local server debug mode is on.  <p></p>
  * @author gemsvidø
  * @since 0.1.8 */
@@ -44,7 +42,7 @@ public final class login {
     /** Debug mode for local server  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    public static Boolean debug = false;
+     public static Boolean debug = false;
 
     /** User's username  <p></p>
      * @author gemsvidø
@@ -80,7 +78,7 @@ public final class login {
 
             Scanner server_address_scan = new Scanner(System.in);
             i.text(i.cyan + "Server Address: ");
-            ServerAddress = server_address_scan.nextLine();
+            i.ServerAddress = server_address_scan.nextLine();
 
             Scanner username_scan = new Scanner(System.in);
             i.text(i.cyan + "Username: ");
@@ -93,8 +91,8 @@ public final class login {
 
 
 
-            String ghServerAddress = "https://github.com/" + ServerAddress;
-            String mainYml = "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml";
+            String ghServerAddress = "https://github.com/" + i.ServerAddress;
+            String mainYml = "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml";
             String p = "";
 
 
@@ -117,7 +115,7 @@ public final class login {
 
                     try {
 
-                        n = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
+                        n = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
 
                     } catch (Exception ignored) {}
 
@@ -145,7 +143,7 @@ public final class login {
 
                     try {
 
-                       s = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Accounts/" + username + ".yml");
+                       s = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
 
                     } catch (Exception ignored) {}
 
@@ -166,7 +164,7 @@ public final class login {
 
 
                 } else {
-                    i.line(i.red + "Could not connect to " + i.cyan + ServerAddress);
+                    i.line(i.red + "Could not connect to " + i.cyan + i.ServerAddress);
                 }
 
 
@@ -197,7 +195,7 @@ public final class login {
 
         Boolean[] valid = new Boolean[5];
 
-        valid[0] = ServerAddress.equals(svAddress);
+        valid[0] = i.ServerAddress.equals(svAddress);
         valid[1] = !disabled.equals("true");
         valid[2] = true;
         valid[3] = true;
@@ -211,15 +209,15 @@ public final class login {
                 switch (l) {
                     case 0 -> {
                         i.line(i.yellow + "Server Address is invalid. ");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
                     }
                     case 1 -> {
                         i.line(i.yellow + "Server is disabled. ");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
                     }
                     case 4 -> {
                         i.line(i.yellow + "Server version does not match client version.");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Main.yml");
+                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
                     }
                     default -> throw new IndexOutOfBoundsException("420: How did we get here?");
                 }
@@ -241,36 +239,21 @@ public final class login {
     /** This configures the account on the client once it's been read from the server  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    private static Account getAccount() {
+    private static @NotNull Account getAccount() {
 
-        String rank1 = "DEFAULT";
+        // Read the account's info from the server
+        String rank1 = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
 
-        try {
-
-            rank1 = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress + "/main/src/Accounts/" + username + ".yml");
-
-        } catch (Exception ignored) {}
-
+        // Split the account's info into separate lines
         String[] lines = rank1.split("\\n");
+
+        // Clean the rank String and leave ONLY the pure rank
         String rank2 = lines[0].replace("rank: ", "");
 
+        // Set the rank of the account that will be returned to the rank to the right rank
+        rank rank3 = rank.valueOf(rank2.replace("\n", ""));
 
-
-        rank rank3;
-
-        switch (rank2) {
-            case "OWNER" -> rank3 = rank.OWNER;
-            case "ADMINISTRATOR" -> rank3 = rank.ADMINISTRATOR;
-            case "MODERATOR" -> rank3 = rank.MODERATOR;
-            case "YT" -> rank3 = rank.YT;
-            case "MVPPLUS2" -> rank3 = rank.MVPPLUS2;
-            case "MVPPLUS1" -> rank3 = rank.MVPPLUS1;
-            case "VIPPLUS1" -> rank3 = rank.VIPPLUS1;
-            case "VIP" -> rank3 = rank.VIP;
-            default -> rank3 = rank.DEFAULT;
-        }
-
-
+        // Return the generated account
         return new Account(username, password, rank3, "");
     }
 
@@ -278,6 +261,7 @@ public final class login {
      * @author gemsvidø
      * @since 0.1.8 */
     public static void setAccount (@NotNull Account account) {
+        // Set the account in Main to [account]
         Main.loggedin = account;
     }
 

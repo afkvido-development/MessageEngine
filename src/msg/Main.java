@@ -5,7 +5,6 @@ import msg.programs.PreLoader;
 import msg.programs.interactive.login;
 import msg.resources.account.Account;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.Scanner;
 
 
@@ -30,28 +29,32 @@ import java.util.Scanner;
      * @since 0.0.0 */
     public static void main (@Nullable String[] args) {
 
-
-
-        // PRE-LOADING
-
+        // PreLoader
         i.info("Starting PreLoader...");
-        PreLoader.PreLoading(false);
+        PreLoader.PreLoading();
         i.info("PreLoader finished.\n\n");
 
 
-        // SETUP
-
+        // Login
         login.go();
-        i.line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName()); // Welcomes user
-        ModLoader.LoadMods(i.getToken(), 5);
 
-        // Create all local variables
+        // Welcome the user
+        i.line(loggedin.getColorCode() + "Welcome, " + loggedin.getDisplayName());
+
+        // Load the mods that load after logging in
+        ModLoader.LoadMods(i.getToken(), 5);
 
 
         // The loop, where you can chat and use commands.
         while (true) {
-            Scanner scan = new Scanner(System.in); // Receives user input
-            Input = scan.nextLine(); // Saves user input
+
+            // Receives user input using Scanner
+            Scanner scan = new Scanner(System.in);
+
+            // Saves user input to a public static String
+            Input = scan.nextLine();
+
+            // Process the user input (Send a message or run a command)
             i.ProcessInput(Input);
         }
 

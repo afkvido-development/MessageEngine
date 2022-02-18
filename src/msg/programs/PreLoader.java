@@ -84,5 +84,12 @@ public @NotNull final class PreLoader {
         loadMods(7); // Run mods after PreLoader finishes
     }
 
+    public static void PreLoading () {
+
+        PreLoading(false);
+
+
+    }
+
 
 }

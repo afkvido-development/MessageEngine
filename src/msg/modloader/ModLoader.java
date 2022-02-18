@@ -1,7 +1,7 @@
 package msg.modloader;
 
+import msg.modloader.mods.*; // DO NOT DELETE
 import msg.i;
-import msg.programs.PreLoader;
 import org.jetbrains.annotations.NotNull;
 
 /** ModLoader, this loads all the mods.  <p></p>
