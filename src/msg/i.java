@@ -261,7 +261,7 @@ public @NotNull @Unmodifiable final class i {
     /** Process an input <p></p>
      * @author gemsvidø
      * @since 0.1.13 */
-    static void ProcessInput (@NotNull String Input) {
+    public static void ProcessInput (@NotNull String Input) {
 
         TextMessage nextmsg;
 

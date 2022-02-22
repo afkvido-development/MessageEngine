@@ -24,7 +24,6 @@ public @NotNull final class PreLoader {
     private static void RunConfig () {
 
         i.line(i.gray + "[Info/PreLoader] Starting PreLoader RunConfig");
-        i.line( "MessageEngine by gemsvido");
 
         if (Objects.equals(System.getenv("CONFIG"), "debug")) {
             i.line(i.yellow + "Entering Debug Mode");
@@ -63,6 +62,9 @@ public @NotNull final class PreLoader {
         if (Force || !PreLoaderFinished) {
 
             loadMods(1); // Run mods before run configs
+
+            i.line( "MessageEngine by gemsvido"); // I made this, so I deserve credit. shutup
+
             RunConfig(); // Run Configs
 
             loadMods(2); // Run mods before Version checking
@@ -79,7 +81,7 @@ public @NotNull final class PreLoader {
             i.line(i.gray + "[Info] This can be fixed by forcing preloader, however that may cause corruption");
         }
 
-        loadMods(7); // Run mods after PreLoader finishes
+        loadMods(8); // Run mods after PreLoader finishes
     }
 
     public static void PreLoading () {

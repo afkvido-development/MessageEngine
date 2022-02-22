@@ -14,29 +14,29 @@ final class CommandsTypesTest {
      * @author gemsvidø
      * @since 0.2.0  */
     @Test void values () {
-        System.out.println("\nCommandsTypesTest.values  [\n");
+        i.line("\nCommandsTypesTest.values  [\n");
         CommandsTypes[] values = CommandsTypes.values();
-        System.out.println(Arrays.toString(values));
-        System.out.println(i.white + "\n]\n\n\n");    }
+        i.line(Arrays.toString(values));
+        i.line(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>values</strong> method in the <strong>CommandsTypes</strong> class.  <p></p>
      * @author gemsvidø
      * @since 0.2.0  */
     @Test void valueOf () {
-        System.out.println("\nCommandsTypesTest.valueOf  [\n");
+        i.line("\nCommandsTypesTest.valueOf  [\n");
         CommandsTypes value = CommandsTypes.valueOf("changePassword_SC");
-        System.out.println(i.yellow + value);
+        i.line(i.yellow + value);
         value = CommandsTypes.valueOf("generateUUIDs");
-        System.out.println(i.yellow + value);
+        i.line(i.yellow + value);
         value = CommandsTypes.valueOf("login");
-        System.out.println(i.yellow + value);
+        i.line(i.yellow + value);
         value = CommandsTypes.valueOf("changePassword");
-        System.out.println(i.yellow + value);
+        i.line(i.yellow + value);
         value = CommandsTypes.valueOf("help");
-        System.out.println(i.yellow + value);
+        i.line(i.yellow + value);
         value = CommandsTypes.valueOf("ez");
-        System.out.println(i.yellow + value);
-        System.out.println(i.white + "\n]\n\n\n");    }
+        i.line(i.yellow + value);
+        i.line(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>CommandsTypesTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

@@ -13,10 +13,10 @@ class rankTest {
      * @author gemsvidø
      * @since 0.2.0  */
     @Test void values () {
-        System.out.println("\nrankTest.values  [\n");
+        i.line("\nrankTest.values  [\n");
         rank[] values = rank.values();
-        System.out.println(i.yellow + Arrays.toString(values));
-        System.out.println(i.white + "\n]\n\n\n");
+        i.line(i.yellow + Arrays.toString(values));
+        i.line(i.white + "\n]\n\n\n");
 
     }
 
@@ -24,30 +24,30 @@ class rankTest {
      * @author gemsvidø
      * @since 0.2.0  */
     @Test void valueOf () {
-        System.out.println("\nrankTest.valueOf  [\n");
+        i.line("\nrankTest.valueOf  [\n");
         rank value = rank.valueOf("OWNER");
-        System.out.println(i.yellow + value);
+        i.line(i.yellow + value);
         value = rank.valueOf("ADMINISTRATOR");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("MODERATOR");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("YT");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("MVPPLUS2");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("MVPPLUS1");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("MVP");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("VIPPLUS1");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("VIP");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("DEFAULT");
-        System.out.println(value);
+        i.line(value);
         value = rank.valueOf("CHAT");
-        System.out.println(value);
-        System.out.println(i.white + "\n]\n\n\n");
+        i.line(value);
+        i.line(i.white + "\n]\n\n\n");
     }
 
     /** Private constructor prevents utility class <strong>rankTest</strong> from being initialized. <p></p>

@@ -1,15 +1,7 @@
-/**
- * TextMessage class, returns a text message with the toString function.
- * Parameters: Author, Message, Recipient
- * It is very convenient to make a simple messaging system in your own server.
- * REQUIRES ACCOUNT CLASS, COLORCODE BANK, RANK ENUM
- *
- * Made by gemsvidø - https://github.com/afkvido
- **/
-
 package msg.resources.message;
-import msg.resources.account.Account;
+
 import msg.i;
+import msg.resources.account.Account;
 import msg.resources.rank;
 import org.jetbrains.annotations.NotNull;
 
@@ -64,14 +56,13 @@ public class TextMessage {
      * @author gemsvidø
      * @since 0.0.0 */
     public @NotNull String toString () {
-        ConstructString();
-        return output;
+        return ConstructString();
     }
 
     /** Constructs the String to make it ready for toString output  <p></p>
      * @author gemsvidø
      * @since 0.0.0 */
-    private void ConstructString () {
+    private String ConstructString () {
 
         authorDisplay = author.getDisplayName();
         recipientDisplay = recipient.getDisplayName();
@@ -82,6 +73,8 @@ public class TextMessage {
         } else {
             output = i.purple + "[" + authorDisplay + i.purple + " to " + recipientDisplay + i.purple + "]: " + i.white + message;
         }
+
+        return output;
     }
 
 

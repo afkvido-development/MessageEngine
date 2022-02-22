@@ -14,12 +14,12 @@ class TextMessageTest {
      * @author gemsvidø
      * @since 0.2.0   */
     @Test void testToString () {
-        System.out.println("\nTextMessageTest.testToString  [\n");
+        i.line("\nTextMessageTest.testToString  [\n");
         Account account = new Account("Author Username", "Author Password", rank.MVP);
         Account recipient = new Account("Recipient Username", "Recipient Password", rank.MVPPLUS2);
         TextMessage message = new TextMessage(account, "Message Text", recipient);
-        System.out.println(message);
-        System.out.println(i.white + "\n]\n\n\n");    }
+        i.line(message);
+        i.line(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>TextMessageTest</strong> from being initialized. <p></p>
      * @author gemsvidø  */

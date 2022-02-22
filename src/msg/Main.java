@@ -29,6 +29,8 @@ import java.util.Scanner;
      * @since 0.0.0 */
     public static void main (@Nullable String[] args) {
 
+        ModLoader.LoadMods(i.getToken(), 0);
+
         // PreLoader
         i.info("Starting PreLoader...");
         PreLoader.PreLoading();
@@ -44,12 +46,12 @@ import java.util.Scanner;
         // Load the mods that load after logging in
         ModLoader.LoadMods(i.getToken(), 4);
 
+        // Receives user input using Scanner
+        Scanner scan = new Scanner(System.in);
+
 
         // The loop, where you can chat and use commands.
         while (true) {
-
-            // Receives user input using Scanner
-            Scanner scan = new Scanner(System.in);
 
             // Saves user input to a public static String
             Input = scan.nextLine();

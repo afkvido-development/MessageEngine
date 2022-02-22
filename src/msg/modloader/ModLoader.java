@@ -14,6 +14,7 @@ public final class ModLoader {
     /*   DOCUMENTATION
 
 
+    i = 0: Run mods before PreLoader or literally anything in MessageEngine
     i = 1: Run mods before run configs
     i = 2: Run mods before Version checking
     i = 3: Run mods after Version checking
@@ -32,7 +33,6 @@ public final class ModLoader {
     private static void ScriptList (@NotNull Integer b) {
 
         // LOAD ALL SCRIPTS HERE
-
 
 
     }

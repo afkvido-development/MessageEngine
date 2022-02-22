@@ -12,7 +12,7 @@ class URLreaderTest {
      * @author gemsvidø
      * @since 0.2.0  */
     @Test void check () {
-        System.out.println("\nURLreaderTest.check  [\n");
+        i.line("\nURLreaderTest.check  [\n");
 
         String e = "";
         try {
@@ -20,8 +20,8 @@ class URLreaderTest {
         } catch (Exception i) {
             i.printStackTrace();
         }
-        System.out.println(e);
-        System.out.println(i.white + "\n]\n\n\n");
+        i.line(e);
+        i.line(i.white + "\n]\n\n\n");
     }
 
     /** Private constructor prevents utility class <strong>URLreaderTest</strong> from being initialized. <p></p>

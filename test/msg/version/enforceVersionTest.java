@@ -12,9 +12,15 @@ class enforceVersionTest {
      * @author gemsvidø
      * @since 0.2.0  */
     @Test void fire() {
-        System.out.println("\nenforceVersionTest.fire  [\n");
-        msg.version.enforceVersion.fire();
-        System.out.println(i.white + "\n]\n\n\n");    }
+        i.line("\nenforceVersionTest.fire  [\n");
+
+        if (System.getenv("OFFLINE").equals("true")) {
+            i.line(i.green + "enforceVersionTest.fire was not run, because OFFLINE=true.");
+        } else {
+            enforceVersion.fire();
+        }
+
+        i.line(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>enforceVersionTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

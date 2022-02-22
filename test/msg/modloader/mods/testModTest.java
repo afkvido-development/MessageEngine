@@ -12,19 +12,19 @@ final class testModTest {
      * @author gemsvidø
      * @since 0.2.0 */
     @Test void previewMessageNoDebug () {
-        System.out.println("\ntestModTest.previewMessageNoDebug  [\n");
+        i.line("\ntestModTest.previewMessageNoDebug  [\n");
         i.debugMode = false;
         testMod.previewMessage(4);
-        System.out.println(i.white + "\n]\n\n\n");    }
+        i.line(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>previewMessage</strong> method in the <strong>testMod</strong> class, with debug mode on. <p></p>
      * @author gemsvidø
      * @since 0.2.0 */
     @Test void previewMessageYesDebug () {
-        System.out.println("\ntestModTest.previewMessageNoDebug  [\n");
+        i.line("\ntestModTest.previewMessageNoDebug  [\n");
         i.debugMode = true;
         testMod.previewMessage(4);
-        System.out.println(i.white + "\n]\n\n\n");    }
+        i.line(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>testModTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

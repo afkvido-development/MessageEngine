@@ -78,9 +78,9 @@ public final class Commands {
 
         if (acc.getRank() != rank.DEFAULT) {
             i.line(i.cyan + UUID.randomUUID());
-            i.line(UUID.randomUUID());
-            i.line(UUID.randomUUID());
-            i.line(UUID.randomUUID() + i.white);
+            i.line(i.cyan + UUID.randomUUID());
+            i.line(i.cyan + UUID.randomUUID());
+            i.line(i.cyan + UUID.randomUUID() + i.white);
         } else {
             i.line("You must be VIP or above to use this command.");
         }
