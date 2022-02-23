@@ -3,6 +3,7 @@
     <envs>
       <env name="CONFIG" value="debug" />
     </envs>
+    <output_file path="$PROJECT_DIR$/out/logs/MainApplication_Debug_Latest.txt" is_save="true" />
     <option name="MAIN_CLASS_NAME" value="msg.Main" />
     <module name="MessageEngine" />
     <method v="2">

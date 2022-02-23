@@ -1,11 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Test TestMod class" type="JUnit" factoryName="JUnit" folderName="Class tests">
+  <configuration default="false" name="Test Login class" type="JUnit" factoryName="JUnit" folderName="Class tests">
+    <output_file path="$PROJECT_DIR$/out/logs/Tests_Class_Login.txt" is_save="true" />
     <module name="MessageEngine" />
-    <selectedOptions>
-      <option name="environmentVariables" visible="false" />
-    </selectedOptions>
-    <option name="PACKAGE_NAME" value="msg.modloader.mods" />
-    <option name="MAIN_CLASS_NAME" value="msg.modloader.mods.testModTest" />
+    <option name="PACKAGE_NAME" value="msg.programs.interactive" />
+    <option name="MAIN_CLASS_NAME" value="msg.programs.interactive.loginTest" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="PASS_PARENT_ENVS" value="false" />

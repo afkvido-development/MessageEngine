@@ -1,9 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test I class" type="JUnit" factoryName="JUnit" folderName="Class tests">
+    <output_file path="$PROJECT_DIR$/out/logs/Tests_Class_i.txt" is_save="true" />
     <module name="MessageEngine" />
-    <selectedOptions>
-      <option name="environmentVariables" visible="false" />
-    </selectedOptions>
     <option name="PACKAGE_NAME" value="msg" />
     <option name="MAIN_CLASS_NAME" value="msg.iTest" />
     <option name="METHOD_NAME" value="" />

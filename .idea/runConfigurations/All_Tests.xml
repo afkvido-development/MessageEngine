@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All Tests" type="JUnit" factoryName="JUnit">
-    <output_file path="$PROJECT_DIR$/out/logs/All_Tests.txt" is_save="true" />
+    <output_file path="$PROJECT_DIR$/out/logs/Tests_All.txt" is_save="true" />
     <module name="MessageEngine" />
     <selectedOptions>
       <option name="environmentVariables" visible="false" />

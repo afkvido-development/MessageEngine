@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Test Resocurces package" type="JUnit" factoryName="JUnit" folderName="Package tests">
-    <output_file path="$PROJECT_DIR$/out/logs/Test_Resources_package.txt" is_save="true" />
+  <configuration default="false" name="Test Resources package" type="JUnit" factoryName="JUnit" folderName="Package tests">
+    <output_file path="$PROJECT_DIR$/out/logs/Tests_Package_Resources.txt" is_save="true" />
     <module name="MessageEngine" />
     <selectedOptions>
       <option name="environmentVariables" visible="false" />

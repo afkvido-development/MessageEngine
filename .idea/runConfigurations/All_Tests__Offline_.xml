@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All Tests (Offline)" type="JUnit" factoryName="JUnit">
-    <output_file path="$PROJECT_DIR$/out/logs/All_Tests.txt" is_save="true" />
+    <output_file path="$PROJECT_DIR$/out/logs/Tests_All_Offline.txt" is_save="true" />
     <module name="MessageEngine" />
     <shortenClasspath name="NONE" />
     <option name="MAIN_CLASS_NAME" value="" />

@@ -1,9 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test EnforceVersion class" type="JUnit" factoryName="JUnit" folderName="Class tests">
+    <output_file path="$PROJECT_DIR$/out/logs/Tests_Class_EnforceVersion.txt" is_save="true" />
     <module name="MessageEngine" />
-    <selectedOptions>
-      <option name="environmentVariables" visible="false" />
-    </selectedOptions>
     <option name="PACKAGE_NAME" value="msg.version" />
     <option name="MAIN_CLASS_NAME" value="msg.version.enforceVersionTest" />
     <option name="METHOD_NAME" value="" />
