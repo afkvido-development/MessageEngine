@@ -22,7 +22,7 @@ class MainTest {
         i.line("\nMainTest.mainLocalServer  [\n");
 
 
-        if (System.getenv("OFFLINE").equals("true")) {
+        if (System.getenv("OFFLINE") != null && System.getenv("OFFLINE").equals("true")) {
             i.line(i.green + "MainTest.mainLocalServer was not tested, because OFFLINE=true.");
         } else {
 
@@ -59,7 +59,7 @@ class MainTest {
     @Test void mainOnlineServer () {
         i.line("\nMainTest.mainOnlineServer  [\n");
 
-        if (System.getenv("OFFLINE").equals("true")) {
+        if (System.getenv("OFFLINE") != null && System.getenv("OFFLINE").equals("true")) {
             i.line(i.green + "MainTest.mainOnlineServer was not tested, because OFFLINE=true.");
         } else {
 

@@ -14,7 +14,7 @@ class enforceVersionTest {
     @Test void fire() {
         i.line("\nenforceVersionTest.fire  [\n");
 
-        if (System.getenv("OFFLINE").equals("true")) {
+        if (System.getenv("OFFLINE") != null && System.getenv("OFFLINE").equals("true")) {
             i.line(i.green + "enforceVersionTest.fire was not run, because OFFLINE=true.");
         } else {
             enforceVersion.fire();

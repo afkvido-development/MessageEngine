@@ -14,7 +14,7 @@ final class PreLoaderTest {
     @Test void preLoadingNormal () {
         i.line("\nPreLoaderTest.preLoadingNormal  [\n");
 
-        if (System.getenv("OFFLINE").equals("true")) {
+        if (System.getenv("OFFLINE") != null && System.getenv("OFFLINE").equals("true")) {
             i.line(i.green + "PreLoaderTest.preLoadingNormal was not tested, because OFFLINE=true.");
         } else {
             PreLoader.PreLoading();
@@ -29,7 +29,7 @@ final class PreLoaderTest {
     @Test void preLoadingDoubleNoForce () {
         i.line("\nPreLoaderTest.preLoadingDoubleNoForce  [\n");
 
-        if (System.getenv("OFFLINE").equals("true")) {
+        if (System.getenv("OFFLINE") != null && System.getenv("OFFLINE").equals("true")) {
             i.line(i.green + "PreLoaderTest.preLoadingDoubleNoForce was not tested, because OFFLINE=true.");
         } else {
 
