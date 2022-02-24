@@ -48,9 +48,7 @@ public final @Unmodifiable @NotNull class enforceVersion {
             latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml").replace("\n", "");
 
 
-
-            String allowed;
-            allowed = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/AllowedVersions.yml");
+            String allowed = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/AllowedVersions.yml");
 
 
             String[] allowedVersions = allowed.split("\\n");

@@ -72,11 +72,11 @@ public @NotNull @Unmodifiable final class i {
         if (i.debugMode) {
 
             if (type == null) {
-                i.line(i.gray + "[Debug] " + text + i.white);
+                i.line(i.gray + "[Debug] " + text);
             } else if (type.equals("")) {
-                i.line(i.gray + text + i.white);
+                i.line(i.gray + text);
             } else {
-                i.line(i.gray + "[" + type + "] " + text + i.white);
+                i.line(i.gray + "[" + type + "] " + text);
             }
 
         }

@@ -32,12 +32,12 @@ public final class login {
     /** Server URL  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    @SuppressWarnings("unused") private static String svUrl;
+    @SuppressWarnings("unused") static String svUrl;
 
     /** Server Version  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    private static String svVersion;
+    private static String latestSvVersion;
 
     /** Debug mode for local server  <p></p>
      * @author gemsvidø
@@ -101,7 +101,7 @@ public final class login {
                 } catch (Exception ignored) {
                 }
 
-                SortMainYml(p);
+                SortInfo(p);
 
                 Boolean valid = checkServerValidity();
 
@@ -173,18 +173,58 @@ public final class login {
 
     }
 
-    /** Sort Main.yml from a server, while logging in  <p></p>
+    /** Sort information from a server, while logging in  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    private static void SortMainYml (@NotNull String mainYml) {
+    private static void SortInfo (@NotNull String mainYml) {
 
-        String[] lines = mainYml.split("\\n");
+        String[] infos = mainYml.split("\\n");
 
-        svAddress = lines[0].replace("serverAddress: ", "");
-        disabled = lines[1].replace("disabled: ", "");
-        svName = lines[2].replace("serverName: ", "");
-        svUrl = lines[3].replace("serverUrl: ", "");
-        svVersion = lines[4].replace("version: ", "");
+        svAddress = infos[0].replace("serverAddress: ", "");
+        disabled = infos[1].replace("disabled: ", "");
+        svName = infos[2].replace("serverName: ", "");
+        svUrl = infos[3].replace("serverUrl: ", "");
+
+
+
+        latestSvVersion = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/version/Primary.yml");
+
+
+
+
+        boolean valid = false;
+
+        String compatible = URLreader.check("https://raw.githubusercontent.com/ " + "/main/src/version/Compatible.yml");
+
+        String[] compatibleVersions = compatible.split("\\n");
+
+
+        for (String allowedVersion : compatibleVersions) {
+
+            if ((Version.Version).equals(allowedVersion.replace("\n", ""))) {
+                valid = true;
+
+                if (Version.Version.equals(latestSvVersion)) {
+                    i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the recommend server version" + i.gray + "!");
+                } else {
+                    i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the server recommends using version " + i.cyan + latestSvVersion + i.gray + ".");
+                }
+
+
+                break;
+            }
+        }
+
+        Scanner wait = new Scanner(System.in);
+
+
+        if (!valid) {
+            i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the server needs version " + i.cyan + latestSvVersion.replace("\n", "") + i.yellow + ".");
+            i.line(i.red + "\nYou are on an incompatible version of MessageEngine for this server. \nTo join this server, get MessageEngine " + i.cyan + latestSvVersion);
+            i.line(i.cyan + "MessageEngine Downloads: https://github.com/afkvido-development/MessageEngine/releases");
+            wait.nextLine();
+        }
+
 
     }
 
@@ -199,7 +239,7 @@ public final class login {
         valid[1] = !disabled.equals("true");
         valid[2] = true;
         valid[3] = true;
-        valid[4] = Version.Version.equals(svVersion);
+        valid[4] = Version.Version.equals(latestSvVersion);
 
         for (int l = 0; l < valid.length; l++) {
             if (!valid[l]) {
@@ -216,8 +256,10 @@ public final class login {
                         i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
                     }
                     case 4 -> {
-                        i.line(i.yellow + "Server version does not match client version.");
+                        i.line(i.yellow + "The server recommends version " + i.cyan + latestSvVersion + i.yellow + ".");
+                        i.line(i.green + "You may still connect to the server.");
                         i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
+                        return true;
                     }
                     default -> throw new IndexOutOfBoundsException("420: How did we get here?");
                 }
@@ -239,7 +281,7 @@ public final class login {
     /** This configures the account on the client once it's been read from the server  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
-    private static @NotNull Account getAccount() {
+    private static @NotNull Account getAccount () {
 
         // Read the account's info from the server
         String rank1 = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
