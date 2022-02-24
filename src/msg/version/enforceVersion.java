@@ -45,7 +45,7 @@ public final @Unmodifiable @NotNull class enforceVersion {
                 System.exit(0);
             }
 
-            latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml");
+            latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml").replace("\n", "");
 
 
 
@@ -61,7 +61,7 @@ public final @Unmodifiable @NotNull class enforceVersion {
                 if ((Version.Version).equals(allowedVersion.replace("\n", ""))) {
                     valid = true;
 
-                    if (Version.Version.equals(latestVersion.replace("\n", ""))) {
+                    if (Version.Version.equals(latestVersion)) {
                         i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the latest version" + i.gray + "!");
                     } else {
                         i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the latest version is " + i.cyan + latestVersion + i.gray + ".");
