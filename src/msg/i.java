@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.UUID;
 
 
-/** <strong>The new database</strong>, also a utility class! <p></p>
+/** <strong>The</strong> utility class <p></p>
  * @author gemsvidø
  * @since 0.2.0 */
 public @NotNull @Unmodifiable final class i {

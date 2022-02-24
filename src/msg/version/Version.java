@@ -35,12 +35,7 @@ public @NotNull @Unmodifiable final class Version {
     /** Version of MessageEngine  <p></p>
      * @author gemsvidø
      * @since 0.1.4 */
-    public @NotNull @Unmodifiable static final String Version = "0.2.0";
-
-    /** Version of MessageEngine that gets injected into other projects.  <p></p>
-     * @author gemsvidø
-     * @since 0.1.5 */
-    public @NotNull @Unmodifiable static final String injectVersion = Version + "+Inject";
+    public @NotNull @Unmodifiable static final String Version = "0.2.0-develop_1";
 
     /** Utility class <strong>Version</strong> cannot be initialized.  <p></p>
      * @author gemsvidø */
