@@ -22,7 +22,7 @@ Follow all the [contributors](https://github.com/afkvido-development/MessageEngi
 
 ______
 
-# README/Website pull requests
+# README/MarkDown/Pages pull requests
 _(Reward: **Contributor** role in our [discord server](https://disboard.org/server/893975758677086238))_
 
 ### MicroPRs, README edits, Typo fixes, Other MiniPRs
