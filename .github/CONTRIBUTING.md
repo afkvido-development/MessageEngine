@@ -1,8 +1,29 @@
 # Contributing to MessageEngine
 Thank you for investing your time in contributing to our project! Please review these guidelines before making a pull request.
+
+______
+
+# Quick Contributions
+
+### Star the repository
+Join the [stargazers](https://github.com/afkvido-development/MessageEngine/stargazers) of MessageEngine to support the repository!
+_(Reward: **Stargazer** role in our [discord server](https://disboard.org/server/893975758677086238))_
+
+### Watch the repository
+Join the [watchers](https://github.com/afkvido-development/MessageEngine/watchers) of MessageEngine to see the latest activity in the repository!
+_(Reward: **Watcher** role in our [discord server](https://disboard.org/server/893975758677086238))_
+
+### Join our discord
+Join our [discord server](https://disboard.org/server/893975758677086238) to chat and communicate with us!
+_(Reward: **Member** role in our [discord server](https://disboard.org/server/893975758677086238))_
+
+### Follow the contributors
+Follow all the [contributors](https://github.com/afkvido-development/MessageEngine/graphs/contributors) of this repository! They make the repository!
+
 ______
 
 # README/Website pull requests
+_(Reward: **Contributor** role in our [discord server](https://disboard.org/server/893975758677086238))_
 
 ### MicroPRs, README edits, Typo fixes, Other MiniPRs
 - MessageEngine is open to ALL pull requests as long as they are helpful (improve MessageEngine). We allow all types of MiniPRs as long as you follow our pull request guidelines.
@@ -22,6 +43,9 @@ ______
 
 ______
 # Java Pull Requests
+_(Reward: **Contributor** role in our [discord server](https://disboard.org/server/893975758677086238))_
+
+_(Reward: **Verified Coder** role in our [discord server](https://disboard.org/server/893975758677086238))_
 
 ### Don't change these files:
 - **Anything you don't really need to change, don't change**. Randomly changing files is useless, and could be destructive if you don't know what you're doing.
