@@ -46,4 +46,4 @@ ______
 ### Open your pull request
 1. Enable `Allow Updates from Maintainers`. Otherwise, we can't do small changes like update the version, or fix something that you did poorly. Chances are, we won't merge your PR if you don't enable this.
 2. Provide a detailed description of your changes. Also, make a quality title that describes what you change.
-3. Create your pull request.
+3. Submit your pull request.
