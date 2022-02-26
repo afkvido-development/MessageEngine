@@ -12,13 +12,13 @@ import org.jetbrains.annotations.NotNull;
  * @author gemsvidø
  * @since 0.1.12
  * @see msg.modloader.ModLoader */
-@Mod public interface macro {
+@Mod public interface macro_mod {
 
     /** A script of sending two extra messages every time someone sends a message
      * <p></p>
      * @author gemsvidø
      * @since 0.1.12
-     * @see msg.modloader.mods.macro */
+     * @see macro_mod */
     @Script static void tbh (@NotNull Integer r) {
 
         if (r == 5) {

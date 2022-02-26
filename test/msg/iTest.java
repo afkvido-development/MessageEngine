@@ -150,13 +150,22 @@ final class iTest {
      * @since 0.2.0  */
     @Test void ProcessInput () {
         i.line("\niTest.ProcessInput  [\n");
-        Main.loggedin = new Account("ProcessInput Tester", "ProcessInput Tester Password", rank.MVPPLUS2);
-        i.ServerAddress = "gemvido/AlphaCS";
-        i.ProcessInput("/generatenewuuids"); // Generate new UUIDs
-        i.ProcessInput("Hello"); // Send a chat message
-        i.ProcessInput("/help"); // Help command
-        i.ProcessInput("LMAOOOOOOOOO"); // Send a chat message
-        i.ProcessInput("/uhfpiahhawihawif"); // Unknown command
+
+        if (System.getenv("OFFLINE") != null && System.getenv("OFFLINE").equals("true")) {
+
+            i.line(i.green + "iTest.ProcessInput was not tested, because OFFLINE=true.");
+
+        } else {
+
+            Main.loggedin = new Account("ProcessInput Tester", "ProcessInput Tester Password", rank.MVPPLUS2);
+            i.ServerAddress = "gemvido/AlphaCS";
+            i.ProcessInput("/generatenewuuids"); // Generate new UUIDs
+            i.ProcessInput("Hello"); // Send a chat message
+            i.ProcessInput("/help"); // Help command
+            i.ProcessInput("LMAOOOOOOOOO"); // Send a chat message
+            i.ProcessInput("/uhfpiahhawihawif"); // Unknown command
+        }
+
         i.line(i.white + "\n]\n\n\n");
     }
 

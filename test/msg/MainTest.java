@@ -1,7 +1,7 @@
 package msg;
 
 import msg.modloader.ModLoader;
-import msg.modloader.mods.developer;
+import msg.modloader.mods.developer_mod;
 import msg.programs.PreLoader;
 import msg.programs.interactive.login;
 import msg.resources.account.Account;
@@ -32,7 +32,7 @@ class MainTest {
             login.setAccount(aa);
 
             // Local server
-            developer.localServer(4);
+            developer_mod.localServer(4);
 
             // Welcome the user
             i.line(Main.loggedin.getColorCode() + "Welcome, " + Main.loggedin.getDisplayName()); // Welcomes user

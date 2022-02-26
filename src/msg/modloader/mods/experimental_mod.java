@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
  * @author gemsvidø
  * @since 0.2.0
  * @see msg.modloader.ModLoader */
-@Mod public interface experimental {
+@Mod public interface experimental_mod {
 
 
     /** I'll add an experimental feature here soonTM <p></p>
@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
      * <p></p>
      * @author gemsvidø
      * @since 0.2.0
-     * @see msg.modloader.mods.experimental */
+     * @see experimental_mod */
     @Script static void e1104588 (@NotNull Integer b) {
 
     }
@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
      * <p></p>
      * @author gemsvidø
      * @since 0.2.0
-     * @see msg.modloader.mods.experimental */
+     * @see experimental_mod */
     @Script static void a8283146 (@NotNull Integer b) {
 
     }
@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
      * <p></p>
      * @author gemsvidø
      * @since 0.2.0
-     * @see msg.modloader.mods.experimental */
+     * @see experimental_mod */
     @Script static void e636581f (@NotNull Integer b) {
 
     }
