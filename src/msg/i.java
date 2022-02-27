@@ -89,7 +89,7 @@ public @NotNull @Unmodifiable final class i {
     //---------------------------------------------------
     // Accounts
 
-    /** Local Server is where messages are sent. This will be removed in v1.0, because we will have real, multiplayer servers.  <p></p>
+    /** Local Server is where messages are sent. This will be removed in 1.0, because we will have real, multiplayer servers.  <p></p>
      * @author gemsvidø
      * @since 0.1.0 */
     public static final @Unmodifiable @NotNull Account localServer = new Account("localServer", UUID.randomUUID().toString(), rank.CHAT);

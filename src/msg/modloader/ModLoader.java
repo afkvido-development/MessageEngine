@@ -35,17 +35,22 @@ public final class ModLoader {
         // LOAD ALL SCRIPTS HERE
 
 
+        // EXAMPLE: macro_mod.tbh(b);
+
+
     }
 
 
     /** List of all mods to be loaded. <strong>CURRENTLY WIP</strong>   <p></p>
      * @author gemsvidø
-     * @since <strong>COMING SOON</strong> */
+     * @since 0.2.1 */
     private static void ModList () {
 
 
         // LOAD ALL MODS HERE
-        offline_mod.main();
+
+
+        // EXAMPLE: offline_mod.main();
 
 
     }
