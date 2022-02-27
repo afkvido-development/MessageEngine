@@ -1,7 +1,6 @@
 package msg;
 
 import msg.modloader.ModLoader;
-import msg.modloader.mods.developer_mod;
 import msg.programs.PreLoader;
 import msg.programs.interactive.login;
 import msg.resources.account.Account;

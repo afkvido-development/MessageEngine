@@ -2,6 +2,7 @@ package msg.resources;
 
 import msg.i;
 import org.jetbrains.annotations.NotNull;
+
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;

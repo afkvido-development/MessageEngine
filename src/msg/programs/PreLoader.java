@@ -6,6 +6,7 @@ import msg.version.Version;
 import msg.version.enforceVersion;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
+
 import java.util.Objects;
 
 /** PreLoader runs before you can log in   <p></p>

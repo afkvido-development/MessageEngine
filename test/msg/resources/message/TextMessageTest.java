@@ -1,7 +1,7 @@
 package msg.resources.message;
 
-import msg.resources.account.Account;
 import msg.i;
+import msg.resources.account.Account;
 import msg.resources.rank;
 import org.junit.jupiter.api.Test;
 

@@ -3,12 +3,14 @@ package msg.modloader.mods;
 import msg.Main;
 import msg.i;
 import msg.modloader.ModLoader;
-import msg.modloader.resources.*;
+import msg.modloader.resources.Mod;
+import msg.modloader.resources.Mod_Main;
 import msg.programs.interactive.login;
 import msg.resources.account.Account;
 import msg.resources.commands.Commands;
 import msg.resources.message.TextMessage;
 import msg.resources.rank;
+
 import java.util.Scanner;
 import java.util.UUID;
 

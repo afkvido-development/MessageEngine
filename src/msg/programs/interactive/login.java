@@ -7,6 +7,7 @@ import msg.resources.rank;
 import msg.version.URLreader;
 import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 /** The server login thing, except it logs into a local server if the local server debug mode is on.  <p></p>

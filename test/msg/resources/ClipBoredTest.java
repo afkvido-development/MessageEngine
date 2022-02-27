@@ -1,7 +1,7 @@
 package msg.resources;
 
-import org.junit.jupiter.api.Test;
 import msg.i;
+import org.junit.jupiter.api.Test;
 
 /** All tests for the <strong>ClipBored</strong> class. <p></p>
  * @author gemsvidø

@@ -1,7 +1,8 @@
 package msg.resources;
 
-import org.junit.jupiter.api.Test;
 import msg.i;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 
 /** All tests for the <strong>rank</strong> class. <p></p>
