@@ -41,10 +41,11 @@ public final class ModLoader {
     /** List of all mods to be loaded. <strong>CURRENTLY WIP</strong>   <p></p>
      * @author gemsvidø
      * @since <strong>COMING SOON</strong> */
-    private static void ModList (@NotNull Integer c) {
+    private static void ModList () {
 
 
-        // WORK IN PROGRESS
+        // LOAD ALL MODS HERE
+        offline_mod.main();
 
 
     }
@@ -57,6 +58,10 @@ public final class ModLoader {
         if (!ClientToken.equals(i.getToken())) {
 
             i.line(i.yellow + "Client token doesn't match." + i.white);
+
+        } else if (p == 0) {
+
+            ModList();
 
         } else {
 

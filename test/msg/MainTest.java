@@ -8,6 +8,8 @@ import msg.resources.account.Account;
 import msg.resources.rank;
 import org.junit.jupiter.api.Test;
 
+import java.util.UUID;
+
 /** All tests for the <strong>main</strong> class. <p></p>
  * @author gemsvidø
  * @since 0.2.0 */
@@ -32,7 +34,10 @@ class MainTest {
             login.setAccount(aa);
 
             // Local server
-            developer_mod.localServer(4);
+            login.debug = true;
+            Account account = new Account("Offline", UUID.randomUUID().toString(), rank.DEFAULT, "");
+            login.setAccount(account);
+
 
             // Welcome the user
             i.line(Main.loggedin.getColorCode() + "Welcome, " + Main.loggedin.getDisplayName()); // Welcomes user
