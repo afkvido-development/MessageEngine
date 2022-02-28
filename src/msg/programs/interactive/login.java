@@ -99,8 +99,7 @@ public final class login {
 
                 try {
                     p = URLreader.check(mainYml);
-                } catch (Exception ignored) {
-                }
+                } catch (Exception ignored) {  }
 
                 SortInfo(p);
 
