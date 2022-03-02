@@ -321,5 +321,16 @@ public @NotNull @Unmodifiable final class i {
 
     // Process input
     //---------------------------------------------------
+    //---------------------------------------------------
+    // Experimental
+
+    /** Are experimental features allowed to run? True/false. <p/>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public static @NotNull Boolean enableExperiments = false;
+
+    // Experimental
+    //---------------------------------------------------
+
 
 }

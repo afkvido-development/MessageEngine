@@ -5,6 +5,7 @@ import msg.resources.rank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** The Account class, customizable with ranks, usernames, passwords, and UUIDs!
@@ -53,10 +54,10 @@ public class Account {
      * @since 0.1.0  */
     protected String usernameToString;
 
-    /** Account connection token   <p></p>
+    /** Account login tokens   <p></p>
      * @author gemsvidø
-     * @since 0.1.2  */
-    protected String connection_token;
+     * @since 0.2.1  */
+    protected ArrayList<String> tokens;
 
 
 
@@ -227,38 +228,93 @@ public class Account {
     /** Returns the account's display name.   <p></p>
      * @author gemsvidø
      * @since 0.1.0  */
-    public @NotNull String getDisplayName () { return usernameToString; }
+    public @NotNull String getDisplayName () {
+        return usernameToString;
+    }
 
     /** Returns the account's ANSI color code.   <p></p>
      * @author gemsvidø
      * @since 0.1.11 */
-    public @NotNull String getColorCode () { return this.namecolor; }
+    public @NotNull String getColorCode () {
+        return this.namecolor;
+    }
 
     /** Get the account's password.   <p></p>
      * @author gemsvidø
      * @since 0.1.0   */
-    public @NotNull String getPassword () { return password; }
+    public @NotNull String getPassword () {
+        return password;
+    }
+
+    /** Get the account's UUID.   <p></p>
+     * @author gemsvidø
+     * @since 0.2.1   */
+    public @NotNull String getUUID () {
+        return this.uuid;
+    }
 
 
 
 
 
     //-----------------------------------------------------------
-    // Connection token (Public)
+    // Login token (Public)
     //-----------------------------------------------------------
 
     /** Create a new connection token for the account   <p></p>
      * @author gemsvidø
-     * @since 0.1.12 */
-    public void createConnectionToken () { connection_token = UUID.randomUUID().toString(); }
+     * @since 0.2.1 */
+    public void newLoginToken () {
+        tokens.add(UUID.randomUUID().toString());
+    }
 
-    /** Returns the connection token for the account   <p></p>
+    /** Requests the login tokens of the account. If successful, the tokens will be returned as an <code>ArrayList<*String></code>  <p></p>
      * @author gemsvidø
-     * @since 0.1.12 */
-    public @Nullable String requestConnectionToken () { return connection_token; }
+     * @since 0.2.1 */
+    public @Nullable ArrayList<String> requestLoginToken () {
 
-    /** Sets the account's connection token to <code>null</code>    <p></p>
+        // Coming soon
+
+        /*
+
+
+        if (something) {
+        return tokens;
+        } else {
+        return null;
+        }
+
+
+
+         */
+
+
+        return tokens;
+    }
+
+    /** Sets the account's login tokens to <code>null</code>    <p></p>
      * @author gemsvidø
-     * @since 0.1.12 */
-    public void resetConnectionToken () { connection_token = null; }
+     * @since 0.2.1 */
+    public void nullLoginTokens () {
+        tokens = null;
+    }
+
+    /** Clears all of the account's login tokens. <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public void clearLoginTokens () {
+            tokens.clear();
+    }
+
+    /** Sets an amount of the account's login tokens to <code>null</code>    <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public void clearLoginTokens (int Amount) {
+
+        for (int i = 0; i < Amount; i++) {
+            tokens.remove(i);
+        }
+    }
+
+
 }

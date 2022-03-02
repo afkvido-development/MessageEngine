@@ -34,7 +34,6 @@ public final class ModLoader {
 
         // LOAD ALL SCRIPTS HERE
 
-
         // EXAMPLE: macro_mod.tbh(b);
 
 
@@ -48,7 +47,6 @@ public final class ModLoader {
 
 
         // LOAD ALL MODS HERE
-
 
         // EXAMPLE: offline_mod.main();
 

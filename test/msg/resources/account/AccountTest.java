@@ -4,6 +4,8 @@ import msg.i;
 import msg.resources.rank;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 
 /** All tests for the <strong>Account</strong> class.  <p></p>
  * @author gemsvidø
@@ -98,28 +100,28 @@ final class AccountTest {
     @Test void createConnectionToken () {
         i.line("\nAccountTest.createConnectionToken  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
-        account.createConnectionToken();
-        String token = account.requestConnectionToken();
-        i.line(i.cyan + token);
+        account.newLoginToken();
+        ArrayList<String> tokens = account.requestLoginToken();
+        i.line(i.cyan + tokens);
         i.line(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>requestConnectionToken</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
      * @since 0.2.0   */
-    @Test void requestConnectionToken() {
-        i.line("\nAccountTest.requestConnectionToken  [\n");
+    @Test void requestLoginToken () {
+        i.line("\nAccountTest.requestLoginToken  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
-        String token = account.requestConnectionToken();
-        i.line(i.cyan + token);
+        ArrayList<String> tokens = account.requestLoginToken();
+        i.line(i.cyan + tokens);
         i.line(i.white + "\n]\n\n\n");    }
 
     /** This tests the <strong>resetConnectionToken</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
      * @since 0.2.0   */
-    @Test void resetConnectionToken() {
+    @Test void resetConnectionToken () {
         i.line("\nAccountTest.resetConnectionToken  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
-        account.resetConnectionToken();
+        account.nullLoginTokens();
         i.line(i.white + "\n]\n\n\n");    }
 
     /** Private constructor prevents utility class <strong>AccountTest</strong> from being initialized. <p></p>

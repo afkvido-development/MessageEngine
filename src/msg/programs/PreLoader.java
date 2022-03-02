@@ -64,7 +64,7 @@ public @NotNull final class PreLoader {
 
             loadMods(1); // Run mods before run configs
 
-            i.line( "MessageEngine by gemsvido"); // I made this, so I deserve credit. shutup
+            i.line("\nMessageEngine by gemsvido"); // I made this, so I deserve credit. shutup
 
             RunConfig(); // Run Configs
 
