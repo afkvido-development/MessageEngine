@@ -265,6 +265,9 @@ public class Account {
      * @author gemsvidø
      * @since 0.2.1 */
     public void newLoginToken () {
+        if (tokens == null) {
+            tokens = new ArrayList<>();
+        }
         tokens.add(UUID.randomUUID().toString());
     }
 

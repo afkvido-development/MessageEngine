@@ -9,8 +9,9 @@ import java.net.URL;
 /** This is used to read URLs. Improved by gemsvido, original from [idk]. <p></p>
  * @author gemsvido
  *  @since 0.1.4 */
-public interface URLreader {
+public interface UrlReader {
 
+    /** This String will determine if the URLreader failed or not*/
     String fail = "URLreader failed";
 
 

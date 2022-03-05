@@ -2,13 +2,11 @@
   <configuration default="false" name="All Tests" type="JUnit" factoryName="JUnit">
     <output_file path="$PROJECT_DIR$/out/logs/Tests_All.txt" is_save="true" />
     <module name="MessageEngine" />
-    <selectedOptions>
-      <option name="environmentVariables" visible="false" />
-    </selectedOptions>
     <shortenClasspath name="NONE" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="directory" />
+    <option name="PASS_PARENT_ENVS" value="false" />
     <dir value="$PROJECT_DIR$/test" />
     <method v="2">
       <option name="Make" enabled="true" />

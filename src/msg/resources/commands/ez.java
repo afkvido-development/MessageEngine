@@ -1,6 +1,6 @@
 package msg.resources.commands;
 
-import msg.version.URLreader;
+import msg.version.UrlReader;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ final @NotNull class ez {
         String fetchEz = "";
 
         try {
-            fetchEz = URLreader.check("https://raw.githubusercontent.com/" + ServerAddress.replace(".msgeng", "") + "/main/src/ez/list.txt");
+            fetchEz = UrlReader.check("https://raw.githubusercontent.com/" + ServerAddress.replace(".msgeng", "") + "/main/src/ez/list.txt");
         } catch (Exception ignored) {}
 
         String[] ezS = fetchEz.split("\\n");

@@ -4,7 +4,7 @@ import msg.Main;
 import msg.i;
 import msg.resources.account.Account;
 import msg.resources.rank;
-import msg.version.URLreader;
+import msg.version.UrlReader;
 import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
 
@@ -55,6 +55,9 @@ public final class login {
      * @since 0.1.8 */
     private static String password;
 
+    /**  */
+    private static String loginToken;
+
     //------------------------------------
 
     /** This is run when the client needs to log in  <p></p>
@@ -81,13 +84,28 @@ public final class login {
             i.text(i.cyan + "Server Address: ");
             i.ServerAddress = server_address_scan.nextLine();
 
-            Scanner username_scan = new Scanner(System.in);
-            i.text(i.cyan + "Username: ");
-            username = username_scan.nextLine();
 
-            Scanner password_scan = new Scanner(System.in);
-            i.text(i.cyan + "Password: ");
-            password = password_scan.nextLine();
+
+            if ((System.getenv("loginWithToken") != null) && System.getenv("TOKEN").equalsIgnoreCase("true")) {
+
+            Scanner aLoginToken_scan = new Scanner(System.in);
+            i.text(i.cyan + "Login Token: ");
+            loginToken = aLoginToken_scan.nextLine();
+
+
+            } else {
+
+                Scanner username_scan = new Scanner(System.in);
+                i.text(i.cyan + "Username: ");
+                username = username_scan.nextLine();
+
+
+                Scanner password_scan = new Scanner(System.in);
+                i.text(i.cyan + "Password: ");
+                password = password_scan.nextLine();
+
+            }
+
 
 
 
@@ -98,7 +116,7 @@ public final class login {
 
 
                 try {
-                    p = URLreader.check(mainYml);
+                    p = UrlReader.check(mainYml);
                 } catch (Exception ignored) {  }
 
                 SortInfo(p);
@@ -115,7 +133,7 @@ public final class login {
 
                     try {
 
-                        n = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
+                        n = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
 
                     } catch (Exception ignored) {}
 
@@ -143,7 +161,7 @@ public final class login {
 
                     try {
 
-                       s = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
+                       s = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
 
                     } catch (Exception ignored) {}
 
@@ -187,14 +205,14 @@ public final class login {
 
 
 
-        latestSvVersion = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/version/Primary.yml");
+        latestSvVersion = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/version/Primary.yml");
 
 
 
 
         boolean valid = false;
 
-        String compatible = URLreader.check("https://raw.githubusercontent.com/ " + "/main/src/version/Compatible.yml");
+        String compatible = UrlReader.check("https://raw.githubusercontent.com/ " + "/main/src/version/Compatible.yml");
 
         String[] compatibleVersions = compatible.split("\\n");
 
@@ -284,7 +302,7 @@ public final class login {
     private static @NotNull Account getAccount () {
 
         // Read the account's info from the server
-        String rank1 = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
+        String rank1 = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
 
         // Split the account's info into separate lines
         String[] lines = rank1.split("\\n");

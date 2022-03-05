@@ -7,7 +7,7 @@ import msg.resources.account.Account;
 import msg.resources.commands.Commands;
 import msg.resources.message.TextMessage;
 import msg.resources.rank;
-import msg.version.URLreader;
+import msg.version.UrlReader;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
@@ -284,11 +284,11 @@ public @NotNull @Unmodifiable final class i {
 
                 try {
 
-                    print = URLreader.read("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/" + Input.replace("/", "") + ".txt");
+                    print = UrlReader.read("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/" + Input.replace("/", "") + ".txt");
 
                 } catch (Exception ignored) {
 
-                        print = URLreader.check("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/notfound.txt");
+                        print = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress.replace(".msgeng", "") + "/main/src/Commands/notfound.txt");
 
                 }
 

@@ -3,7 +3,7 @@
     <output_file path="$PROJECT_DIR$/out/logs/Tests_Class_URLreader.txt" is_save="true" />
     <module name="MessageEngine" />
     <option name="PACKAGE_NAME" value="msg.version" />
-    <option name="MAIN_CLASS_NAME" value="msg.version.URLreaderTest" />
+    <option name="MAIN_CLASS_NAME" value="msg.version.UrlReaderTest" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="PASS_PARENT_ENVS" value="false" />

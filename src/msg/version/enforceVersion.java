@@ -33,9 +33,9 @@ public final @Unmodifiable @NotNull class enforceVersion {
             i.line(i.yellow + "EnforceVersion is disabled.\nThis should " + i.red + "ONLY" + i.yellow + " be used for debugging purposes." + i.white);
         } else {
 
-            String apiConnection = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/API.yml");
+            String apiConnection = UrlReader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/API.yml");
 
-            if (apiConnection.equals(URLreader.fail)) {
+            if (apiConnection.equals(UrlReader.fail)) {
                 i.line(i.red + "Cannot connect to MessageEngine API\nMake sure you're on the latest version of MessageEngine");
                 wait.nextLine();
                 System.exit(0);
@@ -45,10 +45,10 @@ public final @Unmodifiable @NotNull class enforceVersion {
                 System.exit(0);
             }
 
-            latestVersion = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml").replace("\n", "");
+            latestVersion = UrlReader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/latest.yml").replace("\n", "");
 
 
-            String allowed = URLreader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/AllowedVersions.yml");
+            String allowed = UrlReader.check("https://raw.githubusercontent.com/afkvido-development/MessageEngine-API/master/src/api/versions/latest/AllowedVersions.yml");
 
 
             String[] allowedVersions = allowed.split("\\n");
