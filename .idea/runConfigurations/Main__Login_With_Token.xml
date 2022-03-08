@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main: Login With Token" type="Application" factoryName="Application">
+    <envs>
+      <env name="loginWithToken" value="true" />
+    </envs>
+    <output_file path="$PROJECT_DIR$/out/logs/MainApplication_Debug_Latest.txt" is_save="true" />
+    <option name="MAIN_CLASS_NAME" value="msg.Main" />
+    <module name="MessageEngine" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="Latest" />
+      </option>
+    </method>
+  </configuration>
+</component>

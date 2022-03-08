@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main" type="Application" factoryName="Application">
+  <configuration default="false" name="Main: Main" type="Application" factoryName="Application">
     <output_file path="$PROJECT_DIR$/out/logs/MainApplication_Main_Latest.txt" is_save="true" />
     <option name="MAIN_CLASS_NAME" value="msg.Main" />
     <module name="MessageEngine" />

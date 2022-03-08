@@ -8,6 +8,7 @@ import msg.version.UrlReader;
 import msg.version.Version;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /** The server login thing, except it logs into a local server if the local server debug mode is on.  <p></p>
@@ -86,7 +87,7 @@ public final class login {
 
 
 
-            if ((System.getenv("loginWithToken") != null) && System.getenv("TOKEN").equalsIgnoreCase("true")) {
+            if ((System.getenv("loginWithToken") != null) && System.getenv("loginWithToken").equalsIgnoreCase("true")) {
 
             Scanner aLoginToken_scan = new Scanner(System.in);
             i.text(i.cyan + "Login Token: ");
