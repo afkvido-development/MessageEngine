@@ -274,25 +274,16 @@ public class Account {
     /** Requests the login tokens of the account. If successful, the tokens will be returned as an <code>ArrayList<*String></code>  <p></p>
      * @author gemsvidø
      * @since 0.2.1 */
-    public @Nullable ArrayList<String> requestLoginToken () {
+    public @Nullable ArrayList<String> requestLoginTokens() {
 
-        // Coming soon
-
-        /*
-
-
-        if (something) {
-        return tokens;
+        if (true) {
+            return tokens;
         } else {
-        return null;
+            return null;
         }
 
+        // Security coming soon.
 
-
-         */
-
-
-        return tokens;
     }
 
     /** Sets the account's login tokens to <code>null</code>    <p></p>

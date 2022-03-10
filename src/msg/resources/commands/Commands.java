@@ -109,7 +109,9 @@ public final class Commands {
     /** Returns a random <strong>ez</strong> response from the server <p></p>
      * @author gemsvidø
      * @since 0.1.2   */
-    public static @NotNull String ez () { return ez.fire(); }
+    public static @NotNull String ez () {
+        return ez.fire();
+    }
 
     /** Utility class <strong>Commands</strong> cannot be initialized <p></p>
      * @author gemsvidø  */

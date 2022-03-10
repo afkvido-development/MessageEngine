@@ -97,32 +97,36 @@ final class AccountTest {
     /** This tests the <strong>createConnectionToken</strong> method in the <strong>Account</strong> class.  <p></p>
      * @author gemsvidø
      * @since 0.2.0  */
-    @Test void createConnectionToken () {
-        i.line("\nAccountTest.createConnectionToken  [\n");
+    @Test void newLoginToken () {
+        i.line("\nAccountTest.newLoginToken  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         account.newLoginToken();
-        ArrayList<String> tokens = account.requestLoginToken();
+        ArrayList<String> tokens = account.requestLoginTokens();
         i.line(i.cyan + tokens);
-        i.line(i.white + "\n]\n\n\n");    }
+        i.line(i.white + "\n]\n\n\n");
+    }
 
     /** This tests the <strong>requestConnectionToken</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
      * @since 0.2.0   */
-    @Test void requestLoginToken () {
-        i.line("\nAccountTest.requestLoginToken  [\n");
+    @Test void requestLoginTokens () {
+        i.line("\nAccountTest.requestLoginTokens  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
-        ArrayList<String> tokens = account.requestLoginToken();
+        account.newLoginToken();
+        ArrayList<String> tokens = account.requestLoginTokens();
         i.line(i.cyan + tokens);
-        i.line(i.white + "\n]\n\n\n");    }
+        i.line(i.white + "\n]\n\n\n");
+    }
 
     /** This tests the <strong>resetConnectionToken</strong> method in the <strong>Account</strong> class. <p></p>
      * @author gemsvidø
      * @since 0.2.0   */
-    @Test void resetConnectionToken () {
-        i.line("\nAccountTest.resetConnectionToken  [\n");
+    @Test void nullLoginTokens () {
+        i.line("\nAccountTest.nullLoginTokens  [\n");
         Account account = new Account("Account Test Account", "ATA Password", rank.MODERATOR);
         account.nullLoginTokens();
-        i.line(i.white + "\n]\n\n\n");    }
+        i.line(i.white + "\n]\n\n\n");
+    }
 
     /** Private constructor prevents utility class <strong>AccountTest</strong> from being initialized. <p></p>
      * @author gemsvidø */

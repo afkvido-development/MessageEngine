@@ -44,7 +44,9 @@ public @NotNull final class PreLoader {
     /** Loads all the mods  <p></p>
      * @author gemsvidø
      * @since 0.1.6 */
-    private static void loadMods (int e) { ModLoader.LoadMods(i.getToken(), e); }
+    private static void loadMods (int e) {
+        ModLoader.LoadMods(i.getToken(), e);
+    }
 
     /** Prevents PreLoader from being initialized.  <p></p>
      * @author gemsvidø
