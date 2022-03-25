@@ -89,9 +89,22 @@ import java.util.UUID;
          i.line("\n\n\n" + Main.loggedin + "\n\n\n");
 
         }
-        case "/exit" -> System.exit(0);
-        case "/generatenewuuid" -> Commands.generateUUIDs(Main.loggedin);
-        default -> i.line("Not a command");
+        case "/exit" -> {
+         System.exit(0);
+        }
+        case "/generatenewuuid" -> {
+         Commands.generateUUIDs(Main.loggedin);
+        }
+        case "/help" -> {
+         i.line(i.gray + "Welcome to the " + i.cyan + " MessageEngine Offline Mod" + i.gray + ".");
+         i.line(i.blue + "Commands: ");
+         i.line(i.cyan + "cancel_messageL" + i.purple + " - Cancels sending that message");
+         i.line(i.cyan + "/help" + i.purple + " - Display this help message");
+         i.line(i.cyan + "ez" + i.purple + " - Sends an ez message instead of what you typed.");
+        }
+        default -> {
+         i.line("Not a command");
+        }
        }
 
        ModLoader.LoadMods(i.getToken(), 7);
@@ -107,6 +120,7 @@ import java.util.UUID;
          break;
         case "cancel_messageL": i.debugLine("Info", "Cancelled message"); break;
         case "": break;
+
         default:
          nextmsg = new TextMessage(Main.loggedin, Input, i.localServer);
          i.message(nextmsg);
