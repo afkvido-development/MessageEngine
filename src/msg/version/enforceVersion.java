@@ -11,7 +11,7 @@ import java.util.Scanner;
  *  @since 0.1.4 */
 public final @Unmodifiable @NotNull class enforceVersion {
 
-    /** If debug mode is on, then LocalServer will be used instead of an online server.  <p></p>
+    /** If debug mode is on, then the version will not be checked.  <p></p>
      * @author gemsvidø
      * @since 0.1.13 */
     public static Boolean debug = false;

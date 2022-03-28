@@ -4,6 +4,9 @@ import msg.i;
 import msg.resources.account.Account;
 import msg.resources.rank;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
+
+import java.util.UUID;
 
 /** The TextMessage class itself, the core of MessageEngine. Made 100% by gemsvidø. <p></p>
  * @author gemsvidø
@@ -41,14 +44,21 @@ public class TextMessage {
      * @since 0.1.0 */
     protected String recipientDisplay;
 
+    /** The message's ID, used to prevent the same message sent twice.  <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    protected final String messageID;
+
+    //-----------------------------------------------------
+
     /** Constructor initializes a new TextMessage   <p></p>
      * @author gemsvidø
      * @since 0.0.0 */
     public TextMessage (@NotNull Account auth, @NotNull String msg, @NotNull Account rcp) {
-        author = auth;
-        message = msg;
-        recipient = rcp;
-
+        this.author = auth;
+        this.message = msg;
+        this.recipient = rcp;
+        this.messageID = UUID.randomUUID().toString().replace("-", "");
 
     }
 
@@ -77,7 +87,19 @@ public class TextMessage {
         return output;
     }
 
+    /** Returns the raw contents of the message. <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public @NotNull @Unmodifiable String getContent () {
+        return this.message;
+    }
+
+    /** Returns the message's ID.   <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public @NotNull @Unmodifiable String getMessageID () {
+        return this.messageID;
+    }
+
 
 }
-
-

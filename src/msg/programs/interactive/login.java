@@ -46,6 +46,11 @@ public final class login {
      * @since 0.1.8 */
      public static Boolean debug = false;
 
+     /** MultiConnect, if true then the server/client version won't be checked. Must be enabled on both client and server to work.  <p></p>
+      * @author gemsvidø
+      * @since 0.2.1 */
+     private static Boolean multiconnect = false;
+
     /** User's username  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
@@ -56,7 +61,7 @@ public final class login {
      * @since 0.1.8 */
     private static String password;
 
-    /**  */
+    /** Making a login token eventually. */
     private static String loginToken;
 
     //------------------------------------
@@ -218,20 +223,26 @@ public final class login {
         String[] compatibleVersions = compatible.split("\\n");
 
 
-        for (String allowedVersion : compatibleVersions) {
 
-            if ((Version.Version).equals(allowedVersion.replace("\n", ""))) {
-                valid = true;
+        if (Version.Version.equals(latestSvVersion)) {
+            valid = true;
+            i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the recommend server version" + i.gray + "!");
 
-                if (Version.Version.equals(latestSvVersion)) {
-                    i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the recommend server version" + i.gray + "!");
-                } else {
+        } else {
+
+
+            for (String allowedVersion : compatibleVersions) {
+
+                if (Version.Version.equals(allowedVersion.replace("\n", ""))) {
+                    valid = true;
+
                     i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the server recommends using version " + i.cyan + latestSvVersion + i.gray + ".");
+
+
+                    break;
                 }
-
-
-                break;
             }
+
         }
 
         Scanner wait = new Scanner(System.in);
@@ -255,10 +266,10 @@ public final class login {
         Boolean[] valid = new Boolean[5];
 
         valid[0] = i.ServerAddress.equals(svAddress);
-        valid[1] = !disabled.equals("true");
+        valid[1] = disabled.equals("false");
         valid[2] = true;
         valid[3] = true;
-        valid[4] = Version.Version.equals(latestSvVersion);
+        valid[4] = !(Version.Version.equals(latestSvVersion));
 
         for (int l = 0; l < valid.length; l++) {
             if (!valid[l]) {

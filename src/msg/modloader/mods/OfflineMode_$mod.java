@@ -14,13 +14,13 @@ import msg.resources.rank;
 import java.util.Scanner;
 import java.util.UUID;
 
-@Mod public interface offline_mod {
+@Mod public interface OfflineMode_$mod {
 
 
  /** This lets you completely run MessageEngine without internet, how nice! <p></p>
   * @author gemsvidø
   * @since 0.2.0
-  * @see offline_mod */
+  * @see OfflineMode_$mod */
     @Mod_Main static void main () {
 
 
@@ -124,7 +124,7 @@ import java.util.UUID;
         default:
          nextmsg = new TextMessage(Main.loggedin, Input, i.localServer);
          i.message(nextmsg);
-
+         // i.sendPacket(nextmsg); We won't be sending a packet because it's offline.
        }
 
       }

@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
  * @author gemsvidø
  * @since 0.2.0
  * @see msg.modloader.ModLoader */
-@Mod public interface experimental_mod {
+@Mod public interface Experimental_$mod {
 
     @Mod_Main static void main () {
         i.line(i.gray + "[Info/Experimental] Enabling Experiments...");
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
      * <p></p>
      * @author gemsvidø
      * @since 0.2.0
-     * @see experimental_mod */
+     * @see Experimental_$mod */
     @Script static void e1104588 (@NotNull Integer b) {
 
         if (!i.enableExperiments) {
@@ -53,7 +53,7 @@ import org.jetbrains.annotations.NotNull;
      * <p></p>
      * @author gemsvidø
      * @since 0.2.0
-     * @see experimental_mod */
+     * @see Experimental_$mod */
     @Script static void a8283146 (@NotNull Integer b) {
 
         if (!i.enableExperiments) {
@@ -78,7 +78,7 @@ import org.jetbrains.annotations.NotNull;
      * <p></p>
      * @author gemsvidø
      * @since 0.2.0
-     * @see experimental_mod */
+     * @see Experimental_$mod */
     @Script static void e636581f (@NotNull Integer b) {
 
         if (!i.enableExperiments) {

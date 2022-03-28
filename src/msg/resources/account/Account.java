@@ -264,11 +264,13 @@ public class Account {
     /** Create a new connection token for the account   <p></p>
      * @author gemsvidø
      * @since 0.2.1 */
-    public void newLoginToken () {
+    public String newLoginToken () {
         if (tokens == null) {
             tokens = new ArrayList<>();
         }
-        tokens.add(UUID.randomUUID().toString());
+        String newToken = UUID.randomUUID().toString();
+        tokens.add(newToken);
+        return newToken;
     }
 
     /** Requests the login tokens of the account. If successful, the tokens will be returned as an <code>ArrayList<*String></code>  <p></p>

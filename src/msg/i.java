@@ -1,6 +1,7 @@
 package msg;
 
 import msg.modloader.ModLoader;
+import msg.resources.packet.Packet;
 import msg.programs.interactive.login;
 import msg.resources.ClipBored;
 import msg.resources.account.Account;
@@ -13,6 +14,8 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.UUID;
+
+import static msg.Main.loggedin;
 
 
 /** <strong>The</strong> utility class <p></p>
@@ -273,7 +276,7 @@ public @NotNull @Unmodifiable final class i {
             switch (Input.toLowerCase()) {
                 case "/logout" -> login.go();
                 case "/exit" -> System.exit(0);
-                case "/generatenewuuid" -> Commands.generateUUIDs(Main.loggedin);
+                case "/generatenewuuid" -> Commands.generateUUIDs(loggedin);
                 default -> serverCommand = true;
             }
 
@@ -305,14 +308,16 @@ public @NotNull @Unmodifiable final class i {
                 case "ez":
                     i.debugLine("Info", "\"ez\" was sent.");
                     String z = Commands.ez();
-                    nextmsg = new TextMessage(Main.loggedin, z, i.localServer);
+                    nextmsg = new TextMessage(loggedin, z, i.localServer);
                     i.message(nextmsg);
+                    i.sendPacket(nextmsg);
                     break;
                 case "cancel_messageL": i.debugLine("Info", "Cancelled message"); break;
                 case "": break;
                 default:
-                    nextmsg = new TextMessage(Main.loggedin, Input, i.localServer);
+                    nextmsg = new TextMessage(loggedin, Input, i.localServer);
                     i.message(nextmsg);
+                    i.sendPacket(nextmsg);
 
             }
 
@@ -331,6 +336,15 @@ public @NotNull @Unmodifiable final class i {
 
     // Experimental
     //---------------------------------------------------
+    //---------------------------------------------------
+    // Send Message as a packet
 
+    public static void sendPacket (@NotNull TextMessage message) {
 
+        Packet packet = new Packet(loggedin.newLoginToken(), message);
+        packet.send();
+    }
+
+    // Send Message as a packet
+    //---------------------------------------------------
 }

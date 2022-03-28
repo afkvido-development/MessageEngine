@@ -7,10 +7,8 @@ import msg.modloader.resources.Script;
 import msg.resources.account.Account;
 import msg.resources.message.TextMessage;
 import msg.resources.rank;
-import msg.version.enforceVersion;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.UUID;
 
 /** Just a mod for testing.
@@ -18,7 +16,7 @@ import java.util.UUID;
  * @author gemsvidø
  * @since 0.1.12
  * @see msg.modloader.ModLoader */
-@Mod public interface testMod_mod {
+@Mod public interface TestMod_$mod {
 
 
      @Mod_Main static void main () {
@@ -28,7 +26,7 @@ import java.util.UUID;
      /** This just previews some messages. <p></p>
       * @author gemsvidø
       * @since 0.1.12
-      * @see testMod_mod */
+      * @see TestMod_$mod */
      @Script static void previewMessage (@NotNull Integer r) {
 
           if (r == 3) {
