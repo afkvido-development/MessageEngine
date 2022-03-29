@@ -5,9 +5,11 @@ import msg.programs.PreLoader;
 import msg.programs.interactive.login;
 import msg.resources.account.Account;
 import msg.resources.gui.guiWindow;
+import msg.resources.rank;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Scanner;
+import java.util.UUID;
 
 
 /** The main class. It all happens here. <p></p>
@@ -31,14 +33,18 @@ import java.util.Scanner;
      * @since 0.0.0 */
     public static void main (@Nullable String[] args) {
 
-        guiWindow.fire();
-
         ModLoader.LoadMods(i.getToken(), 0);
 
         // PreLoader
         i.info("Starting PreLoader...");
         PreLoader.PreLoading();
         i.info("PreLoader finished.\n\n");
+
+
+
+        loggedin = new Account("GUI", UUID.randomUUID().toString(), rank.OWNER);
+        guiWindow.fire();
+
 
 
         // Login
