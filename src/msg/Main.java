@@ -4,6 +4,7 @@ import msg.modloader.ModLoader;
 import msg.programs.PreLoader;
 import msg.programs.interactive.login;
 import msg.resources.account.Account;
+import msg.resources.gui.guiWindow;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Scanner;
@@ -29,6 +30,8 @@ import java.util.Scanner;
      * @author gemsvidø
      * @since 0.0.0 */
     public static void main (@Nullable String[] args) {
+
+        guiWindow.fire();
 
         ModLoader.LoadMods(i.getToken(), 0);
 
