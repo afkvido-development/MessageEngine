@@ -16,6 +16,11 @@ import java.util.Scanner;
  * @since 0.1.8 */
 public final class login {
 
+    /** If the client is the severs recommended version  <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public static Boolean recommended = true;
+
     /** Server Address  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
@@ -72,6 +77,15 @@ public final class login {
     public static void go () {
         if (debug == null || !debug) {
             serverLogin();
+        }
+    }
+
+    /** This is run when the client needs to log in with preset credentials  <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    public static void go_credentials (String serverAddress, String username, String password) {
+        if (debug == null || !debug) {
+            serverLogin(serverAddress, username, password);
         }
     }
 
@@ -153,7 +167,7 @@ public final class login {
                     for (String value : line) {
 
                         if (value.equals(username)) {
-                            i.line("Account listed (1/2)");
+                            i.debugLine("Info", "Account listed (1/2)");
                             break;
                         }
 
@@ -177,6 +191,7 @@ public final class login {
 
                     if (serverAccUsername.equals(username) && serverAccPassword.equals(password)) {
 
+                        setAccount(getAccount());
                         i.line(i.green + "Successfully connected to " + i.purple + svName + i.green + " (" + i.cyan + svAddress + i.green + ") as " + i.cyan + username);
                         success = true;
 
@@ -197,6 +212,236 @@ public final class login {
 
     }
 
+
+    /** Log in to a server with username and password args  <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    private static void serverLogin (String serverAddress_, String username_, String password_) {
+
+        boolean success;
+
+        do {
+
+            success = false;
+
+
+            i.text(i.cyan + "Server Address: " + serverAddress_);
+            i.ServerAddress = serverAddress_;
+
+
+
+
+
+
+            i.text(i.cyan + "Username: " + username_);
+            username = username_;
+
+
+
+            i.text(i.cyan + "Password: " + password_);
+            password = password_;
+
+
+
+
+
+
+
+            String ghServerAddress = "https://github.com/" + i.ServerAddress;
+            String mainYml = "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml";
+            String p = "";
+
+
+            try {
+                p = UrlReader.check(mainYml);
+            } catch (Exception ignored) {  }
+
+            SortInfo(p);
+
+            Boolean valid = checkServerValidity();
+
+            if (valid) {
+
+                i.line(i.green + "Successfully pinged " + i.cyan + svAddress);
+                String n = "";
+
+
+                // Read AccountList.yml
+
+                try {
+
+                    n = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
+
+                } catch (Exception ignored) {}
+
+
+
+                String[] line = n.split("\\n");
+
+
+                // LOCATE ACCOUNT IN AccountList.yml
+
+                for (String value : line) {
+
+                    if (value.equals(username)) {
+                        i.debugLine("Info", "Account listed (1/2)");
+                        break;
+                    }
+
+                }
+
+
+
+                // Read Account
+
+                String s = "";
+
+                try {
+
+                    s = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
+
+                } catch (Exception ignored) {}
+
+                String[] accountsInfo = s.split("\\n");
+                String serverAccUsername = accountsInfo[1].replace("username: ", "");
+                String serverAccPassword = accountsInfo[2].replace("password: ", "");
+
+                if (serverAccUsername.equals(username) && serverAccPassword.equals(password)) {
+
+                    setAccount(getAccount());
+                    i.line(i.green + "Successfully connected to " + i.purple + svName + i.green + " (" + i.cyan + svAddress + i.green + ") as " + i.cyan + username);
+                    success = true;
+
+                } else {
+                    i.line(i.yellow + "Credentials did not match");
+                }
+
+
+
+
+            } else {
+                i.line(i.red + "Could not connect to " + i.cyan + i.ServerAddress);
+            }
+
+
+        } while (!success);
+
+
+    }
+
+
+    /** <b>COMING SOON.</b> Log in to a server with a token.   <p></p>
+     * @author gemsvidø
+     * @since 0.2.1 */
+    private static void serverLogin (String serverAddress_, String loginToken_) {
+
+        boolean success;
+
+        do {
+
+            success = false;
+
+
+            i.text(i.cyan + "Server Address: " + serverAddress_);
+            i.ServerAddress = serverAddress_;
+
+
+
+
+
+            i.text(i.cyan + "Token: " + loginToken_);
+            loginToken = loginToken_;
+
+
+
+
+
+
+
+
+            String ghServerAddress = "https://github.com/" + i.ServerAddress;
+            String mainYml = "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml";
+            String p = "";
+
+
+            try {
+                p = UrlReader.check(mainYml);
+            } catch (Exception ignored) {  }
+
+            SortInfo(p);
+
+            Boolean valid = checkServerValidity();
+
+            if (valid) {
+
+                i.line(i.green + "Successfully pinged " + i.cyan + svAddress);
+                String n = "";
+
+
+                // Read AccountList.yml
+
+                try {
+
+                    n = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/!%20AccountList.yml");
+
+                } catch (Exception ignored) {}
+
+
+
+                String[] line = n.split("\\n");
+
+
+                // LOCATE ACCOUNT IN AccountList.yml
+
+                for (String value : line) {
+
+                    if (value.equals(username)) {
+                        i.debugLine("Info", "Account listed (1/2)");
+                        break;
+                    }
+
+                }
+
+
+
+                // Read Account
+
+                String s = "";
+
+                try {
+
+                    s = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
+
+                } catch (Exception ignored) {}
+
+                String[] accountsInfo = s.split("\\n");
+                String serverAccUsername = accountsInfo[1].replace("username: ", "");
+                String serverAccPassword = accountsInfo[2].replace("password: ", "");
+
+                if (serverAccUsername.equals(username) && serverAccPassword.equals(password)) {
+
+                    setAccount(getAccount());
+                    i.line(i.green + "Successfully connected to " + i.purple + svName + i.green + " (" + i.cyan + svAddress + i.green + ") as " + i.cyan + username);
+                    success = true;
+
+                } else {
+                    i.line(i.yellow + "Credentials did not match");
+                }
+
+
+
+
+            } else {
+                i.line(i.red + "Could not connect to " + i.cyan + i.ServerAddress);
+            }
+
+
+        } while (!success);
+
+
+    }
+
+
     /** Sort information from a server, while logging in  <p></p>
      * @author gemsvidø
      * @since 0.1.8 */
@@ -211,7 +456,7 @@ public final class login {
 
 
 
-        latestSvVersion = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/version/Primary.yml");
+        latestSvVersion = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/version/Primary.yml").replace("\n", "");
 
 
 
@@ -226,14 +471,14 @@ public final class login {
 
         if (Version.Version.equals(latestSvVersion)) {
             valid = true;
-            i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the recommend server version" + i.gray + "!");
-
+            i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", " + i.green + "you are on the recommended server version" + i.gray + "!");
+            recommended = true;
         } else {
 
 
             for (String allowedVersion : compatibleVersions) {
 
-                if (Version.Version.equals(allowedVersion.replace("\n", ""))) {
+                if (Version.Version.equals(allowedVersion) || Version.Version.equals(allowedVersion.replace("\n", ""))) {
                     valid = true;
 
                     i.line(i.gray + "Running version " + i.cyan + Version.Version + i.gray + ", the server recommends using version " + i.cyan + latestSvVersion + i.gray + ".");
@@ -249,8 +494,8 @@ public final class login {
 
 
         if (!valid) {
-            i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the server needs version " + i.cyan + latestSvVersion.replace("\n", "") + i.yellow + ".");
-            i.line(i.red + "\nYou are on an incompatible version of MessageEngine for this server. \nTo join this server, get MessageEngine " + i.cyan + latestSvVersion);
+            i.text(i.yellow + "You are running MessageEngine " + i.cyan + Version.Version + i.yellow + ", the server needs version " + i.cyan + latestSvVersion + i.yellow + ".");
+            i.line(i.red + "\nYou are on an incompatible version of MessageEngine for this server. \nTo join this server, get MessageEngine " + i.cyan + latestSvVersion + i.red + ".");
             i.line(i.cyan + "MessageEngine Downloads: https://github.com/afkvido-development/MessageEngine/releases");
             wait.nextLine();
         }
@@ -272,36 +517,36 @@ public final class login {
         valid[4] = !(Version.Version.equals(latestSvVersion));
 
         for (int l = 0; l < valid.length; l++) {
-            if (!valid[l]) {
 
-                i.line(i.red + "Server invalid");
+
+            if (!valid[l]) {
 
                 switch (l) {
                     case 0 -> {
+                        i.line(i.red + "Server invalid");
                         i.line(i.yellow + "Server Address is invalid. ");
                         i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
+                        return false;
                     }
                     case 1 -> {
+                        i.line(i.red + "Server invalid");
                         i.line(i.yellow + "Server is disabled. ");
                         i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
+                        return false;
                     }
                     case 4 -> {
-                        i.line(i.yellow + "The server recommends version " + i.cyan + latestSvVersion + i.yellow + ".");
-                        i.line(i.green + "You may still connect to the server.");
-                        i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
+                        if (!recommended) {
+                            i.line(i.yellow + "The server recommends version " + i.cyan + latestSvVersion + i.yellow + ".");
+                            i.line(i.green + "You may still connect to the server.");
+                            i.line(i.gray + "at " + i.cyan + "https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Main.yml");
+                        }
                         return true;
                     }
                     default -> throw new IndexOutOfBoundsException("420: How did we get here?");
                 }
-
-                return false;
-
-
             }
         }
 
-
-        setAccount(getAccount());
 
 
         return true;
@@ -315,6 +560,7 @@ public final class login {
 
         // Read the account's info from the server
         String rank1 = UrlReader.check("https://raw.githubusercontent.com/" + i.ServerAddress + "/main/src/Accounts/" + username + ".yml");
+
 
         // Split the account's info into separate lines
         String[] lines = rank1.split("\\n");
