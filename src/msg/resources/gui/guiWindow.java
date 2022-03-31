@@ -18,7 +18,7 @@ public class guiWindow {
         JFrame frame = new JFrame("MessageEngine");
 
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
         // Text Label
@@ -51,7 +51,7 @@ public class guiWindow {
 
         // Icon
         frame.setIconImage(new ImageIcon("https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/1875584.png").getImage());
-
+        ;
 
         //Display the window
 
