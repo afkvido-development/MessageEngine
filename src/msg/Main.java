@@ -42,12 +42,12 @@ import java.util.UUID;
 
 
 
-        /*
-        GUI coming soon
+
+
 
         loggedin = new Account("GUI", UUID.randomUUID().toString(), rank.OWNER);
-        guiWindow.fire();
-         */
+        guiWindow win = new guiWindow();
+
 
 
 

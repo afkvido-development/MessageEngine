@@ -1,21 +1,34 @@
 package msg.resources.gui;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import javax.swing.*;
 import msg.Main;
 import msg.i;
 
+import javax.swing.*;
+import java.awt.*;
+
+/** MessageEngine GUI <p></p>
+ * @author gemsvidø
+ * @since 0.2.3 */
 public class guiWindow {
 
-    protected static JLabel textLabel;
+    protected JLabel textLabel;
 
-    protected static JTextField textField;
+    protected JTextField textField;
 
-    private static void createWindow () {
+    protected Boolean built;
+
+    protected JFrame frame;
+
+    /** (Private) Create and display a MessageEngine GUI window <p></p>
+     * @author gemsvidø
+     * @since 0.2.3 */
+    private void createWindow () {
+
+
+
 
         //Create and set up the window.
-        JFrame frame = new JFrame("MessageEngine");
+        frame = new JFrame("MessageEngine");
 
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -35,9 +48,8 @@ public class guiWindow {
         textField.addActionListener(
                 ae -> {
 
-                    if (textField.getText().equals("")) {
+                    if (!textField.getText().equals("")) {
 
-                    } else {
                         i.ProcessInput(textField.getText());
                         textLabel.setText("<html>" +
                                 textLabel.getText().replace("<html>", "").replace("</html>", "") +
@@ -51,20 +63,54 @@ public class guiWindow {
 
         // Icon
         frame.setIconImage(new ImageIcon("https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/1875584.png").getImage());
-        ;
 
-        //Display the window
+
+        // Ready the window for Display
 
         frame.setLocationRelativeTo(null);
         frame.pack();
-        frame.setVisible(true);
+
 
 
     }
 
 
+    /** Push content to a MessageEngine GUI window <p></p>
+     * @author gemsvidø
+     * @since 0.2.3 */
+    public void push (String content) {
 
-    public static void fire () {
+        if (!content.equals("")) {
+
+            textLabel.setText("<html>" +
+                    content.replace("<html>", "").replace("</html>", "") +
+                    "<p>[" + Main.loggedin.getRank() + "] " + Main.loggedin.getUsername() + ": " + textField.getText() + "</p>" +
+                    "</html>");
+
+        }
+
+    }
+
+    /** Display this MessageEngine GUI window <p></p>
+     * @author gemsvidø
+     * @since 0.2.3 */
+    public void show () {
+        frame.setVisible(true);
+    }
+
+
+    /** Stop displaying this MessageEngine GUI window <p></p>
+     * @author gemsvidø
+     * @since 0.2.3 */
+    public void hide () {
+        frame.setVisible(false);
+    }
+
+
+    /** Create and display a MessageEngine GUI window <p></p>
+     * @author gemsvidø
+     * @since 0.2.3 */
+    public guiWindow () {
         createWindow();
     }
 
