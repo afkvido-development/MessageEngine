@@ -19,10 +19,12 @@ public interface UrlReader {
      * @author gemsvidø
      * @since 0.2.0 */
     static @NotNull String check (@NotNull String url) {
-        String r = fail;
+        String r;
         try {
             r = read(url);
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+            r = fail;
+        }
         return r;
 
     }
