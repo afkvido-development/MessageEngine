@@ -61,6 +61,12 @@ ______
 <p></p>
 
 
+
+<h2>Quickstart Guide</h2>
+
+<a href = "https://github.com/afkvido-development/MessageEngine/wiki/Guide">https://github.com/afkvido-development/MessageEngine/wiki/Guide</a>
+
+
 <h2>Contact Us</h2>
 
 <a href = "https://disboard.org/server/893975758677086238">
@@ -68,6 +74,8 @@ ______
 <img src="https://raw.githubusercontent.com/afkvido/image-repository/ImageRepo/full_logo_blurple_RGB.png" width="170">	
 	
 </a>	
+
+
 
 
 <h2>Features and commands</h2>
