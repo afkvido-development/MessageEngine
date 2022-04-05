@@ -10,7 +10,7 @@
 	<img alt="Version" src="https://img.shields.io/github/v/release/afkvido-development/MessageEngine?label=Version&logo=Java&logoColor=white&style=for-the-badge">
 </a>⠀
 	
-<a href = "https://github.com/afkvido-development/MessageEngine/tree/OfficialRelease">	
+<a href = "https://github.com/afkvido-development/MessageEngine/tree/main">	
 	<img alt="Data" src="https://img.shields.io/github/repo-size/afkvido-development/MessageEngine?color=lightblue&label=Data&logo=GitHub&logoColor=white&style=for-the-badge">
 </a>⠀	
 	
